@@ -1,6 +1,9 @@
 apiRules:
 - include:
-    uidRegex: ^LevelGenerator
+    uidRegex: ^GridLevelGenerator
+    type: Namespace
+- include:
+    uidRegex: ^Global
     type: Namespace
 - exclude:
     uidRegex: .*
