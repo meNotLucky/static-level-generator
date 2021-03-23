@@ -1,62 +1,47 @@
 {
-  "api/index.html": {
-    "href": "api/index.html",
-    "title": "PLACEHOLDER | Level Generator Documentation",
-    "keywords": "PLACEHOLDER TODO: Add .NET projects to the src folder and run docfx to generate REAL API Documentation !"
-  },
   "api/LevelGenerator.Generator.GridCell.html": {
     "href": "api/LevelGenerator.Generator.GridCell.html",
-    "title": "Class GridCell | Level Generator Documentation",
-    "keywords": "Class GridCell Inheritance Object GridCell Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : LevelGenerator.Generator Assembly : cs.temp.dll.dll Syntax [Serializable] public class GridCell Constructors GridCell(Vector2, Vector3, Vector3, Vector3) Declaration public GridCell(Vector2 gridPosition, Vector3 worldPosition, Vector3 worldRotation, Vector3 worldScale) Parameters Type Name Description Vector2 gridPosition Vector3 worldPosition Vector3 worldRotation Vector3 worldScale Methods AddNeighbour(GridCell) Declaration public void AddNeighbour(GridCell neighbour) Parameters Type Name Description GridCell neighbour GetGridPosition() Declaration public Vector2 GetGridPosition() Returns Type Description Vector2 GetNeighbours() Declaration public IEnumerable<GridCell> GetNeighbours() Returns Type Description IEnumerable < GridCell > GetPrefab() Declaration public GameObject GetPrefab() Returns Type Description GameObject HasExit(ExitDirection) Declaration public bool HasExit(ExitDirection exit) Parameters Type Name Description ExitDirection exit Returns Type Description Boolean HasRoom() Declaration public bool HasRoom() Returns Type Description Boolean InstantiateRoom(GridRoom) Declaration public void InstantiateRoom(GridRoom gridRoom) Parameters Type Name Description GridRoom gridRoom"
+    "title": "Class GridCell | Grid Level Generator Documentation",
+    "keywords": "Class GridCell Inheritance Object GridCell Namespace : LevelGenerator.Generator Assembly : cs.temp.dll.dll Syntax [Serializable] public class GridCell Constructors GridCell(Vector2, Vector3, Vector3, Vector3) Declaration public GridCell(Vector2 gridPosition, Vector3 worldPosition, Vector3 worldRotation, Vector3 worldScale) Parameters Type Name Description Vector2 gridPosition Vector3 worldPosition Vector3 worldRotation Vector3 worldScale Methods AddNeighbour(GridCell) Declaration public void AddNeighbour(GridCell neighbour) Parameters Type Name Description GridCell neighbour GetGridPosition() Declaration public Vector2 GetGridPosition() Returns Type Description Vector2 GetNeighbours() Declaration public IEnumerable<GridCell> GetNeighbours() Returns Type Description IEnumerable < GridCell > GetPrefab() Declaration public GameObject GetPrefab() Returns Type Description GameObject HasExit(ExitDirection) Declaration public bool HasExit(ExitDirection exit) Parameters Type Name Description ExitDirection exit Returns Type Description Boolean HasRoom() Declaration public bool HasRoom() Returns Type Description Boolean InstantiateRoom(GridRoom) Declaration public void InstantiateRoom(GridRoom gridRoom) Parameters Type Name Description GridRoom gridRoom"
   },
   "api/LevelGenerator.Generator.GridLevelGenerator.html": {
     "href": "api/LevelGenerator.Generator.GridLevelGenerator.html",
-    "title": "Class GridLevelGenerator | Level Generator Documentation",
+    "title": "Class GridLevelGenerator | Grid Level Generator Documentation",
     "keywords": "Class GridLevelGenerator The Level Generator Component. Inheritance Object GridLevelGenerator Namespace : LevelGenerator.Generator Assembly : cs.temp.dll.dll Syntax public class GridLevelGenerator : MonoBehaviour Fields cellPositionOffset Declaration public Vector2 cellPositionOffset Field Value Type Description Vector2 cellRotation Declaration public Vector3 cellRotation Field Value Type Description Vector3 cellScale Declaration public Vector3 cellScale Field Value Type Description Vector3 forcedLevelGeneration Declaration public bool forcedLevelGeneration Field Value Type Description Boolean gridAlignment Declaration public GridAlignment gridAlignment Field Value Type Description GridAlignment gridHeight Declaration public int gridHeight Field Value Type Description Int32 gridWidth Declaration public int gridWidth Field Value Type Description Int32 levelPosition Declaration public Vector3 levelPosition Field Value Type Description Vector3 levelRotation Declaration public Vector3 levelRotation Field Value Type Description Vector3 levelScale Declaration public Vector3 levelScale Field Value Type Description Vector3 levelSeed Declaration public string levelSeed Field Value Type Description String minLevelSize Declaration public int minLevelSize Field Value Type Description Int32 roomTemplates Declaration public List<GridRoom> roomTemplates Field Value Type Description List < GridRoom > Methods ClearLevel() Destroys the current level completely with all of the instantiated GridRoom s. Declaration public void ClearLevel() Remarks The levelSeed will not be deleted, but will be replaced once a new level is generated. GenerateLevelFromSeed() Generates Level From Seed. Declaration public void GenerateLevelFromSeed() GenerateNewLevel() Generates a new level. Declaration public void GenerateNewLevel() GetSeed() Returns the levelSeed of the last generated level. Declaration public string GetSeed() Returns Type Description String levelSeed string SetSeed(String) Sets the levelSeed for the GridLevelGenerator . Declaration public bool SetSeed(string seed) Parameters Type Name Description String seed Returns Type Description Boolean true on success, false if seed is invalid Remarks The seed format is defined by four sections of 7-10 numbers, divided by a dash (-). Example seed: 2885257376-2099986581-1044521005-723764510"
   },
   "api/LevelGenerator.Generator.GridRoom.html": {
     "href": "api/LevelGenerator.Generator.GridRoom.html",
-    "title": "Class GridRoom | Level Generator Documentation",
-    "keywords": "Class GridRoom Inheritance Object GridRoom Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : LevelGenerator.Generator Assembly : cs.temp.dll.dll Syntax [Serializable] public class GridRoom Fields exitDirections Declaration public List<ExitDirection> exitDirections Field Value Type Description List < ExitDirection > fixedPosition Declaration public Vector2 fixedPosition Field Value Type Description Vector2 hasFixedPosition Declaration public bool hasFixedPosition Field Value Type Description Boolean isEssential Declaration public bool isEssential Field Value Type Description Boolean prefab Declaration public GameObject prefab Field Value Type Description GameObject"
+    "title": "Class GridRoom | Grid Level Generator Documentation",
+    "keywords": "Class GridRoom Inheritance Object GridRoom Namespace : LevelGenerator.Generator Assembly : cs.temp.dll.dll Syntax [Serializable] public class GridRoom Fields exitDirections Declaration public List<ExitDirection> exitDirections Field Value Type Description List < ExitDirection > fixedPosition Declaration public Vector2 fixedPosition Field Value Type Description Vector2 hasFixedPosition Declaration public bool hasFixedPosition Field Value Type Description Boolean isEssential Declaration public bool isEssential Field Value Type Description Boolean prefab Declaration public GameObject prefab Field Value Type Description GameObject"
   },
   "api/LevelGenerator.Generator.html": {
     "href": "api/LevelGenerator.Generator.html",
-    "title": "Namespace LevelGenerator.Generator | Level Generator Documentation",
+    "title": "Namespace LevelGenerator.Generator | Grid Level Generator Documentation",
     "keywords": "Namespace LevelGenerator.Generator Classes GridCell GridLevelGenerator The Level Generator Component. GridRoom"
   },
   "api/LevelGenerator.Utility.ExitDirection.html": {
     "href": "api/LevelGenerator.Utility.ExitDirection.html",
-    "title": "Enum ExitDirection | Level Generator Documentation",
+    "title": "Enum ExitDirection | Grid Level Generator Documentation",
     "keywords": "Enum ExitDirection Namespace : LevelGenerator.Utility Assembly : cs.temp.dll.dll Syntax public enum ExitDirection Fields Name Description Bottom Left Right Top"
   },
   "api/LevelGenerator.Utility.GridAlignment.html": {
     "href": "api/LevelGenerator.Utility.GridAlignment.html",
-    "title": "Enum GridAlignment | Level Generator Documentation",
+    "title": "Enum GridAlignment | Grid Level Generator Documentation",
     "keywords": "Enum GridAlignment Namespace : LevelGenerator.Utility Assembly : cs.temp.dll.dll Syntax public enum GridAlignment Fields Name Description Horizontal Vertical"
   },
   "api/LevelGenerator.Utility.GridLevelUtility.html": {
     "href": "api/LevelGenerator.Utility.GridLevelUtility.html",
-    "title": "Class GridLevelUtility | Level Generator Documentation",
-    "keywords": "Class GridLevelUtility Inheritance Object GridLevelUtility Inherited Members Object.ToString() Object.Equals(Object) Object.Equals(Object, Object) Object.ReferenceEquals(Object, Object) Object.GetHashCode() Object.GetType() Object.MemberwiseClone() Namespace : LevelGenerator.Utility Assembly : cs.temp.dll.dll Syntax public static class GridLevelUtility Methods ExtractSeedData(String) Declaration public static uint[] ExtractSeedData(string seed) Parameters Type Name Description String seed Returns Type Description UInt32 [] ValidateSeed(String) Declaration public static bool ValidateSeed(string seed) Parameters Type Name Description String seed Returns Type Description Boolean"
+    "title": "Class GridLevelUtility | Grid Level Generator Documentation",
+    "keywords": "Class GridLevelUtility Inheritance Object GridLevelUtility Namespace : LevelGenerator.Utility Assembly : cs.temp.dll.dll Syntax public static class GridLevelUtility Methods ExtractSeedData(String) Declaration public static uint[] ExtractSeedData(string seed) Parameters Type Name Description String seed Returns Type Description UInt32 [] ValidateSeed(String) Declaration public static bool ValidateSeed(string seed) Parameters Type Name Description String seed Returns Type Description Boolean"
   },
   "api/LevelGenerator.Utility.html": {
     "href": "api/LevelGenerator.Utility.html",
-    "title": "Namespace LevelGenerator.Utility | Level Generator Documentation",
+    "title": "Namespace LevelGenerator.Utility | Grid Level Generator Documentation",
     "keywords": "Namespace LevelGenerator.Utility Classes GridLevelUtility Enums ExitDirection GridAlignment"
-  },
-  "articles/intro.html": {
-    "href": "articles/intro.html",
-    "title": "Add your introductions here! | Level Generator Documentation",
-    "keywords": "Add your introductions here!"
-  },
-  "articles/quickstart.html": {
-    "href": "articles/quickstart.html",
-    "title": "Quickstart Guide | Level Generator Documentation",
-    "keywords": "Quickstart Guide This is a quickstart guide"
   },
   "index.html": {
     "href": "index.html",
-    "title": "| Level Generator Documentation",
+    "title": "| Grid Level Generator Documentation",
     "keywords": ""
   }
 }
