@@ -1,0 +1,16 @@
+
+// Level Generator Notes //
+
+Todo:
++ Add room spawn chance
++ Add support for starting/special/end rooms
++ Add support for random interiors, connected to specific rooms
++ Add custom pivot origin
+
+Done:
++ Add whole level transformation
++ Add essential rooms
++ Add fixed positions to essential rooms
+
+- Change cell transformation to cell offset with Vector2 instead of Vector3
+- Change generation to only result in completely filled levels

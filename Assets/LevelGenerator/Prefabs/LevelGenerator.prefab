@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2811933584520960571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2811933584520960549}
+  - component: {fileID: 8357348261762605985}
+  m_Layer: 0
+  m_Name: LevelGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2811933584520960549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811933584520960571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.15392318, y: -0.104065955, z: -606.2438}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8357348261762605985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811933584520960571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a05923b2a5ce7c34588901fe5dc619f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelSeed: 396138191-1894773477-1109066057-1889775787
+  maxWidth: 5
+  maxHeight: 5
+  gridAlignment: 0
+  cellPositionOffset: {x: 19, y: 0, z: 19}
+  cellRotationOffset: {x: 0, y: 0, z: 0}
+  cellScaleOffset: {x: 120, y: 120, z: 120}
+  rooms:
+  - prefab: {fileID: 2648532388450658145, guid: aa29aee3c164dd44db79a9e35acb32d4, type: 3}
+    directions: 00000000
+  - prefab: {fileID: 3594035379279390868, guid: c2c12829190af72479711825a00c7333, type: 3}
+    directions: 0000000001000000
+  - prefab: {fileID: 6028557596830426764, guid: d6447d1a92298ae47bb492adafea83f6, type: 3}
+    directions: 000000000100000003000000
+  - prefab: {fileID: 5124359303086200536, guid: 020310e2b407bf4488b892a7552b302b, type: 3}
+    directions: 01000000
+  - prefab: {fileID: 6743785385105934994, guid: 87601a2934d66924a821da843d445c91, type: 3}
+    directions: 0100000002000000
+  - prefab: {fileID: 1782517441462259743, guid: 400e6b405947d794bb89f63393bbdc71, type: 3}
+    directions: 000000000100000002000000
+  - prefab: {fileID: 6950265281354893801, guid: edbf121f9cc59b94f87b317a82e05a1b, type: 3}
+    directions: 02000000
+  - prefab: {fileID: 8777081628890812910, guid: fd1cca6e09df3d64d8bfb88d9a713315, type: 3}
+    directions: 0200000003000000
+  - prefab: {fileID: 4442364264771800926, guid: 1b02ac6e5757def4399b0f7a512f3ba1, type: 3}
+    directions: 010000000200000003000000
+  - prefab: {fileID: 9144512162384832908, guid: 229d159f6ddbdec42b962f6f935d016c, type: 3}
+    directions: 03000000
+  - prefab: {fileID: 3388989838053705325, guid: c95b3ca40b395a94f97990c6d3feaa43, type: 3}
+    directions: 0300000000000000
+  - prefab: {fileID: 4118731647102193387, guid: 283201fd9468dc94d8259af8527bfa2a, type: 3}
+    directions: 020000000300000000000000
+  - prefab: {fileID: 4914699168785025382, guid: b198892c09a7ce7498eebd8893a0e085, type: 3}
+    directions: 0000000002000000
+  - prefab: {fileID: 6354249949751001512, guid: ab9c4df8d33687840b7c70c4745d61d9, type: 3}
+    directions: 0300000001000000
+  - prefab: {fileID: 3580159873529093744, guid: 3256fc0735b6a784c930465b086fb9e2, type: 3}
+    directions: 00000000010000000200000003000000
