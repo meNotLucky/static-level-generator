@@ -2,7 +2,6 @@
   "sitemap": {
     "fileOptions": {
       "api/*": {
-        "baseUrl": "https://menotlucky.github.io/GridLevelGenerator/",
         "changefreq": "daily"
       }
     },
@@ -10,7 +9,7 @@
     "changefreq": "weekly"
   },
   "homepages": [],
-  "source_base_path": "D:/a/GridLevelGenerator/GridLevelGenerator/docfx_project",
+  "source_base_path": "D:/a/GridLevelGenerator/GridLevelGenerator/Documentation",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -23,108 +22,12 @@
       "is_incremental": false
     },
     {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Generator.GridCell.yml",
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "api/LevelGenerator.Generator.GridCell.html",
-          "hash": "tJ4vPv2ZauPnHQUuUiNK3w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Generator.GridLevelGenerator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LevelGenerator.Generator.GridLevelGenerator.html",
-          "hash": "k3mYo0klBFDi5+AF2w9MvA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Generator.GridRoom.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LevelGenerator.Generator.GridRoom.html",
-          "hash": "CWIWQA5ruzRqHpHqNLot/A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Generator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LevelGenerator.Generator.html",
-          "hash": "hlUUd1mRCGUEmngAgSxt2A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Utility.ExitDirection.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LevelGenerator.Utility.ExitDirection.html",
-          "hash": "FUjcoRKsFgKG7kuiNOEJlg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Utility.GridAlignment.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LevelGenerator.Utility.GridAlignment.html",
-          "hash": "I7pjZavjmw0eDgCSW+5M0A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Utility.GridLevelUtility.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LevelGenerator.Utility.GridLevelUtility.html",
-          "hash": "RlWVDQMidmPl+K3axLMxvg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Utility.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LevelGenerator.Utility.html",
-          "hash": "hQ8XSVxhBb4hlXv/m2DZIg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "api/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "yTY/A8e64vwSN4lnJcdg7A=="
+          "relative_path": "index.html",
+          "hash": "wPwWTZDUJr6B3T/wDC8S8g=="
         }
       },
       "is_incremental": false,
@@ -132,11 +35,57 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "index.md",
+      "source_relative_path": "manual/coniunctis.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "dm4siDJsSIeJLh0ZZ7X0rw=="
+          "relative_path": "manual/coniunctis.html",
+          "hash": "i9ZUBlwK6CDZw2AHQK9vXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/etiam.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/etiam.html",
+          "hash": "KvV61xeCdkWLqAPjPy4IYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "manual/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "manual/toc.html",
+          "hash": "2q0qq03gpYNjYV8lSAAcVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/ExampleManual.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/ExampleManual.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/ExampleScriptingApi.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/ExampleScriptingApi.png"
         }
       },
       "is_incremental": false,
@@ -148,7 +97,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "BzdCkN0Wk8Y9/cQTOGV7+w=="
+          "hash": "IcPrG9Oxm9xZ4pP6LKAnqQ=="
         }
       },
       "is_incremental": false,
@@ -169,13 +118,14 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 1,
+          "total_file_count": 3,
           "skipped_file_count": 0
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ResourceDocumentProcessor": {
           "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
-          "total_file_count": 8,
+          "total_file_count": 0,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

@@ -1,56 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://menotlucky.github.io/GridLevelGenerator/api/LevelGenerator.Generator.GridCell.html</loc>
-    <lastmod>2021-03-23T11:02:49+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://menotlucky.github.io/GridLevelGenerator/api/LevelGenerator.Generator.GridLevelGenerator.html</loc>
-    <lastmod>2021-03-23T11:02:49+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://menotlucky.github.io/GridLevelGenerator/api/LevelGenerator.Generator.GridRoom.html</loc>
-    <lastmod>2021-03-23T11:02:49+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://menotlucky.github.io/GridLevelGenerator/api/LevelGenerator.Generator.html</loc>
-    <lastmod>2021-03-23T11:02:49+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://menotlucky.github.io/GridLevelGenerator/api/LevelGenerator.Utility.ExitDirection.html</loc>
-    <lastmod>2021-03-23T11:02:49+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://menotlucky.github.io/GridLevelGenerator/api/LevelGenerator.Utility.GridAlignment.html</loc>
-    <lastmod>2021-03-23T11:02:49+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://menotlucky.github.io/GridLevelGenerator/api/LevelGenerator.Utility.GridLevelUtility.html</loc>
-    <lastmod>2021-03-23T11:02:49+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://menotlucky.github.io/GridLevelGenerator/api/LevelGenerator.Utility.html</loc>
-    <lastmod>2021-03-23T11:02:49+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://menotlucky.github.io/GridLevelGenerator/index.html</loc>
-    <lastmod>2021-03-23T11:02:49+00:00</lastmod>
+    <lastmod>2021-03-23T11:11:59+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://menotlucky.github.io/GridLevelGenerator/manual/coniunctis.html</loc>
+    <lastmod>2021-03-23T11:11:59+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://menotlucky.github.io/GridLevelGenerator/manual/etiam.html</loc>
+    <lastmod>2021-03-23T11:11:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
