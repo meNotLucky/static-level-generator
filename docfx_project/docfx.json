@@ -63,7 +63,7 @@
     "dest": "_site",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
-    "template": "statictoc",
+    "template": "default",
     "postProcessors": [],
     "markdownEngineName": "markdig",
     "noLangKeyword": false,
