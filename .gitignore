@@ -13,6 +13,7 @@
 /(OldWorkflow).github/
 /.idea/
 /docfx_project/
+/Documentation/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
