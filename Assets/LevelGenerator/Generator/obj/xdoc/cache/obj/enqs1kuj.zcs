@@ -394,7 +394,10 @@ items:
       source:
         id: levelSeed
         path: ''
-        startLine: 86
+        startLine: 92
+      summary: The seed for the level generator. Can be used to save and load states.
+      remarks: "\nThe seed format is defined by four sections of 7-10 numbers, divided by a dash (-).\n\nExample seed: 2885257376-2099986581-1044521005-723764510\n"
+      example: []
       syntax:
         content:
           CSharp: public string levelSeed
@@ -425,7 +428,7 @@ items:
       source:
         id: gridWidth
         path: ''
-        startLine: 88
+        startLine: 94
       syntax:
         content:
           CSharp: public int gridWidth
@@ -456,7 +459,7 @@ items:
       source:
         id: gridHeight
         path: ''
-        startLine: 88
+        startLine: 94
       syntax:
         content:
           CSharp: public int gridHeight
@@ -487,7 +490,7 @@ items:
       source:
         id: minLevelSize
         path: ''
-        startLine: 89
+        startLine: 95
       syntax:
         content:
           CSharp: public int minLevelSize
@@ -518,7 +521,7 @@ items:
       source:
         id: forcedLevelGeneration
         path: ''
-        startLine: 91
+        startLine: 97
       syntax:
         content:
           CSharp: public bool forcedLevelGeneration
@@ -549,7 +552,7 @@ items:
       source:
         id: gridAlignment
         path: ''
-        startLine: 93
+        startLine: 99
       syntax:
         content:
           CSharp: public GridAlignment gridAlignment
@@ -580,7 +583,7 @@ items:
       source:
         id: cellPositionOffset
         path: ''
-        startLine: 95
+        startLine: 101
       syntax:
         content:
           CSharp: public Vector2 cellPositionOffset
@@ -611,7 +614,7 @@ items:
       source:
         id: cellRotation
         path: ''
-        startLine: 97
+        startLine: 103
       syntax:
         content:
           CSharp: public Vector3 cellRotation
@@ -642,7 +645,7 @@ items:
       source:
         id: cellScale
         path: ''
-        startLine: 98
+        startLine: 104
       syntax:
         content:
           CSharp: public Vector3 cellScale
@@ -673,7 +676,7 @@ items:
       source:
         id: levelPosition
         path: ''
-        startLine: 100
+        startLine: 106
       syntax:
         content:
           CSharp: public Vector3 levelPosition
@@ -704,7 +707,7 @@ items:
       source:
         id: levelRotation
         path: ''
-        startLine: 101
+        startLine: 107
       syntax:
         content:
           CSharp: public Vector3 levelRotation
@@ -735,7 +738,7 @@ items:
       source:
         id: levelScale
         path: ''
-        startLine: 102
+        startLine: 108
       syntax:
         content:
           CSharp: public Vector3 levelScale
@@ -766,7 +769,7 @@ items:
       source:
         id: roomTemplates
         path: ''
-        startLine: 104
+        startLine: 110
       syntax:
         content:
           CSharp: public List<GridRoom> roomTemplates
@@ -797,7 +800,7 @@ items:
       source:
         id: GenerateNewLevel
         path: ''
-        startLine: 121
+        startLine: 127
       summary: "\nGenerates a new level.\n"
       example: []
       syntax:
@@ -829,8 +832,8 @@ items:
       source:
         id: GenerateLevelFromSeed
         path: ''
-        startLine: 132
-      summary: "\nGenerates Level From Seed.\n"
+        startLine: 139
+      summary: "\nGenerates a Level from the current <xref href=\"LevelGenerator.Generator.GridLevelGenerator.levelSeed\" data-throw-if-not-resolved=\"false\"></xref> If the seed is invalid it will generate a new level.\n"
       example: []
       syntax:
         content:
@@ -842,6 +845,8 @@ items:
         - public
         VB:
         - Public
+      references:
+        LevelGenerator.Generator.GridLevelGenerator.levelSeed: 
     - id: LevelGenerator.Generator.GridLevelGenerator.ClearLevel
       commentId: M:LevelGenerator.Generator.GridLevelGenerator.ClearLevel
       language: CSharp
@@ -861,7 +866,7 @@ items:
       source:
         id: ClearLevel
         path: ''
-        startLine: 156
+        startLine: 161
       summary: "\nDestroys the current level completely with all of the instantiated <xref href=\"LevelGenerator.Generator.GridRoom\" data-throw-if-not-resolved=\"false\"></xref>s.\n"
       remarks: "\nThe levelSeed will not be deleted, but will be replaced once a new level is generated.\n"
       example: []
@@ -896,9 +901,8 @@ items:
       source:
         id: SetSeed
         path: ''
-        startLine: 179
+        startLine: 180
       summary: "\nSets the <xref href=\"LevelGenerator.Generator.GridLevelGenerator.levelSeed\" data-throw-if-not-resolved=\"false\"></xref> for the <xref href=\"LevelGenerator.Generator.GridLevelGenerator\" data-throw-if-not-resolved=\"false\"></xref>.\n"
-      remarks: "\nThe seed format is defined by four sections of 7-10 numbers, divided by a dash (-).\n\nExample seed: 2885257376-2099986581-1044521005-723764510\n"
       example: []
       syntax:
         content:
@@ -907,6 +911,7 @@ items:
         parameters:
         - id: seed
           type: System.String
+          description: <xref href="LevelGenerator.Generator.GridLevelGenerator.levelSeed" data-throw-if-not-resolved="false"></xref> string
         return:
           type: System.Boolean
           description: true on success, false if seed is invalid
@@ -938,7 +943,7 @@ items:
       source:
         id: GetSeed
         path: ''
-        startLine: 193
+        startLine: 194
       summary: "\nReturns the <xref href=\"LevelGenerator.Generator.GridLevelGenerator.levelSeed\" data-throw-if-not-resolved=\"false\"></xref> of the last generated level.\n"
       example: []
       syntax:
@@ -975,7 +980,7 @@ items:
     source:
       id: GridRoom
       path: ''
-      startLine: 472
+      startLine: 473
     syntax:
       content:
         CSharp: >-
@@ -1019,7 +1024,7 @@ items:
       source:
         id: prefab
         path: ''
-        startLine: 475
+        startLine: 476
       syntax:
         content:
           CSharp: public GameObject prefab
@@ -1050,7 +1055,7 @@ items:
       source:
         id: exitDirections
         path: ''
-        startLine: 476
+        startLine: 477
       syntax:
         content:
           CSharp: public List<ExitDirection> exitDirections
@@ -1081,7 +1086,7 @@ items:
       source:
         id: isEssential
         path: ''
-        startLine: 477
+        startLine: 478
       syntax:
         content:
           CSharp: public bool isEssential
@@ -1112,7 +1117,7 @@ items:
       source:
         id: hasFixedPosition
         path: ''
-        startLine: 477
+        startLine: 478
       syntax:
         content:
           CSharp: public bool hasFixedPosition
@@ -1143,7 +1148,7 @@ items:
       source:
         id: fixedPosition
         path: ''
-        startLine: 478
+        startLine: 479
       syntax:
         content:
           CSharp: public Vector2 fixedPosition
@@ -1191,7 +1196,7 @@ items:
     source:
       id: ExitDirection
       path: ''
-      startLine: 486
+      startLine: 487
     syntax:
       content:
         CSharp: public enum ExitDirection
@@ -1223,7 +1228,7 @@ items:
       source:
         id: Top
         path: ''
-        startLine: 486
+        startLine: 487
       syntax:
         content:
           CSharp: Top = 0
@@ -1256,7 +1261,7 @@ items:
       source:
         id: Right
         path: ''
-        startLine: 486
+        startLine: 487
       syntax:
         content:
           CSharp: Right = 1
@@ -1289,7 +1294,7 @@ items:
       source:
         id: Bottom
         path: ''
-        startLine: 486
+        startLine: 487
       syntax:
         content:
           CSharp: Bottom = 2
@@ -1322,7 +1327,7 @@ items:
       source:
         id: Left
         path: ''
-        startLine: 486
+        startLine: 487
       syntax:
         content:
           CSharp: Left = 3
@@ -1355,7 +1360,7 @@ items:
     source:
       id: GridAlignment
       path: ''
-      startLine: 488
+      startLine: 489
     syntax:
       content:
         CSharp: public enum GridAlignment
@@ -1387,7 +1392,7 @@ items:
       source:
         id: Horizontal
         path: ''
-        startLine: 488
+        startLine: 489
       syntax:
         content:
           CSharp: Horizontal = 0
@@ -1420,7 +1425,7 @@ items:
       source:
         id: Vertical
         path: ''
-        startLine: 488
+        startLine: 489
       syntax:
         content:
           CSharp: Vertical = 1
@@ -1453,7 +1458,7 @@ items:
     source:
       id: GridLevelUtility
       path: ''
-      startLine: 490
+      startLine: 491
     syntax:
       content:
         CSharp: public static class GridLevelUtility
@@ -1488,7 +1493,7 @@ items:
       source:
         id: ValidateSeed
         path: ''
-        startLine: 494
+        startLine: 495
       syntax:
         content:
           CSharp: public static bool ValidateSeed(string seed)
@@ -1525,7 +1530,7 @@ items:
       source:
         id: ExtractSeedData
         path: ''
-        startLine: 507
+        startLine: 508
       syntax:
         content:
           CSharp: public static uint[] ExtractSeedData(string seed)
@@ -2083,6 +2088,8 @@ references:
         qualifiedName: LevelGenerator.Generator.GridLevelGenerator.GenerateNewLevel
     isDefinition: true
     commentId: Overload:LevelGenerator.Generator.GridLevelGenerator.GenerateNewLevel
+  LevelGenerator.Generator.GridLevelGenerator.levelSeed:
+    commentId: F:LevelGenerator.Generator.GridLevelGenerator.levelSeed
   LevelGenerator.Generator.GridLevelGenerator.GenerateLevelFromSeed*:
     name:
       CSharp:
@@ -2111,8 +2118,6 @@ references:
         qualifiedName: LevelGenerator.Generator.GridLevelGenerator.ClearLevel
     isDefinition: true
     commentId: Overload:LevelGenerator.Generator.GridLevelGenerator.ClearLevel
-  LevelGenerator.Generator.GridLevelGenerator.levelSeed:
-    commentId: F:LevelGenerator.Generator.GridLevelGenerator.levelSeed
   LevelGenerator.Generator.GridLevelGenerator:
     name:
       CSharp:

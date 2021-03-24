@@ -12,6 +12,12 @@ namespace LevelGenerator.Generator
     /// </summary>
     public class GridLevelGenerator : MonoBehaviour
     {
+        /// <summary>The seed for the level generator. Can be used to save and load states.</summary>
+        /// <remarks>
+        /// The seed format is defined by four sections of 7-10 numbers, divided by a dash (-).
+        ///
+        /// Example seed: 2885257376-2099986581-1044521005-723764510
+        /// </remarks>
         public string levelSeed = "";
     
         public int gridWidth = 5, gridHeight = 5;
@@ -56,24 +62,24 @@ namespace LevelGenerator.Generator
         }
 
         /// <summary>
-        /// Generates Level From Seed.
+        /// Generates a Level from the current <see cref="levelSeed"/> If the seed is invalid it will generate a new level.
         /// </summary>
+        /// <seealso cref="levelSeed"/>
+        /// <seealso cref="GenerateNewLevel"/>
         public void GenerateLevelFromSeed()
         {
             if (GridLevelUtility.ValidateSeed(levelSeed))
             {
                 var seedData = GridLevelUtility.ExtractSeedData(levelSeed);
                 var data = new SeedStateWrapper { v0 = seedData[0], v1 = seedData[1], v2 = seedData[2], v3 = seedData[3] };
-                Random.state = data;   
+                Random.state = data;
+                InitiateLevelGeneration();
             }
             else
             {
-                SeedStateWrapper data = Random.state;
-                levelSeed = data.v0 + "-" + data.v1 + "-" + data.v2 + "-" + data.v3;
                 Debug.LogWarning("Seed format was invalid, generated new level from seed: " + levelSeed);
+                GenerateNewLevel();
             }
-
-            InitiateLevelGeneration();
         }
 
         /// <summary>
@@ -98,13 +104,10 @@ namespace LevelGenerator.Generator
         /// <summary>
         /// Sets the <see cref="levelSeed"/> for the <see cref="GridLevelGenerator"/>.
         /// </summary>
-        /// <remarks>
-        /// The seed format is defined by four sections of 7-10 numbers, divided by a dash (-).
-        ///
-        /// Example seed: 2885257376-2099986581-1044521005-723764510
-        /// </remarks>
+        /// <param name="seed"><see cref="levelSeed"/> string</param>
         /// <returns>true on success, false if seed is invalid</returns>
-        /// <seealso><cref>levelSeed, GetSeed</cref></seealso>
+        /// <seealso cref="levelSeed"/>
+        /// <seealso cref="GetSeed"/>
         public bool SetSeed(string seed)
         {
             if (!GridLevelUtility.ValidateSeed(seed))
@@ -118,7 +121,8 @@ namespace LevelGenerator.Generator
         /// Returns the <see cref="levelSeed"/> of the last generated level.
         /// </summary>
         /// <returns><see cref="levelSeed"/> string</returns>
-        /// <seealso><cref>levelSeed, SetSeed</cref></seealso>
+        /// <seealso cref="levelSeed"/>
+        /// <seealso cref="SetSeed"/>
         public string GetSeed()
         {
             return levelSeed;

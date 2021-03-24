@@ -341,7 +341,8 @@
   
   
   <h4 id="LevelGenerator_Generator_GridLevelGenerator_levelSeed" data-uid="LevelGenerator.Generator.GridLevelGenerator.levelSeed">levelSeed</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The seed for the level generator. Can be used to save and load states.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -362,6 +363,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LevelGenerator_Generator_GridLevelGenerator_levelSeed_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The seed format is defined by four sections of 7-10 numbers, divided by a dash (-).</p>
+<p>Example seed: 2885257376-2099986581-1044521005-723764510</p>
+</div>
   
   
   <h4 id="LevelGenerator_Generator_GridLevelGenerator_minLevelSize" data-uid="LevelGenerator.Generator.GridLevelGenerator.minLevelSize">minLevelSize</h4>
@@ -430,12 +435,17 @@
   
   <a id="LevelGenerator_Generator_GridLevelGenerator_GenerateLevelFromSeed_" data-uid="LevelGenerator.Generator.GridLevelGenerator.GenerateLevelFromSeed*"></a>
   <h4 id="LevelGenerator_Generator_GridLevelGenerator_GenerateLevelFromSeed" data-uid="LevelGenerator.Generator.GridLevelGenerator.GenerateLevelFromSeed">GenerateLevelFromSeed()</h4>
-  <div class="markdown level1 summary"><p>Generates Level From Seed.</p>
+  <div class="markdown level1 summary"><p>Generates a Level from the current <a class="xref" href="LevelGenerator.Generator.GridLevelGenerator.html#LevelGenerator_Generator_GridLevelGenerator_levelSeed">levelSeed</a> If the seed is invalid it will generate a new level.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void GenerateLevelFromSeed()</code></pre>
+  </div>
+  <h5 id="LevelGenerator_Generator_GridLevelGenerator_GenerateLevelFromSeed_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LevelGenerator.Generator.GridLevelGenerator.html#LevelGenerator_Generator_GridLevelGenerator_levelSeed">levelSeed</a></div>
+      <div><a class="xref" href="LevelGenerator.Generator.GridLevelGenerator.html#LevelGenerator_Generator_GridLevelGenerator_GenerateNewLevel">GenerateNewLevel()</a></div>
   </div>
   
   
@@ -475,6 +485,11 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LevelGenerator_Generator_GridLevelGenerator_GetSeed_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LevelGenerator.Generator.GridLevelGenerator.html#LevelGenerator_Generator_GridLevelGenerator_levelSeed">levelSeed</a></div>
+      <div><a class="xref" href="LevelGenerator.Generator.GridLevelGenerator.html#LevelGenerator_Generator_GridLevelGenerator_SetSeed_System_String_">SetSeed(String)</a></div>
+  </div>
   
   
   <a id="LevelGenerator_Generator_GridLevelGenerator_SetSeed_" data-uid="LevelGenerator.Generator.GridLevelGenerator.SetSeed*"></a>
@@ -499,7 +514,8 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">seed</span></td>
-        <td></td>
+        <td><p><a class="xref" href="LevelGenerator.Generator.GridLevelGenerator.html#LevelGenerator_Generator_GridLevelGenerator_levelSeed">levelSeed</a> string</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -519,10 +535,11 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="LevelGenerator_Generator_GridLevelGenerator_SetSeed_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The seed format is defined by four sections of 7-10 numbers, divided by a dash (-).</p>
-<p>Example seed: 2885257376-2099986581-1044521005-723764510</p>
-</div>
+  <h5 id="LevelGenerator_Generator_GridLevelGenerator_SetSeed_System_String__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LevelGenerator.Generator.GridLevelGenerator.html#LevelGenerator_Generator_GridLevelGenerator_levelSeed">levelSeed</a></div>
+      <div><a class="xref" href="LevelGenerator.Generator.GridLevelGenerator.html#LevelGenerator_Generator_GridLevelGenerator_GetSeed">GetSeed()</a></div>
+  </div>
 </article>
           </div>
           

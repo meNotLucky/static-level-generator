@@ -56,14 +56,6 @@ items:
           Public Class GridCell
     inheritance:
     - System.Object
-    inheritedMembers:
-    - System.Object.ToString
-    - System.Object.Equals(System.Object)
-    - System.Object.Equals(System.Object,System.Object)
-    - System.Object.ReferenceEquals(System.Object,System.Object)
-    - System.Object.GetHashCode
-    - System.Object.GetType
-    - System.Object.MemberwiseClone
     attributes:
     - type: System.SerializableAttribute
       ctor: System.SerializableAttribute.#ctor
@@ -102,13 +94,13 @@ items:
           VB: Public Sub New(gridPosition As Vector2, worldPosition As Vector3, worldRotation As Vector3, worldScale As Vector3)
         parameters:
         - id: gridPosition
-          type: Vector2
+          type: Global.Vector2
         - id: worldPosition
-          type: Vector3
+          type: Global.Vector3
         - id: worldRotation
-          type: Vector3
+          type: Global.Vector3
         - id: worldScale
-          type: Vector3
+          type: Global.Vector3
       overload: LevelGenerator.Generator.GridCell.#ctor*
       modifiers:
         CSharp:
@@ -206,7 +198,7 @@ items:
           CSharp: public Vector2 GetGridPosition()
           VB: Public Function GetGridPosition As Vector2
         return:
-          type: Vector2
+          type: Global.Vector2
       overload: LevelGenerator.Generator.GridCell.GetGridPosition*
       modifiers:
         CSharp:
@@ -270,7 +262,7 @@ items:
           CSharp: public GameObject GetPrefab()
           VB: Public Function GetPrefab As GameObject
         return:
-          type: GameObject
+          type: Global.GameObject
       overload: LevelGenerator.Generator.GridCell.GetPrefab*
       modifiers:
         CSharp:
@@ -363,7 +355,7 @@ items:
     source:
       id: GridLevelGenerator
       path: ''
-      startLine: 83
+      startLine: 84
     summary: "\nThe Level Generator Component.\n"
     example: []
     syntax:
@@ -402,7 +394,10 @@ items:
       source:
         id: levelSeed
         path: ''
-        startLine: 85
+        startLine: 92
+      summary: The seed for the level generator. Can be used to save and load states.
+      remarks: "\nThe seed format is defined by four sections of 7-10 numbers, divided by a dash (-).\n\nExample seed: 2885257376-2099986581-1044521005-723764510\n"
+      example: []
       syntax:
         content:
           CSharp: public string levelSeed
@@ -433,7 +428,7 @@ items:
       source:
         id: gridWidth
         path: ''
-        startLine: 87
+        startLine: 94
       syntax:
         content:
           CSharp: public int gridWidth
@@ -464,7 +459,7 @@ items:
       source:
         id: gridHeight
         path: ''
-        startLine: 87
+        startLine: 94
       syntax:
         content:
           CSharp: public int gridHeight
@@ -495,7 +490,7 @@ items:
       source:
         id: minLevelSize
         path: ''
-        startLine: 88
+        startLine: 95
       syntax:
         content:
           CSharp: public int minLevelSize
@@ -526,7 +521,7 @@ items:
       source:
         id: forcedLevelGeneration
         path: ''
-        startLine: 90
+        startLine: 97
       syntax:
         content:
           CSharp: public bool forcedLevelGeneration
@@ -557,7 +552,7 @@ items:
       source:
         id: gridAlignment
         path: ''
-        startLine: 92
+        startLine: 99
       syntax:
         content:
           CSharp: public GridAlignment gridAlignment
@@ -588,13 +583,13 @@ items:
       source:
         id: cellPositionOffset
         path: ''
-        startLine: 94
+        startLine: 101
       syntax:
         content:
           CSharp: public Vector2 cellPositionOffset
           VB: Public cellPositionOffset As Vector2
         return:
-          type: Vector2
+          type: Global.Vector2
       modifiers:
         CSharp:
         - public
@@ -619,13 +614,13 @@ items:
       source:
         id: cellRotation
         path: ''
-        startLine: 96
+        startLine: 103
       syntax:
         content:
           CSharp: public Vector3 cellRotation
           VB: Public cellRotation As Vector3
         return:
-          type: Vector3
+          type: Global.Vector3
       modifiers:
         CSharp:
         - public
@@ -650,13 +645,13 @@ items:
       source:
         id: cellScale
         path: ''
-        startLine: 97
+        startLine: 104
       syntax:
         content:
           CSharp: public Vector3 cellScale
           VB: Public cellScale As Vector3
         return:
-          type: Vector3
+          type: Global.Vector3
       modifiers:
         CSharp:
         - public
@@ -681,13 +676,13 @@ items:
       source:
         id: levelPosition
         path: ''
-        startLine: 99
+        startLine: 106
       syntax:
         content:
           CSharp: public Vector3 levelPosition
           VB: Public levelPosition As Vector3
         return:
-          type: Vector3
+          type: Global.Vector3
       modifiers:
         CSharp:
         - public
@@ -712,13 +707,13 @@ items:
       source:
         id: levelRotation
         path: ''
-        startLine: 100
+        startLine: 107
       syntax:
         content:
           CSharp: public Vector3 levelRotation
           VB: Public levelRotation As Vector3
         return:
-          type: Vector3
+          type: Global.Vector3
       modifiers:
         CSharp:
         - public
@@ -743,13 +738,13 @@ items:
       source:
         id: levelScale
         path: ''
-        startLine: 101
+        startLine: 108
       syntax:
         content:
           CSharp: public Vector3 levelScale
           VB: Public levelScale As Vector3
         return:
-          type: Vector3
+          type: Global.Vector3
       modifiers:
         CSharp:
         - public
@@ -774,7 +769,7 @@ items:
       source:
         id: roomTemplates
         path: ''
-        startLine: 103
+        startLine: 110
       syntax:
         content:
           CSharp: public List<GridRoom> roomTemplates
@@ -805,7 +800,7 @@ items:
       source:
         id: GenerateNewLevel
         path: ''
-        startLine: 118
+        startLine: 127
       summary: "\nGenerates a new level.\n"
       example: []
       syntax:
@@ -837,19 +832,27 @@ items:
       source:
         id: GenerateLevelFromSeed
         path: ''
-        startLine: 129
-      summary: "\nGenerates Level From Seed.\n"
+        startLine: 140
+      summary: "\nGenerates a Level from the current <xref href=\"LevelGenerator.Generator.GridLevelGenerator.levelSeed\" data-throw-if-not-resolved=\"false\"></xref> If the seed is invalid it will generate a new level.\n"
       example: []
       syntax:
         content:
           CSharp: public void GenerateLevelFromSeed()
           VB: Public Sub GenerateLevelFromSeed
       overload: LevelGenerator.Generator.GridLevelGenerator.GenerateLevelFromSeed*
+      seealso:
+      - linkId: LevelGenerator.Generator.GridLevelGenerator.levelSeed
+        commentId: F:LevelGenerator.Generator.GridLevelGenerator.levelSeed
+      - linkId: LevelGenerator.Generator.GridLevelGenerator.GenerateNewLevel
+        commentId: M:LevelGenerator.Generator.GridLevelGenerator.GenerateNewLevel
       modifiers:
         CSharp:
         - public
         VB:
         - Public
+      references:
+        LevelGenerator.Generator.GridLevelGenerator.levelSeed: 
+        LevelGenerator.Generator.GridLevelGenerator.GenerateNewLevel: 
     - id: LevelGenerator.Generator.GridLevelGenerator.ClearLevel
       commentId: M:LevelGenerator.Generator.GridLevelGenerator.ClearLevel
       language: CSharp
@@ -869,8 +872,9 @@ items:
       source:
         id: ClearLevel
         path: ''
-        startLine: 150
-      summary: "\nClears the current level.\n"
+        startLine: 162
+      summary: "\nDestroys the current level completely with all of the instantiated <xref href=\"LevelGenerator.Generator.GridRoom\" data-throw-if-not-resolved=\"false\"></xref>s.\n"
+      remarks: "\nThe levelSeed will not be deleted, but will be replaced once a new level is generated.\n"
       example: []
       syntax:
         content:
@@ -882,6 +886,8 @@ items:
         - public
         VB:
         - Public
+      references:
+        LevelGenerator.Generator.GridRoom: 
     - id: LevelGenerator.Generator.GridLevelGenerator.SetSeed(System.String)
       commentId: M:LevelGenerator.Generator.GridLevelGenerator.SetSeed(System.String)
       language: CSharp
@@ -901,8 +907,8 @@ items:
       source:
         id: SetSeed
         path: ''
-        startLine: 162
-      summary: "\nSets the seed for the level generator. Returns false if seed is invalid.\n"
+        startLine: 182
+      summary: "\nSets the <xref href=\"LevelGenerator.Generator.GridLevelGenerator.levelSeed\" data-throw-if-not-resolved=\"false\"></xref> for the <xref href=\"LevelGenerator.Generator.GridLevelGenerator\" data-throw-if-not-resolved=\"false\"></xref>.\n"
       example: []
       syntax:
         content:
@@ -911,14 +917,25 @@ items:
         parameters:
         - id: seed
           type: System.String
+          description: <xref href="LevelGenerator.Generator.GridLevelGenerator.levelSeed" data-throw-if-not-resolved="false"></xref> string
         return:
           type: System.Boolean
+          description: true on success, false if seed is invalid
       overload: LevelGenerator.Generator.GridLevelGenerator.SetSeed*
+      seealso:
+      - linkId: LevelGenerator.Generator.GridLevelGenerator.levelSeed
+        commentId: F:LevelGenerator.Generator.GridLevelGenerator.levelSeed
+      - linkId: LevelGenerator.Generator.GridLevelGenerator.GetSeed
+        commentId: M:LevelGenerator.Generator.GridLevelGenerator.GetSeed
       modifiers:
         CSharp:
         - public
         VB:
         - Public
+      references:
+        LevelGenerator.Generator.GridLevelGenerator.levelSeed: 
+        LevelGenerator.Generator.GridLevelGenerator: 
+        LevelGenerator.Generator.GridLevelGenerator.GetSeed: 
     - id: LevelGenerator.Generator.GridLevelGenerator.GetSeed
       commentId: M:LevelGenerator.Generator.GridLevelGenerator.GetSeed
       language: CSharp
@@ -938,7 +955,7 @@ items:
       source:
         id: GetSeed
         path: ''
-        startLine: 175
+        startLine: 197
       summary: "\nReturns the <xref href=\"LevelGenerator.Generator.GridLevelGenerator.levelSeed\" data-throw-if-not-resolved=\"false\"></xref> of the last generated level.\n"
       example: []
       syntax:
@@ -947,8 +964,13 @@ items:
           VB: Public Function GetSeed As String
         return:
           type: System.String
-          description: <xref href="LevelGenerator.Generator.GridLevelGenerator.levelSeed" data-throw-if-not-resolved="false"></xref> string string
+          description: <xref href="LevelGenerator.Generator.GridLevelGenerator.levelSeed" data-throw-if-not-resolved="false"></xref> string
       overload: LevelGenerator.Generator.GridLevelGenerator.GetSeed*
+      seealso:
+      - linkId: LevelGenerator.Generator.GridLevelGenerator.levelSeed
+        commentId: F:LevelGenerator.Generator.GridLevelGenerator.levelSeed
+      - linkId: LevelGenerator.Generator.GridLevelGenerator.SetSeed(System.String)
+        commentId: M:LevelGenerator.Generator.GridLevelGenerator.SetSeed(System.String)
       modifiers:
         CSharp:
         - public
@@ -956,6 +978,7 @@ items:
         - Public
       references:
         LevelGenerator.Generator.GridLevelGenerator.levelSeed: 
+        LevelGenerator.Generator.GridLevelGenerator.SetSeed(System.String): 
   - id: LevelGenerator.Generator.GridRoom
     commentId: T:LevelGenerator.Generator.GridRoom
     language: CSharp
@@ -975,7 +998,7 @@ items:
     source:
       id: GridRoom
       path: ''
-      startLine: 456
+      startLine: 476
     syntax:
       content:
         CSharp: >-
@@ -988,14 +1011,6 @@ items:
           Public Class GridRoom
     inheritance:
     - System.Object
-    inheritedMembers:
-    - System.Object.ToString
-    - System.Object.Equals(System.Object)
-    - System.Object.Equals(System.Object,System.Object)
-    - System.Object.ReferenceEquals(System.Object,System.Object)
-    - System.Object.GetHashCode
-    - System.Object.GetType
-    - System.Object.MemberwiseClone
     attributes:
     - type: System.SerializableAttribute
       ctor: System.SerializableAttribute.#ctor
@@ -1027,13 +1042,13 @@ items:
       source:
         id: prefab
         path: ''
-        startLine: 459
+        startLine: 479
       syntax:
         content:
           CSharp: public GameObject prefab
           VB: Public prefab As GameObject
         return:
-          type: GameObject
+          type: Global.GameObject
       modifiers:
         CSharp:
         - public
@@ -1058,7 +1073,7 @@ items:
       source:
         id: exitDirections
         path: ''
-        startLine: 460
+        startLine: 480
       syntax:
         content:
           CSharp: public List<ExitDirection> exitDirections
@@ -1089,7 +1104,7 @@ items:
       source:
         id: isEssential
         path: ''
-        startLine: 461
+        startLine: 481
       syntax:
         content:
           CSharp: public bool isEssential
@@ -1120,7 +1135,7 @@ items:
       source:
         id: hasFixedPosition
         path: ''
-        startLine: 461
+        startLine: 481
       syntax:
         content:
           CSharp: public bool hasFixedPosition
@@ -1151,13 +1166,13 @@ items:
       source:
         id: fixedPosition
         path: ''
-        startLine: 462
+        startLine: 482
       syntax:
         content:
           CSharp: public Vector2 fixedPosition
           VB: Public fixedPosition As Vector2
         return:
-          type: Vector2
+          type: Global.Vector2
       modifiers:
         CSharp:
         - public
@@ -1199,7 +1214,7 @@ items:
     source:
       id: ExitDirection
       path: ''
-      startLine: 470
+      startLine: 490
     syntax:
       content:
         CSharp: public enum ExitDirection
@@ -1231,7 +1246,7 @@ items:
       source:
         id: Top
         path: ''
-        startLine: 470
+        startLine: 490
       syntax:
         content:
           CSharp: Top = 0
@@ -1264,7 +1279,7 @@ items:
       source:
         id: Right
         path: ''
-        startLine: 470
+        startLine: 490
       syntax:
         content:
           CSharp: Right = 1
@@ -1297,7 +1312,7 @@ items:
       source:
         id: Bottom
         path: ''
-        startLine: 470
+        startLine: 490
       syntax:
         content:
           CSharp: Bottom = 2
@@ -1330,7 +1345,7 @@ items:
       source:
         id: Left
         path: ''
-        startLine: 470
+        startLine: 490
       syntax:
         content:
           CSharp: Left = 3
@@ -1363,7 +1378,7 @@ items:
     source:
       id: GridAlignment
       path: ''
-      startLine: 472
+      startLine: 492
     syntax:
       content:
         CSharp: public enum GridAlignment
@@ -1395,7 +1410,7 @@ items:
       source:
         id: Horizontal
         path: ''
-        startLine: 472
+        startLine: 492
       syntax:
         content:
           CSharp: Horizontal = 0
@@ -1428,7 +1443,7 @@ items:
       source:
         id: Vertical
         path: ''
-        startLine: 472
+        startLine: 492
       syntax:
         content:
           CSharp: Vertical = 1
@@ -1461,21 +1476,13 @@ items:
     source:
       id: GridLevelUtility
       path: ''
-      startLine: 474
+      startLine: 494
     syntax:
       content:
         CSharp: public static class GridLevelUtility
         VB: Public Module GridLevelUtility
     inheritance:
     - System.Object
-    inheritedMembers:
-    - System.Object.ToString
-    - System.Object.Equals(System.Object)
-    - System.Object.Equals(System.Object,System.Object)
-    - System.Object.ReferenceEquals(System.Object,System.Object)
-    - System.Object.GetHashCode
-    - System.Object.GetType
-    - System.Object.MemberwiseClone
     modifiers:
       CSharp:
       - public
@@ -1504,7 +1511,7 @@ items:
       source:
         id: ValidateSeed
         path: ''
-        startLine: 478
+        startLine: 498
       syntax:
         content:
           CSharp: public static bool ValidateSeed(string seed)
@@ -1541,7 +1548,7 @@ items:
       source:
         id: ExtractSeedData
         path: ''
-        startLine: 491
+        startLine: 511
       syntax:
         content:
           CSharp: public static uint[] ExtractSeedData(string seed)
@@ -1590,296 +1597,31 @@ references:
     isDefinition: true
     parent: System
     commentId: T:System.Object
-  System.Object.ToString:
+  Global.Vector2:
     name:
       CSharp:
-      - id: System.Object.ToString
-        name: ToString
-        nameWithType: Object.ToString
-        qualifiedName: System.Object.ToString
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-      VB:
-      - id: System.Object.ToString
-        name: ToString
-        nameWithType: Object.ToString
-        qualifiedName: System.Object.ToString
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-    isDefinition: true
-    parent: System.Object
-    commentId: M:System.Object.ToString
-  System.Object.Equals(System.Object):
-    name:
-      CSharp:
-      - id: System.Object.Equals(System.Object)
-        name: Equals
-        nameWithType: Object.Equals
-        qualifiedName: System.Object.Equals
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - id: System.Object
-        name: Object
-        nameWithType: Object
-        qualifiedName: System.Object
-        isExternal: true
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-      VB:
-      - id: System.Object.Equals(System.Object)
-        name: Equals
-        nameWithType: Object.Equals
-        qualifiedName: System.Object.Equals
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - id: System.Object
-        name: Object
-        nameWithType: Object
-        qualifiedName: System.Object
-        isExternal: true
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-    isDefinition: true
-    parent: System.Object
-    commentId: M:System.Object.Equals(System.Object)
-  System.Object.Equals(System.Object,System.Object):
-    name:
-      CSharp:
-      - id: System.Object.Equals(System.Object,System.Object)
-        name: Equals
-        nameWithType: Object.Equals
-        qualifiedName: System.Object.Equals
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - id: System.Object
-        name: Object
-        nameWithType: Object
-        qualifiedName: System.Object
-        isExternal: true
-      - name: ', '
-        nameWithType: ', '
-        qualifiedName: ', '
-      - id: System.Object
-        name: Object
-        nameWithType: Object
-        qualifiedName: System.Object
-        isExternal: true
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-      VB:
-      - id: System.Object.Equals(System.Object,System.Object)
-        name: Equals
-        nameWithType: Object.Equals
-        qualifiedName: System.Object.Equals
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - id: System.Object
-        name: Object
-        nameWithType: Object
-        qualifiedName: System.Object
-        isExternal: true
-      - name: ', '
-        nameWithType: ', '
-        qualifiedName: ', '
-      - id: System.Object
-        name: Object
-        nameWithType: Object
-        qualifiedName: System.Object
-        isExternal: true
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-    isDefinition: true
-    parent: System.Object
-    commentId: M:System.Object.Equals(System.Object,System.Object)
-  System.Object.ReferenceEquals(System.Object,System.Object):
-    name:
-      CSharp:
-      - id: System.Object.ReferenceEquals(System.Object,System.Object)
-        name: ReferenceEquals
-        nameWithType: Object.ReferenceEquals
-        qualifiedName: System.Object.ReferenceEquals
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - id: System.Object
-        name: Object
-        nameWithType: Object
-        qualifiedName: System.Object
-        isExternal: true
-      - name: ', '
-        nameWithType: ', '
-        qualifiedName: ', '
-      - id: System.Object
-        name: Object
-        nameWithType: Object
-        qualifiedName: System.Object
-        isExternal: true
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-      VB:
-      - id: System.Object.ReferenceEquals(System.Object,System.Object)
-        name: ReferenceEquals
-        nameWithType: Object.ReferenceEquals
-        qualifiedName: System.Object.ReferenceEquals
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - id: System.Object
-        name: Object
-        nameWithType: Object
-        qualifiedName: System.Object
-        isExternal: true
-      - name: ', '
-        nameWithType: ', '
-        qualifiedName: ', '
-      - id: System.Object
-        name: Object
-        nameWithType: Object
-        qualifiedName: System.Object
-        isExternal: true
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-    isDefinition: true
-    parent: System.Object
-    commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
-  System.Object.GetHashCode:
-    name:
-      CSharp:
-      - id: System.Object.GetHashCode
-        name: GetHashCode
-        nameWithType: Object.GetHashCode
-        qualifiedName: System.Object.GetHashCode
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-      VB:
-      - id: System.Object.GetHashCode
-        name: GetHashCode
-        nameWithType: Object.GetHashCode
-        qualifiedName: System.Object.GetHashCode
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-    isDefinition: true
-    parent: System.Object
-    commentId: M:System.Object.GetHashCode
-  System.Object.GetType:
-    name:
-      CSharp:
-      - id: System.Object.GetType
-        name: GetType
-        nameWithType: Object.GetType
-        qualifiedName: System.Object.GetType
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-      VB:
-      - id: System.Object.GetType
-        name: GetType
-        nameWithType: Object.GetType
-        qualifiedName: System.Object.GetType
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-    isDefinition: true
-    parent: System.Object
-    commentId: M:System.Object.GetType
-  System.Object.MemberwiseClone:
-    name:
-      CSharp:
-      - id: System.Object.MemberwiseClone
-        name: MemberwiseClone
-        nameWithType: Object.MemberwiseClone
-        qualifiedName: System.Object.MemberwiseClone
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-      VB:
-      - id: System.Object.MemberwiseClone
-        name: MemberwiseClone
-        nameWithType: Object.MemberwiseClone
-        qualifiedName: System.Object.MemberwiseClone
-        isExternal: true
-      - name: (
-        nameWithType: (
-        qualifiedName: (
-      - name: )
-        nameWithType: )
-        qualifiedName: )
-    isDefinition: true
-    parent: System.Object
-    commentId: M:System.Object.MemberwiseClone
-  Vector2:
-    name:
-      CSharp:
-      - id: Vector2
+      - id: Global.Vector2
         name: Vector2
         nameWithType: Vector2
         qualifiedName: Vector2
         isExternal: true
       VB:
-      - id: Vector2
+      - id: Global.Vector2
         name: Vector2
         nameWithType: Vector2
         qualifiedName: Vector2
         isExternal: true
     isDefinition: true
-  Vector3:
+  Global.Vector3:
     name:
       CSharp:
-      - id: Vector3
+      - id: Global.Vector3
         name: Vector3
         nameWithType: Vector3
         qualifiedName: Vector3
         isExternal: true
       VB:
-      - id: Vector3
+      - id: Global.Vector3
         name: Vector3
         nameWithType: Vector3
         qualifiedName: Vector3
@@ -2082,16 +1824,16 @@ references:
         qualifiedName: LevelGenerator.Generator.GridCell.GetNeighbours
     isDefinition: true
     commentId: Overload:LevelGenerator.Generator.GridCell.GetNeighbours
-  GameObject:
+  Global.GameObject:
     name:
       CSharp:
-      - id: GameObject
+      - id: Global.GameObject
         name: GameObject
         nameWithType: GameObject
         qualifiedName: GameObject
         isExternal: true
       VB:
-      - id: GameObject
+      - id: Global.GameObject
         name: GameObject
         nameWithType: GameObject
         qualifiedName: GameObject
@@ -2364,6 +2106,10 @@ references:
         qualifiedName: LevelGenerator.Generator.GridLevelGenerator.GenerateNewLevel
     isDefinition: true
     commentId: Overload:LevelGenerator.Generator.GridLevelGenerator.GenerateNewLevel
+  LevelGenerator.Generator.GridLevelGenerator.levelSeed:
+    commentId: F:LevelGenerator.Generator.GridLevelGenerator.levelSeed
+  LevelGenerator.Generator.GridLevelGenerator.GenerateNewLevel:
+    commentId: M:LevelGenerator.Generator.GridLevelGenerator.GenerateNewLevel
   LevelGenerator.Generator.GridLevelGenerator.GenerateLevelFromSeed*:
     name:
       CSharp:
@@ -2392,36 +2138,6 @@ references:
         qualifiedName: LevelGenerator.Generator.GridLevelGenerator.ClearLevel
     isDefinition: true
     commentId: Overload:LevelGenerator.Generator.GridLevelGenerator.ClearLevel
-  LevelGenerator.Generator.GridLevelGenerator.SetSeed*:
-    name:
-      CSharp:
-      - id: LevelGenerator.Generator.GridLevelGenerator.SetSeed*
-        name: SetSeed
-        nameWithType: GridLevelGenerator.SetSeed
-        qualifiedName: LevelGenerator.Generator.GridLevelGenerator.SetSeed
-      VB:
-      - id: LevelGenerator.Generator.GridLevelGenerator.SetSeed*
-        name: SetSeed
-        nameWithType: GridLevelGenerator.SetSeed
-        qualifiedName: LevelGenerator.Generator.GridLevelGenerator.SetSeed
-    isDefinition: true
-    commentId: Overload:LevelGenerator.Generator.GridLevelGenerator.SetSeed
-  LevelGenerator.Generator.GridLevelGenerator.levelSeed:
-    commentId: F:LevelGenerator.Generator.GridLevelGenerator.levelSeed
-  LevelGenerator.Generator.GridLevelGenerator.GetSeed*:
-    name:
-      CSharp:
-      - id: LevelGenerator.Generator.GridLevelGenerator.GetSeed*
-        name: GetSeed
-        nameWithType: GridLevelGenerator.GetSeed
-        qualifiedName: LevelGenerator.Generator.GridLevelGenerator.GetSeed
-      VB:
-      - id: LevelGenerator.Generator.GridLevelGenerator.GetSeed*
-        name: GetSeed
-        nameWithType: GridLevelGenerator.GetSeed
-        qualifiedName: LevelGenerator.Generator.GridLevelGenerator.GetSeed
-    isDefinition: true
-    commentId: Overload:LevelGenerator.Generator.GridLevelGenerator.GetSeed
   LevelGenerator.Generator.GridLevelGenerator:
     name:
       CSharp:
@@ -2436,6 +2152,38 @@ references:
         qualifiedName: LevelGenerator.Generator.GridLevelGenerator
     isDefinition: true
     commentId: T:LevelGenerator.Generator.GridLevelGenerator
+  LevelGenerator.Generator.GridLevelGenerator.GetSeed:
+    commentId: M:LevelGenerator.Generator.GridLevelGenerator.GetSeed
+  LevelGenerator.Generator.GridLevelGenerator.SetSeed*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridLevelGenerator.SetSeed*
+        name: SetSeed
+        nameWithType: GridLevelGenerator.SetSeed
+        qualifiedName: LevelGenerator.Generator.GridLevelGenerator.SetSeed
+      VB:
+      - id: LevelGenerator.Generator.GridLevelGenerator.SetSeed*
+        name: SetSeed
+        nameWithType: GridLevelGenerator.SetSeed
+        qualifiedName: LevelGenerator.Generator.GridLevelGenerator.SetSeed
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.GridLevelGenerator.SetSeed
+  LevelGenerator.Generator.GridLevelGenerator.SetSeed(System.String):
+    commentId: M:LevelGenerator.Generator.GridLevelGenerator.SetSeed(System.String)
+  LevelGenerator.Generator.GridLevelGenerator.GetSeed*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridLevelGenerator.GetSeed*
+        name: GetSeed
+        nameWithType: GridLevelGenerator.GetSeed
+        qualifiedName: LevelGenerator.Generator.GridLevelGenerator.GetSeed
+      VB:
+      - id: LevelGenerator.Generator.GridLevelGenerator.GetSeed*
+        name: GetSeed
+        nameWithType: GridLevelGenerator.GetSeed
+        qualifiedName: LevelGenerator.Generator.GridLevelGenerator.GetSeed
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.GridLevelGenerator.GetSeed
   System.Collections.Generic.List{LevelGenerator.Utility.ExitDirection}:
     name:
       CSharp:
