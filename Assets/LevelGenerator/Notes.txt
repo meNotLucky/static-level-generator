@@ -6,6 +6,7 @@ Todo:
 + Add support for starting/special/end rooms
 + Add support for random interiors, connected to specific rooms
 + Add custom pivot origin
++ Add support for multi-cell rooms
 
 Done:
 + Add whole level transformation

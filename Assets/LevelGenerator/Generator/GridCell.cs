@@ -15,12 +15,12 @@ namespace LevelGenerator.Generator
         private GridRoom _gridRoom;
         private bool _roomSet;
         
-        public GridCell(Vector2 gridPosition, Vector3 worldPosition, Vector3 worldRotation, Vector3 worldScale)
+        public GridCell(Transform parent, Vector2 gridPosition, Vector3 worldPosition, Vector3 worldRotation, Vector3 worldScale)
         {
             _gridPosition = gridPosition;
-
             var cellObject = new GameObject { name = "Cell_" + _gridPosition.x + "_" + gridPosition.y };
-            cellObject.transform.parent = GameObject.Find("Level").transform;
+            
+            cellObject.transform.parent = parent;
             cellObject.transform.position = worldPosition;
             cellObject.transform.eulerAngles = worldRotation;
             cellObject.transform.localScale = worldScale;

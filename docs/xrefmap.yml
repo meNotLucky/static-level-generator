@@ -235,12 +235,6 @@ references:
   commentId: F:LevelGenerator.Generator.GridLevelGenerator.levelScale
   fullName: LevelGenerator.Generator.GridLevelGenerator.levelScale
   nameWithType: GridLevelGenerator.levelScale
-- uid: LevelGenerator.Generator.GridLevelGenerator.levelSeed
-  name: levelSeed
-  href: api/LevelGenerator.Generator.GridLevelGenerator.html#LevelGenerator_Generator_GridLevelGenerator_levelSeed
-  commentId: F:LevelGenerator.Generator.GridLevelGenerator.levelSeed
-  fullName: LevelGenerator.Generator.GridLevelGenerator.levelSeed
-  nameWithType: GridLevelGenerator.levelSeed
 - uid: LevelGenerator.Generator.GridLevelGenerator.minLevelSize
   name: minLevelSize
   href: api/LevelGenerator.Generator.GridLevelGenerator.html#LevelGenerator_Generator_GridLevelGenerator_minLevelSize

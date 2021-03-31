@@ -3,81 +3,77 @@ using System.Linq;
 using LevelGenerator.Utility;
 using UnityEngine;
 using UnityEditor;
-using Random = UnityEngine.Random;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 namespace LevelGenerator.Generator
 {
     /// <summary>
     /// The Level Generator Component.
     /// </summary>
-    public class GridLevelGenerator : MonoBehaviour
+    public static class LevelGenerator
     {
-        /// <summary>The seed for the level generator. Can be used to save and load states.</summary>
-        /// <remarks>
-        /// The seed format is defined by four sections of 7-10 numbers, divided by a dash (-).
-        ///
-        /// Example seed: 2885257376-2099986581-1044521005-723764510
-        /// </remarks>
-        public string levelSeed = "";
-    
-        public int gridWidth = 5, gridHeight = 5;
-        public int minLevelSize;
-    
-        public bool forcedLevelGeneration;
+        private static GeneratorConfig _config = ScriptableObject.CreateInstance<GeneratorConfig>();
 
-        public GridAlignment gridAlignment = GridAlignment.Horizontal;
-    
-        public Vector2 cellPositionOffset = new Vector2(1.0f, 1.0f);
-    
-        public Vector3 cellRotation;
-        public Vector3 cellScale = new Vector3(1.0f, 1.0f, 1.0f);
-    
-        public Vector3 levelPosition;
-        public Vector3 levelRotation;
-        public Vector3 levelScale = new Vector3(1.0f, 1.0f, 1.0f);
+        private static string _levelSeed = "";
+        private static string _levelObjectID = "";
 
-        public List<GridRoom> roomTemplates = new List<GridRoom>();
-
-        private readonly List<GridCell> _grid = new List<GridCell>();
-        private readonly List<GridCell> _openCells = new List<GridCell>();
-
-        private GameObject _levelObject;
+        private static readonly List<GridCell> Grid = new List<GridCell>();
+        private static readonly List<GridCell> OpenCells = new List<GridCell>();
 
         //private Cell _lastCell;
 
-        private bool _essentialRoomFailed;
-        private bool _cellRoomFailed;
+        private static bool _essentialRoomFailed;
+        private static bool _cellRoomFailed;
     
         // --- PUBLIC FUNCTIONS --- //
 
-        /// <summary>
-        /// Generates a new level.
-        /// </summary>
-        public void GenerateNewLevel()
+        public static void SetConfiguration(GeneratorConfig config)
         {
-            SeedStateWrapper data = Random.state;
-            levelSeed = data.v0 + "-" + data.v1 + "-" + data.v2 + "-" + data.v3;
+            _config = config;
+        }
 
+        /// <summary>
+        /// Generates a new level and from a new seed.
+        /// </summary>
+        /// <example>
+        /// This sample shows how to call the <see cref="GenerateNewLevel"/> method from an ExampleClass component on a GameObject that also has a <see cref="LevelGenerator"/> component.
+        /// <code>
+        /// using LevelGenerator.Generator;
+        /// 
+        /// class ExampleClass : MonoBehaviour
+        /// {
+        ///     private void Start()
+        ///     {
+        ///         LevelGenerator.GenerateNewLevel();
+        ///     }
+        /// }
+        /// </code>
+        /// </example>
+        public static void GenerateNewLevel()
+        {
+            SeedConfig data = Random.state;
+            _levelSeed = data.v0 + "-" + data.v1 + "-" + data.v2 + "-" + data.v3;
+            
             InitiateLevelGeneration();
         }
 
         /// <summary>
-        /// Generates a Level from the current <see cref="levelSeed"/> If the seed is invalid it will generate a new level.
+        /// Generates a Level from the current seed. If the seed is invalid it will generate a new level.
         /// </summary>
-        /// <seealso cref="levelSeed"/>
         /// <seealso cref="GenerateNewLevel"/>
-        public void GenerateLevelFromSeed()
+        public static void GenerateLevelFromSeed()
         {
-            if (GridLevelUtility.ValidateSeed(levelSeed))
+            if (SeedConfigUtility.ValidateSeed(_levelSeed))
             {
-                var seedData = GridLevelUtility.ExtractSeedData(levelSeed);
-                var data = new SeedStateWrapper { v0 = seedData[0], v1 = seedData[1], v2 = seedData[2], v3 = seedData[3] };
+                var seedData = SeedConfigUtility.ExtractSeedData(_levelSeed);
+                var data = new SeedConfig { v0 = seedData[0], v1 = seedData[1], v2 = seedData[2], v3 = seedData[3] };
                 Random.state = data;
                 InitiateLevelGeneration();
             }
             else
             {
-                Debug.LogWarning("Seed format was invalid, generated new level from seed: " + levelSeed);
+                Debug.LogWarning("Seed format was invalid, generated new level from seed: " + _levelSeed);
                 GenerateNewLevel();
             }
         }
@@ -88,78 +84,103 @@ namespace LevelGenerator.Generator
         /// <remarks>
         /// The levelSeed will not be deleted, but will be replaced once a new level is generated.
         /// </remarks>
-        public void ClearLevel()
+        public static void ClearLevel()
         {
             _essentialRoomFailed = false;
             _cellRoomFailed = false;
         
             if(EditorApplication.isPlaying)
-                Destroy(_levelObject);
+                Object.Destroy(GameObject.Find(_levelObjectID));
             else
-                DestroyImmediate(_levelObject);
+                Object.DestroyImmediate(GameObject.Find(_levelObjectID));
             
-            _grid.Clear();
+            Grid.Clear();
         }
 
         /// <summary>
-        /// Sets the <see cref="levelSeed"/> for the <see cref="GridLevelGenerator"/>.
+        /// Sets the seed for the <see cref="LevelGenerator"/>.
         /// </summary>
-        /// <param name="seed"><see cref="levelSeed"/> string</param>
+        /// <param name="seed">Level Seed string</param>
         /// <returns>true on success, false if seed is invalid</returns>
-        /// <seealso cref="levelSeed"/>
+        /// <remarks>
+        /// The seed format is defined by four sections of 7-10 numbers, divided by a dash (-).<br/>
+        /// Example seed: 2885257376-2099986581-1044521005-723764510
+        /// </remarks>
         /// <seealso cref="GetSeed"/>
-        public bool SetSeed(string seed)
+        public static bool SetSeed(string seed)
         {
-            if (!GridLevelUtility.ValidateSeed(seed))
+            if (!SeedConfigUtility.ValidateSeed(seed))
                 return false;
         
-            levelSeed = seed;
+            _levelSeed = seed;
             return true;
         }
 
         /// <summary>
-        /// Returns the <see cref="levelSeed"/> of the last generated level.
+        /// Returns the seed of the last generated level.
         /// </summary>
-        /// <returns><see cref="levelSeed"/> string</returns>
-        /// <seealso cref="levelSeed"/>
+        /// <returns>Level Seed string</returns>
         /// <seealso cref="SetSeed"/>
-        public string GetSeed()
+        /// <seealso cref="GenerateLevelFromSeed"/>
+        public static string GetSeed()
         {
-            return levelSeed;
+            return _levelSeed;
         }
 
         // --- PRIVATE FUNCTIONS --- //
     
-        private void InitiateLevelGeneration()
+        private static void InitiateLevelGeneration()
         {
             while (!ValidateLevel())
             {
                 ClearLevel();
-                
-                _levelObject = new GameObject { name = "Level" };
-            
-                GenerateGrid();  // note : generate the grid of cells
-                GenerateLevel(); // note : generate the rooms of the level
 
-                _levelObject.transform.position = levelPosition;
-                _levelObject.transform.eulerAngles = levelRotation;
-                _levelObject.transform.localScale = levelScale;
+                var level = GameObject.Find(_levelObjectID);
+                if (level == null)
+                {
+                    _levelObjectID = Random.Range(10000, 99999).ToString();
+                    level = new GameObject() { name = _levelObjectID };
+                }
+
+                GenerateGrid();
+                GenerateRooms();
+
+                level.transform.position = _config.levelPosition;
+                level.transform.eulerAngles = _config.levelRotation;
+                level.transform.localScale = _config.levelScale;
+            }
+
+            if (!Application.isPlaying)
+            {
+                var scene = SceneManager.GetActiveScene();
+                var sceneID = AssetDatabase.AssetPathToGUID(scene.path);
+                var cache = new SceneCache() {
+                    sceneName = scene.name,
+                    sceneID = sceneID,
+                    lastSeed = _levelSeed,
+                    levelObjectID = _levelObjectID
+                };
+                SceneCacheUtility.SaveCache(cache);
+                
+                EditorSceneManager.MarkSceneDirty(scene);
+                //EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+                //StaticOcclusionCulling.Compute();   
             }
         }
 
-        private bool ValidateLevel()
+        private static bool ValidateLevel()
         {
             // note : check that grid is created
-            if (_grid.Count == 0)
+            if (Grid.Count == 0)
                 return false;
         
             // note : check that level is above minimum size
-            var size = _grid.Count(cell => cell.HasRoom());
-            if (size < minLevelSize)
+            var size = Grid.Count(cell => cell.HasRoom());
+            if (size < _config.minLevelSize)
                 return false;
 
             // note : if forced level generation, check that all rooms spawned correctly
-            if (forcedLevelGeneration)
+            if (_config.forcedLevelGeneration)
             {
                 if (_essentialRoomFailed || _cellRoomFailed)
                     return false;
@@ -168,54 +189,54 @@ namespace LevelGenerator.Generator
             return true;
         }
 
-        private void GenerateGrid()
+        private static void GenerateGrid()
         {
-            for (var x = 0; x < gridWidth; x++)
+            for (var x = 0; x < _config.gridWidth; x++)
             {
-                for (var y = 0; y < gridHeight; y++)
+                for (var y = 0; y < _config.gridHeight; y++)
                 {
-                    var worldPos = gridAlignment == GridAlignment.Horizontal ? new Vector3(x * cellPositionOffset.x, 0, y * cellPositionOffset.y)
-                        : new Vector3(x * cellPositionOffset.x, y * cellPositionOffset.y, 0);
-                    var newCell = new GridCell(new Vector2(x, y), worldPos, cellRotation, cellScale);
-                    _grid.Add(newCell);
+                    var worldPos = _config.gridAlignment == GridAlignment.Horizontal ? new Vector3(x * _config.cellPositionOffset.x, 0, y * _config.cellPositionOffset.y)
+                        : new Vector3(x * _config.cellPositionOffset.x, y * _config.cellPositionOffset.y, 0);
+                    var newCell = new GridCell(GameObject.Find(_levelObjectID).transform, new Vector2(x, y), worldPos, _config.cellRotation, _config.cellScale);
+                    Grid.Add(newCell);
                 }
             }
 
-            for (var i = 0; i < (gridWidth * gridHeight); i++)
+            for (var i = 0; i < (_config.gridWidth * _config.gridHeight); i++)
             {
-                var x = (int)_grid[i].GetGridPosition().x;
-                var y = (int)_grid[i].GetGridPosition().y;
+                var x = (int)Grid[i].GetGridPosition().x;
+                var y = (int)Grid[i].GetGridPosition().y;
 
-                if (x < gridWidth - 1)	_grid[i].AddNeighbour(_grid[i + gridHeight]);
-                if (y < gridHeight - 1)	_grid[i].AddNeighbour(_grid[i + 1]);
-                if (x > 0)				_grid[i].AddNeighbour(_grid[i - gridHeight]);
-                if (y > 0)				_grid[i].AddNeighbour(_grid[i - 1]);
+                if (x < _config.gridWidth - 1) Grid[i].AddNeighbour(Grid[i + _config.gridHeight]);
+                if (y < _config.gridHeight - 1) Grid[i].AddNeighbour(Grid[i + 1]);
+                if (x > 0) Grid[i].AddNeighbour(Grid[i - _config.gridHeight]);
+                if (y > 0) Grid[i].AddNeighbour(Grid[i - 1]);
             }
         }
         
-        private GridCell GetCell(Vector2 position)
+        private static GridCell GetCell(Vector2 position)
         {
             var index = 0;
-            for (var x = 0; x < gridWidth; x++)
+            for (var x = 0; x < _config.gridWidth; x++)
             {
-                for (var y = 0; y < gridHeight; y++)
+                for (var y = 0; y < _config.gridHeight; y++)
                 {
                     if (x == (int) position.x && y == (int) position.y)
-                        return _grid[index];
+                        return Grid[index];
                     index++;
                 }
             }
             return null;
         }
 
-        private void GenerateLevel()
+        private static void GenerateRooms()
         {
             // note : set the initial cell and room
-            var startCellIndex = ((gridHeight * gridWidth) / 2) - (gridHeight / 2);
-            var startCell = _grid[startCellIndex];
+            var startCellIndex = ((_config.gridHeight * _config.gridWidth) / 2) - (_config.gridHeight / 2);
+            var startCell = Grid[startCellIndex];
             //_lastCell = startCell;
-
-            foreach (var room in roomTemplates)
+            
+            foreach (var room in _config.roomTemplates)
             {
                 if (room.exitDirections.Contains(ExitDirection.Top) &&
                     room.exitDirections.Contains(ExitDirection.Right) &&
@@ -238,20 +259,20 @@ namespace LevelGenerator.Generator
             GenerateNeighbourRooms(startCell);
 
             // note : generate random rooms for the rest of the level
-            while (_openCells.Count > 0)
+            while (OpenCells.Count > 0)
             {
-                var currentlyGeneratingCells = new List<GridCell>(_openCells);
-                _openCells.Clear();
+                var currentlyGeneratingCells = new List<GridCell>(OpenCells);
+                OpenCells.Clear();
                 foreach (var cell in currentlyGeneratingCells)
                     GenerateNeighbourRooms(cell);
             }
-        
+            
             //_lastCell.SetRoomColor(new Color(0.67f, 0f, 0f));
         }
 
-        private void GenerateEssentialRooms()
+        private static void GenerateEssentialRooms()
         {
-            foreach (var room in roomTemplates.Where(room => room.isEssential).Where(room => room.hasFixedPosition))
+            foreach (var room in _config.roomTemplates.Where(room => room.isEssential).Where(room => room.hasFixedPosition))
             {
                 var cell = GetCell(room.fixedPosition);
                 if (cell == null)
@@ -264,15 +285,15 @@ namespace LevelGenerator.Generator
                     Debug.LogWarning("Essential room " + room.prefab.name + " and " + cell.GetPrefab().name + " are both fixed to grid position " + room.fixedPosition + ", this has caused overlapping!");
             
                 cell.InstantiateRoom(room);
-                _openCells.Add(cell);
+                OpenCells.Add(cell);
             }
 
-            foreach (var room in roomTemplates.Where(room => room.isEssential).Where(room => !room.hasFixedPosition))
+            foreach (var room in _config.roomTemplates.Where(room => room.isEssential).Where(room => !room.hasFixedPosition))
             {
                 var validCells = GetValidCells(room);
                 if (validCells.Count == 0)
                 {
-                    if(!forcedLevelGeneration)
+                    if(!_config.forcedLevelGeneration)
                         Debug.LogWarning("Failed to add Essential room: " + room.prefab.name);
                     _essentialRoomFailed = true;
                     break;
@@ -282,11 +303,11 @@ namespace LevelGenerator.Generator
                 var randomCell = validCells[index];
 
                 randomCell.InstantiateRoom(room);
-                _openCells.Add(randomCell);
+                OpenCells.Add(randomCell);
             }
         }
 
-        private void GenerateNeighbourRooms(GridCell gridCell)
+        private static void GenerateNeighbourRooms(GridCell gridCell)
         {
             if (!gridCell.HasRoom())
                 return;
@@ -307,7 +328,7 @@ namespace LevelGenerator.Generator
             }
         }
 
-        private void AddRandomRoom(GridCell parentGridCell)
+        private static void AddRandomRoom(GridCell parentGridCell)
         {
             if (parentGridCell.HasRoom())
                 return;
@@ -316,7 +337,7 @@ namespace LevelGenerator.Generator
             var validRooms = GetValidRooms(parentGridCell);
             if (validRooms.Count == 0)
             {
-                if(!forcedLevelGeneration)
+                if(!_config.forcedLevelGeneration)
                     Debug.LogWarning("Failed to add room to cell: " + parentGridCell.GetGridPosition());
             
                 _cellRoomFailed = true;
@@ -332,22 +353,22 @@ namespace LevelGenerator.Generator
         
             // note : if room has open directions, add cell to open list
             if(room.exitDirections.Count > 1)
-                _openCells.Add(parentGridCell);
+                OpenCells.Add(parentGridCell);
         }
     
-        private List<GridRoom> GetValidRooms(GridCell gridCell)
+        private static List<GridRoom> GetValidRooms(GridCell gridCell)
         {
             var mustInclude = new List<ExitDirection>();
             var mustExclude = new List<ExitDirection>();
         
             CalculateExitRequirements(gridCell, ref mustInclude, ref mustExclude);
-            return roomTemplates.Where(room => !room.isEssential).Where(room => ValidateExitRequirements(room, mustInclude, mustExclude)).ToList();
+            return _config.roomTemplates.Where(room => !room.isEssential).Where(room => ValidateExitRequirements(room, mustInclude, mustExclude)).ToList();
         }
 
-        private List<GridCell> GetValidCells(GridRoom gridRoom)
+        private static List<GridCell> GetValidCells(GridRoom gridRoom)
         {
             var validCells = new List<GridCell>();
-            foreach (var cell in _grid.Where(cell => !cell.HasRoom()))
+            foreach (var cell in Grid.Where(cell => !cell.HasRoom()))
             {
                 var mustInclude = new List<ExitDirection>();
                 var mustExclude = new List<ExitDirection>();
@@ -360,7 +381,7 @@ namespace LevelGenerator.Generator
             return validCells;
         }
     
-        private void CalculateExitRequirements(GridCell gridCell, ref List<ExitDirection> mustInclude, ref List<ExitDirection> mustExclude)
+        private static void CalculateExitRequirements(GridCell gridCell, ref List<ExitDirection> mustInclude, ref List<ExitDirection> mustExclude)
         {
             var gridPos = gridCell.GetGridPosition();
 
@@ -379,13 +400,13 @@ namespace LevelGenerator.Generator
                 else if (neighbourGridPos.y < gridPos.y && neighbour.HasExit(ExitDirection.Top))     mustInclude.Add(ExitDirection.Bottom);
             }
         
-            if ((int)gridPos.y == gridHeight - 1) mustExclude.Add(ExitDirection.Top);
-            if ((int)gridPos.x == gridWidth - 1) mustExclude.Add(ExitDirection.Right);
+            if ((int)gridPos.y == _config.gridHeight - 1) mustExclude.Add(ExitDirection.Top);
+            if ((int)gridPos.x == _config.gridWidth - 1) mustExclude.Add(ExitDirection.Right);
             if ((int)gridPos.y == 0) mustExclude.Add(ExitDirection.Bottom);
             if ((int)gridPos.x == 0) mustExclude.Add(ExitDirection.Left);
         }
 
-        private bool ValidateExitRequirements(GridRoom gridRoom, IEnumerable<ExitDirection> mustInclude, IReadOnlyCollection<ExitDirection> mustExclude)
+        private static bool ValidateExitRequirements(GridRoom gridRoom, IEnumerable<ExitDirection> mustInclude, IReadOnlyCollection<ExitDirection> mustExclude)
         {
             var exitsValid = true;
             foreach (var unused in mustExclude.Where(direction => gridRoom.exitDirections.Contains(direction)))  exitsValid = false;

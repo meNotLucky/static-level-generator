@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6664b42b96c5ac6498e79d9d394a5709, type: 3}
+  m_Name: Config
+  m_EditorClassIdentifier: 
+  gridWidth: 5
+  gridHeight: 5
+  minLevelSize: 10
+  forcedLevelGeneration: 0
+  gridAlignment: 0
+  cellPositionOffset: {x: 19, y: 19}
+  cellRotation: {x: 0, y: 0, z: 0}
+  cellScale: {x: 120, y: 120, z: 120}
+  levelPosition: {x: 0, y: 0, z: 0}
+  levelRotation: {x: 0, y: 0, z: 0}
+  levelScale: {x: 1, y: 1, z: 1}
+  roomTemplates:
+  - prefab: {fileID: 2648532388450658145, guid: aa29aee3c164dd44db79a9e35acb32d4, type: 3}
+    exitDirections: 00000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 3594035379279390868, guid: c2c12829190af72479711825a00c7333, type: 3}
+    exitDirections: 0000000001000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 6028557596830426764, guid: d6447d1a92298ae47bb492adafea83f6, type: 3}
+    exitDirections: 010000000000000003000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 5124359303086200536, guid: 020310e2b407bf4488b892a7552b302b, type: 3}
+    exitDirections: 01000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 6743785385105934994, guid: 87601a2934d66924a821da843d445c91, type: 3}
+    exitDirections: 0100000002000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 1782517441462259743, guid: 400e6b405947d794bb89f63393bbdc71, type: 3}
+    exitDirections: 000000000100000002000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 6950265281354893801, guid: edbf121f9cc59b94f87b317a82e05a1b, type: 3}
+    exitDirections: 02000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 8777081628890812910, guid: fd1cca6e09df3d64d8bfb88d9a713315, type: 3}
+    exitDirections: 0200000003000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 4442364264771800926, guid: 1b02ac6e5757def4399b0f7a512f3ba1, type: 3}
+    exitDirections: 010000000200000003000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 9144512162384832908, guid: 229d159f6ddbdec42b962f6f935d016c, type: 3}
+    exitDirections: 03000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 3388989838053705325, guid: c95b3ca40b395a94f97990c6d3feaa43, type: 3}
+    exitDirections: 0300000000000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 4118731647102193387, guid: 283201fd9468dc94d8259af8527bfa2a, type: 3}
+    exitDirections: 020000000300000000000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 4914699168785025382, guid: b198892c09a7ce7498eebd8893a0e085, type: 3}
+    exitDirections: 0000000002000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 6354249949751001512, guid: ab9c4df8d33687840b7c70c4745d61d9, type: 3}
+    exitDirections: 0100000003000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 3580159873529093744, guid: 3256fc0735b6a784c930465b086fb9e2, type: 3}
+    exitDirections: 00000000010000000200000003000000
+    isEssential: 0
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 4616640269665256871, guid: cf30503b124b7ef45885d6e49f58b8e6, type: 3}
+    exitDirections: 0000000002000000
+    isEssential: 1
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 3903128008299640257, guid: 7dd9c2a3d1b2d564aa19b26fdaaa6960, type: 3}
+    exitDirections: 0100000003000000
+    isEssential: 1
+    hasFixedPosition: 0
+    fixedPosition: {x: 0, y: 0}
+  - prefab: {fileID: 6619938663934859103, guid: 87f80b05378618a4b8b653eb7de36717, type: 3}
+    exitDirections: 00000000010000000200000003000000
+    isEssential: 1
+    hasFixedPosition: 1
+    fixedPosition: {x: 1, y: 1}

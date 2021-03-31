@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using LevelGenerator.Utility;
 using UnityEngine;
 
 namespace LevelGenerator.Generator
 {
+    public enum ExitDirection { Top, Right, Bottom, Left }
+
     [System.Serializable]
     public class GridRoom
     {

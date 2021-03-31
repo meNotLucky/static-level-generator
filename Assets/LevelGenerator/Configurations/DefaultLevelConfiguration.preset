@@ -1,0 +1,711 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DefaultLevelConfiguration
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 6664b42b96c5ac6498e79d9d394a5709, type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: gridWidth
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: gridHeight
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: minLevelSize
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: forcedLevelGeneration
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: gridAlignment
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: cellPositionOffset.x
+    value: 19
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: cellPositionOffset.y
+    value: 19
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: cellRotation.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: cellRotation.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: cellRotation.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: cellScale.x
+    value: 120
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: cellScale.y
+    value: 120
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: cellScale.z
+    value: 120
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levelPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levelPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levelPosition.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levelRotation.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levelRotation.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levelRotation.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levelScale.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levelScale.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levelScale.z
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.size
+    value: 18
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[0].prefab
+    value: 
+    objectReference: {fileID: 2648532388450658145, guid: aa29aee3c164dd44db79a9e35acb32d4, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[0].exitDirections.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[0].exitDirections.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[0].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[0].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[0].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[0].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[1].prefab
+    value: 
+    objectReference: {fileID: 3594035379279390868, guid: c2c12829190af72479711825a00c7333, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[1].exitDirections.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[1].exitDirections.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[1].exitDirections.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[1].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[1].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[1].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[1].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[2].prefab
+    value: 
+    objectReference: {fileID: 6028557596830426764, guid: d6447d1a92298ae47bb492adafea83f6, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[2].exitDirections.Array.size
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[2].exitDirections.Array.data[0]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[2].exitDirections.Array.data[1]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[2].exitDirections.Array.data[2]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[2].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[2].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[2].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[2].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[3].prefab
+    value: 
+    objectReference: {fileID: 5124359303086200536, guid: 020310e2b407bf4488b892a7552b302b, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[3].exitDirections.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[3].exitDirections.Array.data[0]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[3].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[3].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[3].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[3].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[4].prefab
+    value: 
+    objectReference: {fileID: 6743785385105934994, guid: 87601a2934d66924a821da843d445c91, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[4].exitDirections.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[4].exitDirections.Array.data[0]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[4].exitDirections.Array.data[1]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[4].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[4].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[4].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[4].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[5].prefab
+    value: 
+    objectReference: {fileID: 1782517441462259743, guid: 400e6b405947d794bb89f63393bbdc71, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[5].exitDirections.Array.size
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[5].exitDirections.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[5].exitDirections.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[5].exitDirections.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[5].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[5].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[5].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[5].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[6].prefab
+    value: 
+    objectReference: {fileID: 6950265281354893801, guid: edbf121f9cc59b94f87b317a82e05a1b, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[6].exitDirections.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[6].exitDirections.Array.data[0]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[6].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[6].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[6].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[6].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[7].prefab
+    value: 
+    objectReference: {fileID: 8777081628890812910, guid: fd1cca6e09df3d64d8bfb88d9a713315, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[7].exitDirections.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[7].exitDirections.Array.data[0]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[7].exitDirections.Array.data[1]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[7].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[7].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[7].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[7].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[8].prefab
+    value: 
+    objectReference: {fileID: 4442364264771800926, guid: 1b02ac6e5757def4399b0f7a512f3ba1, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[8].exitDirections.Array.size
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[8].exitDirections.Array.data[0]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[8].exitDirections.Array.data[1]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[8].exitDirections.Array.data[2]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[8].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[8].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[8].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[8].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[9].prefab
+    value: 
+    objectReference: {fileID: 9144512162384832908, guid: 229d159f6ddbdec42b962f6f935d016c, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[9].exitDirections.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[9].exitDirections.Array.data[0]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[9].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[9].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[9].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[9].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[10].prefab
+    value: 
+    objectReference: {fileID: 3388989838053705325, guid: c95b3ca40b395a94f97990c6d3feaa43, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[10].exitDirections.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[10].exitDirections.Array.data[0]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[10].exitDirections.Array.data[1]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[10].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[10].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[10].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[10].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[11].prefab
+    value: 
+    objectReference: {fileID: 4118731647102193387, guid: 283201fd9468dc94d8259af8527bfa2a, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[11].exitDirections.Array.size
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[11].exitDirections.Array.data[0]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[11].exitDirections.Array.data[1]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[11].exitDirections.Array.data[2]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[11].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[11].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[11].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[11].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[12].prefab
+    value: 
+    objectReference: {fileID: 4914699168785025382, guid: b198892c09a7ce7498eebd8893a0e085, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[12].exitDirections.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[12].exitDirections.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[12].exitDirections.Array.data[1]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[12].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[12].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[12].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[12].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[13].prefab
+    value: 
+    objectReference: {fileID: 6354249949751001512, guid: ab9c4df8d33687840b7c70c4745d61d9, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[13].exitDirections.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[13].exitDirections.Array.data[0]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[13].exitDirections.Array.data[1]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[13].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[13].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[13].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[13].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[14].prefab
+    value: 
+    objectReference: {fileID: 3580159873529093744, guid: 3256fc0735b6a784c930465b086fb9e2, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[14].exitDirections.Array.size
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[14].exitDirections.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[14].exitDirections.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[14].exitDirections.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[14].exitDirections.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[14].isEssential
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[14].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[14].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[14].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[15].prefab
+    value: 
+    objectReference: {fileID: 4616640269665256871, guid: cf30503b124b7ef45885d6e49f58b8e6, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[15].exitDirections.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[15].exitDirections.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[15].exitDirections.Array.data[1]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[15].isEssential
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[15].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[15].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[15].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[16].prefab
+    value: 
+    objectReference: {fileID: 3903128008299640257, guid: 7dd9c2a3d1b2d564aa19b26fdaaa6960, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[16].exitDirections.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[16].exitDirections.Array.data[0]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[16].exitDirections.Array.data[1]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[16].isEssential
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[16].hasFixedPosition
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[16].fixedPosition.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[16].fixedPosition.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[17].prefab
+    value: 
+    objectReference: {fileID: 6619938663934859103, guid: 87f80b05378618a4b8b653eb7de36717, type: 3}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[17].exitDirections.Array.size
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[17].exitDirections.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[17].exitDirections.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[17].exitDirections.Array.data[2]
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[17].exitDirections.Array.data[3]
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[17].isEssential
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[17].hasFixedPosition
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[17].fixedPosition.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: roomTemplates.Array.data[17].fixedPosition.y
+    value: 1
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []

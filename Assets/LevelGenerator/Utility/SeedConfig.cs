@@ -1,15 +1,24 @@
-﻿using System.Linq;
+﻿using System.Runtime.InteropServices;
+using System.Linq;
+using UnityEngine;
 
 namespace LevelGenerator.Utility
 {
-    public enum ExitDirection { Top, Right, Bottom, Left }
-    
-    public enum GridAlignment { Horizontal, Vertical }
-    
-    public static class GridLevelUtility
+    [StructLayout(LayoutKind.Explicit)]
+    public struct SeedConfig
     {
-        // --- UTILITY FUNCTIONS --- //
-
+        [FieldOffset(0)] private Random.State state;
+        [FieldOffset(0)] public uint v0;
+        [FieldOffset(4)] public uint v1;
+        [FieldOffset(8)] public uint v2;
+        [FieldOffset(12)] public uint v3;
+    
+        public static implicit operator SeedConfig(Random.State aState) { return new SeedConfig { state = aState }; }
+        public static implicit operator Random.State(SeedConfig aState) { return aState.state; }
+    }
+    
+    public static class SeedConfigUtility
+    {
         public static bool ValidateSeed(string seed)
         {
             var seedValid = true;
