@@ -708,4 +708,16 @@ Preset:
     propertyPath: roomTemplates.Array.data[17].fixedPosition.y
     value: 1
     objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: disableSceneCaching
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: automaticSave
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: automaticOcclusionCulling
+    value: 0
+    objectReference: {fileID: 0}
   m_ExcludedProperties: []

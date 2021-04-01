@@ -24,11 +24,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Generator.GridCell.yml",
+      "source_relative_path": "api/LevelGenerator.Generator.ExitDirection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LevelGenerator.Generator.GridCell.html",
-          "hash": "lWxf+6nDV1CMhThYZQqo5Q=="
+          "relative_path": "api/LevelGenerator.Generator.ExitDirection.html",
+          "hash": "Uf5sBi56sDzKGVQlWFuhDA=="
         }
       },
       "is_incremental": false,
@@ -36,11 +36,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Generator.GridLevelGenerator.yml",
+      "source_relative_path": "api/LevelGenerator.Generator.GridCell.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LevelGenerator.Generator.GridLevelGenerator.html",
-          "hash": "hS2jFWpMcpEf2FD+mEoMgQ=="
+          "relative_path": "api/LevelGenerator.Generator.GridCell.html",
+          "hash": "29VC/xfWXHGBWCeRshHqMg=="
         }
       },
       "is_incremental": false,
@@ -52,7 +52,19 @@
       "output": {
         ".html": {
           "relative_path": "api/LevelGenerator.Generator.GridRoom.html",
-          "hash": "qkO50oTi/3G2KokxNBd4eQ=="
+          "hash": "7CciKzWuS4lEFGRQX5XcPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LevelGenerator.Generator.LevelGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LevelGenerator.Generator.LevelGenerator.html",
+          "hash": "/d9FDsAEZh1GLQS+lNSDHg=="
         }
       },
       "is_incremental": false,
@@ -64,7 +76,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LevelGenerator.Generator.html",
-          "hash": "ZNRK/F4uKbQaQg0smvL8kg=="
+          "hash": "erh+uSMZ+vSwHUMVXx81Fw=="
         }
       },
       "is_incremental": false,
@@ -72,11 +84,47 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Utility.ExitDirection.yml",
+      "source_relative_path": "api/LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LevelGenerator.Utility.ExitDirection.html",
-          "hash": "ql5Q1nvmUbW+MrAf1CzSNw=="
+          "relative_path": "api/LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback.html",
+          "hash": "cd7VJw39NbmR8oICo/iX3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LevelGenerator.Utility.EventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LevelGenerator.Utility.EventHandler.html",
+          "hash": "Ap2Drtxn7pq3df5WBJLT0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LevelGenerator.Utility.GeneratorConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LevelGenerator.Utility.GeneratorConfig.html",
+          "hash": "iNo0mkEL3zD1l1STf/48FQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LevelGenerator.Utility.GeneratorConfigUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LevelGenerator.Utility.GeneratorConfigUtility.html",
+          "hash": "vBjEYc+ufIpoDsRj2uRIig=="
         }
       },
       "is_incremental": false,
@@ -96,11 +144,47 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Utility.GridLevelUtility.yml",
+      "source_relative_path": "api/LevelGenerator.Utility.SceneCache.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LevelGenerator.Utility.GridLevelUtility.html",
-          "hash": "Nn9kEEPb0FCIWrKlnaesiw=="
+          "relative_path": "api/LevelGenerator.Utility.SceneCache.html",
+          "hash": "gfjulaYLwQtIjFfK6CA6Rg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LevelGenerator.Utility.SceneCacheUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LevelGenerator.Utility.SceneCacheUtility.html",
+          "hash": "6O1E40srSjQxMxI8n68Jpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LevelGenerator.Utility.SeedConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LevelGenerator.Utility.SeedConfig.html",
+          "hash": "l3D239VsNL2ZSfo6ctRJvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LevelGenerator.Utility.SeedConfigUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LevelGenerator.Utility.SeedConfigUtility.html",
+          "hash": "iuhEjtPqZeU37jYEVqtw0w=="
         }
       },
       "is_incremental": false,
@@ -112,7 +196,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LevelGenerator.Utility.html",
-          "hash": "BcIA5p2c9liASKW6/M7M7w=="
+          "hash": "CIMDcqvS6T0O7eX0nL/qwg=="
         }
       },
       "is_incremental": false,
@@ -124,7 +208,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "yTY/A8e64vwSN4lnJcdg7A=="
+          "hash": "wR+cDwTjzdzqrPi7carpCw=="
         }
       },
       "is_incremental": false,
@@ -209,8 +293,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 8,
-          "skipped_file_count": 7
+          "total_file_count": 15,
+          "skipped_file_count": 6
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

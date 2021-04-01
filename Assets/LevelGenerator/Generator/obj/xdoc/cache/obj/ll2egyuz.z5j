@@ -1,0 +1,3633 @@
+id: cs.temp.dll
+language: CSharp
+name:
+  Default: cs.temp.dll
+qualifiedName:
+  Default: cs.temp.dll
+type: Assembly
+modifiers: {}
+items:
+- id: LevelGenerator.Generator
+  commentId: N:LevelGenerator.Generator
+  language: CSharp
+  name:
+    CSharp: LevelGenerator.Generator
+    VB: LevelGenerator.Generator
+  nameWithType:
+    CSharp: LevelGenerator.Generator
+    VB: LevelGenerator.Generator
+  qualifiedName:
+    CSharp: LevelGenerator.Generator
+    VB: LevelGenerator.Generator
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+  modifiers: {}
+  items:
+  - id: LevelGenerator.Generator.GridCell
+    commentId: T:LevelGenerator.Generator.GridCell
+    language: CSharp
+    name:
+      CSharp: GridCell
+      VB: GridCell
+    nameWithType:
+      CSharp: GridCell
+      VB: GridCell
+    qualifiedName:
+      CSharp: LevelGenerator.Generator.GridCell
+      VB: LevelGenerator.Generator.GridCell
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Generator
+    source:
+      id: GridCell
+      path: ''
+      startLine: 6
+    syntax:
+      content:
+        CSharp: >-
+          [Serializable]
+
+          public class GridCell
+        VB: >-
+          <Serializable>
+
+          Public Class GridCell
+    inheritance:
+    - System.Object
+    attributes:
+    - type: System.SerializableAttribute
+      ctor: System.SerializableAttribute.#ctor
+      arguments: []
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: LevelGenerator.Generator.GridCell.#ctor(Transform,Vector2,Vector3,Vector3,Vector3)
+      commentId: M:LevelGenerator.Generator.GridCell.#ctor(Transform,Vector2,Vector3,Vector3,Vector3)
+      language: CSharp
+      name:
+        CSharp: GridCell(Transform, Vector2, Vector3, Vector3, Vector3)
+        VB: GridCell(Transform, Vector2, Vector3, Vector3, Vector3)
+      nameWithType:
+        CSharp: GridCell.GridCell(Transform, Vector2, Vector3, Vector3, Vector3)
+        VB: GridCell.GridCell(Transform, Vector2, Vector3, Vector3, Vector3)
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridCell.GridCell(Transform, Vector2, Vector3, Vector3, Vector3)
+        VB: LevelGenerator.Generator.GridCell.GridCell(Transform, Vector2, Vector3, Vector3, Vector3)
+      type: Constructor
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: .ctor
+        path: ''
+        startLine: 17
+      syntax:
+        content:
+          CSharp: public GridCell(Transform parent, Vector2 gridPosition, Vector3 worldPosition, Vector3 worldRotation, Vector3 worldScale)
+          VB: Public Sub New(parent As Transform, gridPosition As Vector2, worldPosition As Vector3, worldRotation As Vector3, worldScale As Vector3)
+        parameters:
+        - id: parent
+          type: Global.Transform
+        - id: gridPosition
+          type: Global.Vector2
+        - id: worldPosition
+          type: Global.Vector3
+        - id: worldRotation
+          type: Global.Vector3
+        - id: worldScale
+          type: Global.Vector3
+      overload: LevelGenerator.Generator.GridCell.#ctor*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Generator.GridCell.AddNeighbour(LevelGenerator.Generator.GridCell)
+      commentId: M:LevelGenerator.Generator.GridCell.AddNeighbour(LevelGenerator.Generator.GridCell)
+      language: CSharp
+      name:
+        CSharp: AddNeighbour(GridCell)
+        VB: AddNeighbour(GridCell)
+      nameWithType:
+        CSharp: GridCell.AddNeighbour(GridCell)
+        VB: GridCell.AddNeighbour(GridCell)
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridCell.AddNeighbour(LevelGenerator.Generator.GridCell)
+        VB: LevelGenerator.Generator.GridCell.AddNeighbour(LevelGenerator.Generator.GridCell)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: AddNeighbour
+        path: ''
+        startLine: 31
+      syntax:
+        content:
+          CSharp: public void AddNeighbour(GridCell neighbour)
+          VB: Public Sub AddNeighbour(neighbour As GridCell)
+        parameters:
+        - id: neighbour
+          type: LevelGenerator.Generator.GridCell
+      overload: LevelGenerator.Generator.GridCell.AddNeighbour*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Generator.GridCell.InstantiateRoom(LevelGenerator.Generator.GridRoom)
+      commentId: M:LevelGenerator.Generator.GridCell.InstantiateRoom(LevelGenerator.Generator.GridRoom)
+      language: CSharp
+      name:
+        CSharp: InstantiateRoom(GridRoom)
+        VB: InstantiateRoom(GridRoom)
+      nameWithType:
+        CSharp: GridCell.InstantiateRoom(GridRoom)
+        VB: GridCell.InstantiateRoom(GridRoom)
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridCell.InstantiateRoom(LevelGenerator.Generator.GridRoom)
+        VB: LevelGenerator.Generator.GridCell.InstantiateRoom(LevelGenerator.Generator.GridRoom)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: InstantiateRoom
+        path: ''
+        startLine: 36
+      syntax:
+        content:
+          CSharp: public void InstantiateRoom(GridRoom gridRoom)
+          VB: Public Sub InstantiateRoom(gridRoom As GridRoom)
+        parameters:
+        - id: gridRoom
+          type: LevelGenerator.Generator.GridRoom
+      overload: LevelGenerator.Generator.GridCell.InstantiateRoom*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Generator.GridCell.GetGridPosition
+      commentId: M:LevelGenerator.Generator.GridCell.GetGridPosition
+      language: CSharp
+      name:
+        CSharp: GetGridPosition()
+        VB: GetGridPosition()
+      nameWithType:
+        CSharp: GridCell.GetGridPosition()
+        VB: GridCell.GetGridPosition()
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridCell.GetGridPosition()
+        VB: LevelGenerator.Generator.GridCell.GetGridPosition()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: GetGridPosition
+        path: ''
+        startLine: 45
+      syntax:
+        content:
+          CSharp: public Vector2 GetGridPosition()
+          VB: Public Function GetGridPosition As Vector2
+        return:
+          type: Global.Vector2
+      overload: LevelGenerator.Generator.GridCell.GetGridPosition*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Generator.GridCell.GetNeighbours
+      commentId: M:LevelGenerator.Generator.GridCell.GetNeighbours
+      language: CSharp
+      name:
+        CSharp: GetNeighbours()
+        VB: GetNeighbours()
+      nameWithType:
+        CSharp: GridCell.GetNeighbours()
+        VB: GridCell.GetNeighbours()
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridCell.GetNeighbours()
+        VB: LevelGenerator.Generator.GridCell.GetNeighbours()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: GetNeighbours
+        path: ''
+        startLine: 50
+      syntax:
+        content:
+          CSharp: public IEnumerable<GridCell> GetNeighbours()
+          VB: Public Function GetNeighbours As IEnumerable(Of GridCell)
+        return:
+          type: System.Collections.Generic.IEnumerable{LevelGenerator.Generator.GridCell}
+      overload: LevelGenerator.Generator.GridCell.GetNeighbours*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Generator.GridCell.GetPrefab
+      commentId: M:LevelGenerator.Generator.GridCell.GetPrefab
+      language: CSharp
+      name:
+        CSharp: GetPrefab()
+        VB: GetPrefab()
+      nameWithType:
+        CSharp: GridCell.GetPrefab()
+        VB: GridCell.GetPrefab()
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridCell.GetPrefab()
+        VB: LevelGenerator.Generator.GridCell.GetPrefab()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: GetPrefab
+        path: ''
+        startLine: 55
+      syntax:
+        content:
+          CSharp: public GameObject GetPrefab()
+          VB: Public Function GetPrefab As GameObject
+        return:
+          type: Global.GameObject
+      overload: LevelGenerator.Generator.GridCell.GetPrefab*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Generator.GridCell.HasExit(LevelGenerator.Generator.ExitDirection)
+      commentId: M:LevelGenerator.Generator.GridCell.HasExit(LevelGenerator.Generator.ExitDirection)
+      language: CSharp
+      name:
+        CSharp: HasExit(ExitDirection)
+        VB: HasExit(ExitDirection)
+      nameWithType:
+        CSharp: GridCell.HasExit(ExitDirection)
+        VB: GridCell.HasExit(ExitDirection)
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridCell.HasExit(LevelGenerator.Generator.ExitDirection)
+        VB: LevelGenerator.Generator.GridCell.HasExit(LevelGenerator.Generator.ExitDirection)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: HasExit
+        path: ''
+        startLine: 60
+      syntax:
+        content:
+          CSharp: public bool HasExit(ExitDirection exit)
+          VB: Public Function HasExit(exit As ExitDirection) As Boolean
+        parameters:
+        - id: exit
+          type: LevelGenerator.Generator.ExitDirection
+        return:
+          type: System.Boolean
+      overload: LevelGenerator.Generator.GridCell.HasExit*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Generator.GridCell.HasRoom
+      commentId: M:LevelGenerator.Generator.GridCell.HasRoom
+      language: CSharp
+      name:
+        CSharp: HasRoom()
+        VB: HasRoom()
+      nameWithType:
+        CSharp: GridCell.HasRoom()
+        VB: GridCell.HasRoom()
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridCell.HasRoom()
+        VB: LevelGenerator.Generator.GridCell.HasRoom()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: HasRoom
+        path: ''
+        startLine: 65
+      syntax:
+        content:
+          CSharp: public bool HasRoom()
+          VB: Public Function HasRoom As Boolean
+        return:
+          type: System.Boolean
+      overload: LevelGenerator.Generator.GridCell.HasRoom*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+  - id: LevelGenerator.Generator.ExitDirection
+    commentId: T:LevelGenerator.Generator.ExitDirection
+    language: CSharp
+    name:
+      CSharp: ExitDirection
+      VB: ExitDirection
+    nameWithType:
+      CSharp: ExitDirection
+      VB: ExitDirection
+    qualifiedName:
+      CSharp: LevelGenerator.Generator.ExitDirection
+      VB: LevelGenerator.Generator.ExitDirection
+    type: Enum
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Generator
+    source:
+      id: ExitDirection
+      path: ''
+      startLine: 77
+    syntax:
+      content:
+        CSharp: public enum ExitDirection
+        VB: Public Enum ExitDirection
+    modifiers:
+      CSharp:
+      - public
+      - enum
+      VB:
+      - Public
+      - Enum
+    items:
+    - id: LevelGenerator.Generator.ExitDirection.Top
+      commentId: F:LevelGenerator.Generator.ExitDirection.Top
+      language: CSharp
+      name:
+        CSharp: Top
+        VB: Top
+      nameWithType:
+        CSharp: ExitDirection.Top
+        VB: ExitDirection.Top
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.ExitDirection.Top
+        VB: LevelGenerator.Generator.ExitDirection.Top
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: Top
+        path: ''
+        startLine: 77
+      syntax:
+        content:
+          CSharp: Top = 0
+          VB: Top = 0
+        return:
+          type: LevelGenerator.Generator.ExitDirection
+      modifiers:
+        CSharp:
+        - public
+        - const
+        VB:
+        - Public
+        - Const
+    - id: LevelGenerator.Generator.ExitDirection.Right
+      commentId: F:LevelGenerator.Generator.ExitDirection.Right
+      language: CSharp
+      name:
+        CSharp: Right
+        VB: Right
+      nameWithType:
+        CSharp: ExitDirection.Right
+        VB: ExitDirection.Right
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.ExitDirection.Right
+        VB: LevelGenerator.Generator.ExitDirection.Right
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: Right
+        path: ''
+        startLine: 77
+      syntax:
+        content:
+          CSharp: Right = 1
+          VB: Right = 1
+        return:
+          type: LevelGenerator.Generator.ExitDirection
+      modifiers:
+        CSharp:
+        - public
+        - const
+        VB:
+        - Public
+        - Const
+    - id: LevelGenerator.Generator.ExitDirection.Bottom
+      commentId: F:LevelGenerator.Generator.ExitDirection.Bottom
+      language: CSharp
+      name:
+        CSharp: Bottom
+        VB: Bottom
+      nameWithType:
+        CSharp: ExitDirection.Bottom
+        VB: ExitDirection.Bottom
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.ExitDirection.Bottom
+        VB: LevelGenerator.Generator.ExitDirection.Bottom
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: Bottom
+        path: ''
+        startLine: 77
+      syntax:
+        content:
+          CSharp: Bottom = 2
+          VB: Bottom = 2
+        return:
+          type: LevelGenerator.Generator.ExitDirection
+      modifiers:
+        CSharp:
+        - public
+        - const
+        VB:
+        - Public
+        - Const
+    - id: LevelGenerator.Generator.ExitDirection.Left
+      commentId: F:LevelGenerator.Generator.ExitDirection.Left
+      language: CSharp
+      name:
+        CSharp: Left
+        VB: Left
+      nameWithType:
+        CSharp: ExitDirection.Left
+        VB: ExitDirection.Left
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.ExitDirection.Left
+        VB: LevelGenerator.Generator.ExitDirection.Left
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: Left
+        path: ''
+        startLine: 77
+      syntax:
+        content:
+          CSharp: Left = 3
+          VB: Left = 3
+        return:
+          type: LevelGenerator.Generator.ExitDirection
+      modifiers:
+        CSharp:
+        - public
+        - const
+        VB:
+        - Public
+        - Const
+  - id: LevelGenerator.Generator.GridRoom
+    commentId: T:LevelGenerator.Generator.GridRoom
+    language: CSharp
+    name:
+      CSharp: GridRoom
+      VB: GridRoom
+    nameWithType:
+      CSharp: GridRoom
+      VB: GridRoom
+    qualifiedName:
+      CSharp: LevelGenerator.Generator.GridRoom
+      VB: LevelGenerator.Generator.GridRoom
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Generator
+    source:
+      id: GridRoom
+      path: ''
+      startLine: 79
+    syntax:
+      content:
+        CSharp: >-
+          [Serializable]
+
+          public class GridRoom
+        VB: >-
+          <Serializable>
+
+          Public Class GridRoom
+    inheritance:
+    - System.Object
+    attributes:
+    - type: System.SerializableAttribute
+      ctor: System.SerializableAttribute.#ctor
+      arguments: []
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: LevelGenerator.Generator.GridRoom.prefab
+      commentId: F:LevelGenerator.Generator.GridRoom.prefab
+      language: CSharp
+      name:
+        CSharp: prefab
+        VB: prefab
+      nameWithType:
+        CSharp: GridRoom.prefab
+        VB: GridRoom.prefab
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridRoom.prefab
+        VB: LevelGenerator.Generator.GridRoom.prefab
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: prefab
+        path: ''
+        startLine: 82
+      syntax:
+        content:
+          CSharp: public GameObject prefab
+          VB: Public prefab As GameObject
+        return:
+          type: Global.GameObject
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Generator.GridRoom.exitDirections
+      commentId: F:LevelGenerator.Generator.GridRoom.exitDirections
+      language: CSharp
+      name:
+        CSharp: exitDirections
+        VB: exitDirections
+      nameWithType:
+        CSharp: GridRoom.exitDirections
+        VB: GridRoom.exitDirections
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridRoom.exitDirections
+        VB: LevelGenerator.Generator.GridRoom.exitDirections
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: exitDirections
+        path: ''
+        startLine: 83
+      syntax:
+        content:
+          CSharp: public List<ExitDirection> exitDirections
+          VB: Public exitDirections As List(Of ExitDirection)
+        return:
+          type: System.Collections.Generic.List{LevelGenerator.Generator.ExitDirection}
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Generator.GridRoom.isEssential
+      commentId: F:LevelGenerator.Generator.GridRoom.isEssential
+      language: CSharp
+      name:
+        CSharp: isEssential
+        VB: isEssential
+      nameWithType:
+        CSharp: GridRoom.isEssential
+        VB: GridRoom.isEssential
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridRoom.isEssential
+        VB: LevelGenerator.Generator.GridRoom.isEssential
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: isEssential
+        path: ''
+        startLine: 84
+      syntax:
+        content:
+          CSharp: public bool isEssential
+          VB: Public isEssential As Boolean
+        return:
+          type: System.Boolean
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Generator.GridRoom.hasFixedPosition
+      commentId: F:LevelGenerator.Generator.GridRoom.hasFixedPosition
+      language: CSharp
+      name:
+        CSharp: hasFixedPosition
+        VB: hasFixedPosition
+      nameWithType:
+        CSharp: GridRoom.hasFixedPosition
+        VB: GridRoom.hasFixedPosition
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridRoom.hasFixedPosition
+        VB: LevelGenerator.Generator.GridRoom.hasFixedPosition
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: hasFixedPosition
+        path: ''
+        startLine: 84
+      syntax:
+        content:
+          CSharp: public bool hasFixedPosition
+          VB: Public hasFixedPosition As Boolean
+        return:
+          type: System.Boolean
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Generator.GridRoom.fixedPosition
+      commentId: F:LevelGenerator.Generator.GridRoom.fixedPosition
+      language: CSharp
+      name:
+        CSharp: fixedPosition
+        VB: fixedPosition
+      nameWithType:
+        CSharp: GridRoom.fixedPosition
+        VB: GridRoom.fixedPosition
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.GridRoom.fixedPosition
+        VB: LevelGenerator.Generator.GridRoom.fixedPosition
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: fixedPosition
+        path: ''
+        startLine: 85
+      syntax:
+        content:
+          CSharp: public Vector2 fixedPosition
+          VB: Public fixedPosition As Vector2
+        return:
+          type: Global.Vector2
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+  - id: LevelGenerator.Generator.LevelGenerator
+    commentId: T:LevelGenerator.Generator.LevelGenerator
+    language: CSharp
+    name:
+      CSharp: LevelGenerator
+      VB: LevelGenerator
+    nameWithType:
+      CSharp: LevelGenerator
+      VB: LevelGenerator
+    qualifiedName:
+      CSharp: LevelGenerator.Generator.LevelGenerator
+      VB: LevelGenerator.Generator.LevelGenerator
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Generator
+    source:
+      id: LevelGenerator
+      path: ''
+      startLine: 103
+    summary: "\nThe static Level Generator.\n"
+    example: []
+    syntax:
+      content:
+        CSharp: public static class LevelGenerator
+        VB: Public Module LevelGenerator
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - static
+      - class
+      VB:
+      - Public
+      - Module
+    items:
+    - id: LevelGenerator.Generator.LevelGenerator.SetConfiguration(LevelGenerator.Utility.GeneratorConfig)
+      commentId: M:LevelGenerator.Generator.LevelGenerator.SetConfiguration(LevelGenerator.Utility.GeneratorConfig)
+      language: CSharp
+      name:
+        CSharp: SetConfiguration(GeneratorConfig)
+        VB: SetConfiguration(GeneratorConfig)
+      nameWithType:
+        CSharp: LevelGenerator.SetConfiguration(GeneratorConfig)
+        VB: LevelGenerator.SetConfiguration(GeneratorConfig)
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.LevelGenerator.SetConfiguration(LevelGenerator.Utility.GeneratorConfig)
+        VB: LevelGenerator.Generator.LevelGenerator.SetConfiguration(LevelGenerator.Utility.GeneratorConfig)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: SetConfiguration
+        path: ''
+        startLine: 121
+      syntax:
+        content:
+          CSharp: public static void SetConfiguration(GeneratorConfig config)
+          VB: Public Shared Sub SetConfiguration(config As GeneratorConfig)
+        parameters:
+        - id: config
+          type: LevelGenerator.Utility.GeneratorConfig
+      overload: LevelGenerator.Generator.LevelGenerator.SetConfiguration*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: LevelGenerator.Generator.LevelGenerator.GenerateNewLevel
+      commentId: M:LevelGenerator.Generator.LevelGenerator.GenerateNewLevel
+      language: CSharp
+      name:
+        CSharp: GenerateNewLevel()
+        VB: GenerateNewLevel()
+      nameWithType:
+        CSharp: LevelGenerator.GenerateNewLevel()
+        VB: LevelGenerator.GenerateNewLevel()
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.LevelGenerator.GenerateNewLevel()
+        VB: LevelGenerator.Generator.LevelGenerator.GenerateNewLevel()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: GenerateNewLevel
+        path: ''
+        startLine: 143
+      summary: "\nGenerates a new level and from a new seed.\n"
+      example:
+      - "\nThis sample shows how to call the <xref href=\"LevelGenerator.Generator.LevelGenerator.GenerateNewLevel\" data-throw-if-not-resolved=\"false\"></xref> method from an ExampleClass component on a GameObject that also has a <xref href=\"LevelGenerator.Generator.LevelGenerator\" data-throw-if-not-resolved=\"false\"></xref> component.\n<pre><code>using LevelGenerator.Generator;\n\nclass ExampleClass : MonoBehaviour\n{\n    private void Start()\n    {\n        LevelGenerator.GenerateNewLevel();\n    }\n}</code></pre>\n"
+      syntax:
+        content:
+          CSharp: public static void GenerateNewLevel()
+          VB: Public Shared Sub GenerateNewLevel
+      overload: LevelGenerator.Generator.LevelGenerator.GenerateNewLevel*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+      references:
+        LevelGenerator.Generator.LevelGenerator.GenerateNewLevel: 
+        LevelGenerator.Generator.LevelGenerator: 
+    - id: LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed
+      commentId: M:LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed
+      language: CSharp
+      name:
+        CSharp: GenerateLevelFromSeed()
+        VB: GenerateLevelFromSeed()
+      nameWithType:
+        CSharp: LevelGenerator.GenerateLevelFromSeed()
+        VB: LevelGenerator.GenerateLevelFromSeed()
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed()
+        VB: LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: GenerateLevelFromSeed
+        path: ''
+        startLine: 155
+      summary: "\nGenerates a Level from the current seed. If the seed is invalid it will generate a new level.\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void GenerateLevelFromSeed()
+          VB: Public Shared Sub GenerateLevelFromSeed
+      overload: LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed*
+      seealso:
+      - linkId: LevelGenerator.Generator.LevelGenerator.GenerateNewLevel
+        commentId: M:LevelGenerator.Generator.LevelGenerator.GenerateNewLevel
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+      references:
+        LevelGenerator.Generator.LevelGenerator.GenerateNewLevel: 
+    - id: LevelGenerator.Generator.LevelGenerator.ClearLevel
+      commentId: M:LevelGenerator.Generator.LevelGenerator.ClearLevel
+      language: CSharp
+      name:
+        CSharp: ClearLevel()
+        VB: ClearLevel()
+      nameWithType:
+        CSharp: LevelGenerator.ClearLevel()
+        VB: LevelGenerator.ClearLevel()
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.LevelGenerator.ClearLevel()
+        VB: LevelGenerator.Generator.LevelGenerator.ClearLevel()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: ClearLevel
+        path: ''
+        startLine: 177
+      summary: "\nDestroys the current level completely with all of the instantiated <xref href=\"LevelGenerator.Generator.GridRoom\" data-throw-if-not-resolved=\"false\"></xref>s.\n"
+      remarks: "\nThe levelSeed will not be deleted, but will be replaced once a new level is generated.\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void ClearLevel()
+          VB: Public Shared Sub ClearLevel
+      overload: LevelGenerator.Generator.LevelGenerator.ClearLevel*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+      references:
+        LevelGenerator.Generator.GridRoom: 
+    - id: LevelGenerator.Generator.LevelGenerator.SetSeed(System.String)
+      commentId: M:LevelGenerator.Generator.LevelGenerator.SetSeed(System.String)
+      language: CSharp
+      name:
+        CSharp: SetSeed(String)
+        VB: SetSeed(String)
+      nameWithType:
+        CSharp: LevelGenerator.SetSeed(String)
+        VB: LevelGenerator.SetSeed(String)
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.LevelGenerator.SetSeed(System.String)
+        VB: LevelGenerator.Generator.LevelGenerator.SetSeed(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: SetSeed
+        path: ''
+        startLine: 202
+      summary: "\nSets the seed for the <xref href=\"LevelGenerator.Generator.LevelGenerator\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+      remarks: "\nThe seed format is defined by four sections of 6-10 numbers, divided by a dash (-).<br />\nExample seed: 2885257376-2099986581-1044521005-723764510\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static bool SetSeed(string seed)
+          VB: Public Shared Function SetSeed(seed As String) As Boolean
+        parameters:
+        - id: seed
+          type: System.String
+          description: Level Seed string
+        return:
+          type: System.Boolean
+          description: true on success, false if seed is invalid
+      overload: LevelGenerator.Generator.LevelGenerator.SetSeed*
+      seealso:
+      - linkId: LevelGenerator.Generator.LevelGenerator.GetSeed
+        commentId: M:LevelGenerator.Generator.LevelGenerator.GetSeed
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+      references:
+        LevelGenerator.Generator.LevelGenerator: 
+        LevelGenerator.Generator.LevelGenerator.GetSeed: 
+    - id: LevelGenerator.Generator.LevelGenerator.GetSeed
+      commentId: M:LevelGenerator.Generator.LevelGenerator.GetSeed
+      language: CSharp
+      name:
+        CSharp: GetSeed()
+        VB: GetSeed()
+      nameWithType:
+        CSharp: LevelGenerator.GetSeed()
+        VB: LevelGenerator.GetSeed()
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.LevelGenerator.GetSeed()
+        VB: LevelGenerator.Generator.LevelGenerator.GetSeed()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: GetSeed
+        path: ''
+        startLine: 217
+      summary: "\nReturns the seed of the last generated level.\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static string GetSeed()
+          VB: Public Shared Function GetSeed As String
+        return:
+          type: System.String
+          description: Level Seed string
+      overload: LevelGenerator.Generator.LevelGenerator.GetSeed*
+      seealso:
+      - linkId: LevelGenerator.Generator.LevelGenerator.SetSeed(System.String)
+        commentId: M:LevelGenerator.Generator.LevelGenerator.SetSeed(System.String)
+      - linkId: LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed
+        commentId: M:LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+      references:
+        LevelGenerator.Generator.LevelGenerator.SetSeed(System.String): 
+        LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed: 
+    - id: LevelGenerator.Generator.LevelGenerator.EnableCaching
+      commentId: M:LevelGenerator.Generator.LevelGenerator.EnableCaching
+      language: CSharp
+      name:
+        CSharp: EnableCaching()
+        VB: EnableCaching()
+      nameWithType:
+        CSharp: LevelGenerator.EnableCaching()
+        VB: LevelGenerator.EnableCaching()
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.LevelGenerator.EnableCaching()
+        VB: LevelGenerator.Generator.LevelGenerator.EnableCaching()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: EnableCaching
+        path: ''
+        startLine: 226
+      summary: "\nEnables scene caching for saving info on generated levels.\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void EnableCaching()
+          VB: Public Shared Sub EnableCaching
+      overload: LevelGenerator.Generator.LevelGenerator.EnableCaching*
+      seealso:
+      - linkId: LevelGenerator.Generator.LevelGenerator.DisableCaching
+        commentId: M:LevelGenerator.Generator.LevelGenerator.DisableCaching
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+      references:
+        LevelGenerator.Generator.LevelGenerator.DisableCaching: 
+    - id: LevelGenerator.Generator.LevelGenerator.DisableCaching
+      commentId: M:LevelGenerator.Generator.LevelGenerator.DisableCaching
+      language: CSharp
+      name:
+        CSharp: DisableCaching()
+        VB: DisableCaching()
+      nameWithType:
+        CSharp: LevelGenerator.DisableCaching()
+        VB: LevelGenerator.DisableCaching()
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.LevelGenerator.DisableCaching()
+        VB: LevelGenerator.Generator.LevelGenerator.DisableCaching()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: DisableCaching
+        path: ''
+        startLine: 239
+      summary: "\nDisables scene caching for saving info on generated levels.\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void DisableCaching()
+          VB: Public Shared Sub DisableCaching
+      overload: LevelGenerator.Generator.LevelGenerator.DisableCaching*
+      seealso:
+      - linkId: LevelGenerator.Generator.LevelGenerator.EnableCaching
+        commentId: M:LevelGenerator.Generator.LevelGenerator.EnableCaching
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+      references:
+        LevelGenerator.Generator.LevelGenerator.EnableCaching: 
+    - id: LevelGenerator.Generator.LevelGenerator.ClearCache
+      commentId: M:LevelGenerator.Generator.LevelGenerator.ClearCache
+      language: CSharp
+      name:
+        CSharp: ClearCache()
+        VB: ClearCache()
+      nameWithType:
+        CSharp: LevelGenerator.ClearCache()
+        VB: LevelGenerator.ClearCache()
+      qualifiedName:
+        CSharp: LevelGenerator.Generator.LevelGenerator.ClearCache()
+        VB: LevelGenerator.Generator.LevelGenerator.ClearCache()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Generator
+      source:
+        id: ClearCache
+        path: ''
+        startLine: 246
+      syntax:
+        content:
+          CSharp: public static void ClearCache()
+          VB: Public Shared Sub ClearCache
+      overload: LevelGenerator.Generator.LevelGenerator.ClearCache*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+- id: LevelGenerator.Utility
+  commentId: N:LevelGenerator.Utility
+  language: CSharp
+  name:
+    CSharp: LevelGenerator.Utility
+    VB: LevelGenerator.Utility
+  nameWithType:
+    CSharp: LevelGenerator.Utility
+    VB: LevelGenerator.Utility
+  qualifiedName:
+    CSharp: LevelGenerator.Utility
+    VB: LevelGenerator.Utility
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+  modifiers: {}
+  items:
+  - id: LevelGenerator.Utility.EventHandler
+    commentId: T:LevelGenerator.Utility.EventHandler
+    language: CSharp
+    name:
+      CSharp: EventHandler
+      VB: EventHandler
+    nameWithType:
+      CSharp: EventHandler
+      VB: EventHandler
+    qualifiedName:
+      CSharp: LevelGenerator.Utility.EventHandler
+      VB: LevelGenerator.Utility.EventHandler
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Utility
+    source:
+      id: EventHandler
+      path: ''
+      startLine: 594
+    syntax:
+      content:
+        CSharp: public static class EventHandler
+        VB: Public Module EventHandler
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - static
+      - class
+      VB:
+      - Public
+      - Module
+    items:
+    - id: LevelGenerator.Utility.EventHandler.generatorLostReference
+      commentId: E:LevelGenerator.Utility.EventHandler.generatorLostReference
+      language: CSharp
+      name:
+        CSharp: generatorLostReference
+        VB: generatorLostReference
+      nameWithType:
+        CSharp: EventHandler.generatorLostReference
+        VB: EventHandler.generatorLostReference
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.EventHandler.generatorLostReference
+        VB: LevelGenerator.Utility.EventHandler.generatorLostReference
+      type: Event
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: generatorLostReference
+        path: ''
+        startLine: 596
+      syntax:
+        content:
+          CSharp: public static event EventHandler.GeneratorLostReferenceCallback generatorLostReference
+          VB: Public Shared Event generatorLostReference As EventHandler.GeneratorLostReferenceCallback
+        return:
+          type: LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: LevelGenerator.Utility.EventHandler.LostReference
+      commentId: M:LevelGenerator.Utility.EventHandler.LostReference
+      language: CSharp
+      name:
+        CSharp: LostReference()
+        VB: LostReference()
+      nameWithType:
+        CSharp: EventHandler.LostReference()
+        VB: EventHandler.LostReference()
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.EventHandler.LostReference()
+        VB: LevelGenerator.Utility.EventHandler.LostReference()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: LostReference
+        path: ''
+        startLine: 600
+      syntax:
+        content:
+          CSharp: public static void LostReference()
+          VB: Public Shared Sub LostReference
+      overload: LevelGenerator.Utility.EventHandler.LostReference*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+  - id: LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
+    commentId: T:LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
+    language: CSharp
+    name:
+      CSharp: EventHandler.GeneratorLostReferenceCallback
+      VB: EventHandler.GeneratorLostReferenceCallback
+    nameWithType:
+      CSharp: EventHandler.GeneratorLostReferenceCallback
+      VB: EventHandler.GeneratorLostReferenceCallback
+    qualifiedName:
+      CSharp: LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
+      VB: LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
+    type: Delegate
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Utility
+    source:
+      id: GeneratorLostReferenceCallback
+      path: ''
+      startLine: 598
+    syntax:
+      content:
+        CSharp: public delegate void GeneratorLostReferenceCallback(Scene scene, OpenSceneMode sceneMode);
+        VB: Public Delegate Sub GeneratorLostReferenceCallback(scene As Scene, sceneMode As OpenSceneMode)
+      parameters:
+      - id: scene
+        type: Global.Scene
+      - id: sceneMode
+        type: Global.OpenSceneMode
+    modifiers:
+      CSharp:
+      - public
+      - delegate
+      VB:
+      - Public
+      - Delegate
+    items: []
+  - id: LevelGenerator.Utility.GridAlignment
+    commentId: T:LevelGenerator.Utility.GridAlignment
+    language: CSharp
+    name:
+      CSharp: GridAlignment
+      VB: GridAlignment
+    nameWithType:
+      CSharp: GridAlignment
+      VB: GridAlignment
+    qualifiedName:
+      CSharp: LevelGenerator.Utility.GridAlignment
+      VB: LevelGenerator.Utility.GridAlignment
+    type: Enum
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Utility
+    source:
+      id: GridAlignment
+      path: ''
+      startLine: 621
+    syntax:
+      content:
+        CSharp: public enum GridAlignment
+        VB: Public Enum GridAlignment
+    modifiers:
+      CSharp:
+      - public
+      - enum
+      VB:
+      - Public
+      - Enum
+    items:
+    - id: LevelGenerator.Utility.GridAlignment.Horizontal
+      commentId: F:LevelGenerator.Utility.GridAlignment.Horizontal
+      language: CSharp
+      name:
+        CSharp: Horizontal
+        VB: Horizontal
+      nameWithType:
+        CSharp: GridAlignment.Horizontal
+        VB: GridAlignment.Horizontal
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GridAlignment.Horizontal
+        VB: LevelGenerator.Utility.GridAlignment.Horizontal
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: Horizontal
+        path: ''
+        startLine: 621
+      syntax:
+        content:
+          CSharp: Horizontal = 0
+          VB: Horizontal = 0
+        return:
+          type: LevelGenerator.Utility.GridAlignment
+      modifiers:
+        CSharp:
+        - public
+        - const
+        VB:
+        - Public
+        - Const
+    - id: LevelGenerator.Utility.GridAlignment.Vertical
+      commentId: F:LevelGenerator.Utility.GridAlignment.Vertical
+      language: CSharp
+      name:
+        CSharp: Vertical
+        VB: Vertical
+      nameWithType:
+        CSharp: GridAlignment.Vertical
+        VB: GridAlignment.Vertical
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GridAlignment.Vertical
+        VB: LevelGenerator.Utility.GridAlignment.Vertical
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: Vertical
+        path: ''
+        startLine: 621
+      syntax:
+        content:
+          CSharp: Vertical = 1
+          VB: Vertical = 1
+        return:
+          type: LevelGenerator.Utility.GridAlignment
+      modifiers:
+        CSharp:
+        - public
+        - const
+        VB:
+        - Public
+        - Const
+  - id: LevelGenerator.Utility.GeneratorConfig
+    commentId: T:LevelGenerator.Utility.GeneratorConfig
+    language: CSharp
+    name:
+      CSharp: GeneratorConfig
+      VB: GeneratorConfig
+    nameWithType:
+      CSharp: GeneratorConfig
+      VB: GeneratorConfig
+    qualifiedName:
+      CSharp: LevelGenerator.Utility.GeneratorConfig
+      VB: LevelGenerator.Utility.GeneratorConfig
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Utility
+    source:
+      id: GeneratorConfig
+      path: ''
+      startLine: 623
+    syntax:
+      content:
+        CSharp: >-
+          [Serializable]
+
+          public class GeneratorConfig : ScriptableObject
+        VB: >-
+          <Serializable>
+
+          Public Class GeneratorConfig
+
+              Inherits ScriptableObject
+    inheritance:
+    - System.Object
+    attributes:
+    - type: System.SerializableAttribute
+      ctor: System.SerializableAttribute.#ctor
+      arguments: []
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: LevelGenerator.Utility.GeneratorConfig.gridWidth
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.gridWidth
+      language: CSharp
+      name:
+        CSharp: gridWidth
+        VB: gridWidth
+      nameWithType:
+        CSharp: GeneratorConfig.gridWidth
+        VB: GeneratorConfig.gridWidth
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.gridWidth
+        VB: LevelGenerator.Utility.GeneratorConfig.gridWidth
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: gridWidth
+        path: ''
+        startLine: 626
+      syntax:
+        content:
+          CSharp: public int gridWidth
+          VB: Public gridWidth As Integer
+        return:
+          type: System.Int32
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.gridHeight
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.gridHeight
+      language: CSharp
+      name:
+        CSharp: gridHeight
+        VB: gridHeight
+      nameWithType:
+        CSharp: GeneratorConfig.gridHeight
+        VB: GeneratorConfig.gridHeight
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.gridHeight
+        VB: LevelGenerator.Utility.GeneratorConfig.gridHeight
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: gridHeight
+        path: ''
+        startLine: 626
+      syntax:
+        content:
+          CSharp: public int gridHeight
+          VB: Public gridHeight As Integer
+        return:
+          type: System.Int32
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.minLevelSize
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.minLevelSize
+      language: CSharp
+      name:
+        CSharp: minLevelSize
+        VB: minLevelSize
+      nameWithType:
+        CSharp: GeneratorConfig.minLevelSize
+        VB: GeneratorConfig.minLevelSize
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.minLevelSize
+        VB: LevelGenerator.Utility.GeneratorConfig.minLevelSize
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: minLevelSize
+        path: ''
+        startLine: 627
+      syntax:
+        content:
+          CSharp: public int minLevelSize
+          VB: Public minLevelSize As Integer
+        return:
+          type: System.Int32
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.forcedLevelGeneration
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.forcedLevelGeneration
+      language: CSharp
+      name:
+        CSharp: forcedLevelGeneration
+        VB: forcedLevelGeneration
+      nameWithType:
+        CSharp: GeneratorConfig.forcedLevelGeneration
+        VB: GeneratorConfig.forcedLevelGeneration
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.forcedLevelGeneration
+        VB: LevelGenerator.Utility.GeneratorConfig.forcedLevelGeneration
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: forcedLevelGeneration
+        path: ''
+        startLine: 629
+      syntax:
+        content:
+          CSharp: public bool forcedLevelGeneration
+          VB: Public forcedLevelGeneration As Boolean
+        return:
+          type: System.Boolean
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.gridAlignment
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.gridAlignment
+      language: CSharp
+      name:
+        CSharp: gridAlignment
+        VB: gridAlignment
+      nameWithType:
+        CSharp: GeneratorConfig.gridAlignment
+        VB: GeneratorConfig.gridAlignment
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.gridAlignment
+        VB: LevelGenerator.Utility.GeneratorConfig.gridAlignment
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: gridAlignment
+        path: ''
+        startLine: 631
+      syntax:
+        content:
+          CSharp: public GridAlignment gridAlignment
+          VB: Public gridAlignment As GridAlignment
+        return:
+          type: LevelGenerator.Utility.GridAlignment
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.cellPositionOffset
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.cellPositionOffset
+      language: CSharp
+      name:
+        CSharp: cellPositionOffset
+        VB: cellPositionOffset
+      nameWithType:
+        CSharp: GeneratorConfig.cellPositionOffset
+        VB: GeneratorConfig.cellPositionOffset
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.cellPositionOffset
+        VB: LevelGenerator.Utility.GeneratorConfig.cellPositionOffset
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: cellPositionOffset
+        path: ''
+        startLine: 633
+      syntax:
+        content:
+          CSharp: public Vector2 cellPositionOffset
+          VB: Public cellPositionOffset As Vector2
+        return:
+          type: Global.Vector2
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.cellRotation
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.cellRotation
+      language: CSharp
+      name:
+        CSharp: cellRotation
+        VB: cellRotation
+      nameWithType:
+        CSharp: GeneratorConfig.cellRotation
+        VB: GeneratorConfig.cellRotation
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.cellRotation
+        VB: LevelGenerator.Utility.GeneratorConfig.cellRotation
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: cellRotation
+        path: ''
+        startLine: 635
+      syntax:
+        content:
+          CSharp: public Vector3 cellRotation
+          VB: Public cellRotation As Vector3
+        return:
+          type: Global.Vector3
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.cellScale
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.cellScale
+      language: CSharp
+      name:
+        CSharp: cellScale
+        VB: cellScale
+      nameWithType:
+        CSharp: GeneratorConfig.cellScale
+        VB: GeneratorConfig.cellScale
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.cellScale
+        VB: LevelGenerator.Utility.GeneratorConfig.cellScale
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: cellScale
+        path: ''
+        startLine: 636
+      syntax:
+        content:
+          CSharp: public Vector3 cellScale
+          VB: Public cellScale As Vector3
+        return:
+          type: Global.Vector3
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.levelPosition
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.levelPosition
+      language: CSharp
+      name:
+        CSharp: levelPosition
+        VB: levelPosition
+      nameWithType:
+        CSharp: GeneratorConfig.levelPosition
+        VB: GeneratorConfig.levelPosition
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.levelPosition
+        VB: LevelGenerator.Utility.GeneratorConfig.levelPosition
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: levelPosition
+        path: ''
+        startLine: 638
+      syntax:
+        content:
+          CSharp: public Vector3 levelPosition
+          VB: Public levelPosition As Vector3
+        return:
+          type: Global.Vector3
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.levelRotation
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.levelRotation
+      language: CSharp
+      name:
+        CSharp: levelRotation
+        VB: levelRotation
+      nameWithType:
+        CSharp: GeneratorConfig.levelRotation
+        VB: GeneratorConfig.levelRotation
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.levelRotation
+        VB: LevelGenerator.Utility.GeneratorConfig.levelRotation
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: levelRotation
+        path: ''
+        startLine: 639
+      syntax:
+        content:
+          CSharp: public Vector3 levelRotation
+          VB: Public levelRotation As Vector3
+        return:
+          type: Global.Vector3
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.levelScale
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.levelScale
+      language: CSharp
+      name:
+        CSharp: levelScale
+        VB: levelScale
+      nameWithType:
+        CSharp: GeneratorConfig.levelScale
+        VB: GeneratorConfig.levelScale
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.levelScale
+        VB: LevelGenerator.Utility.GeneratorConfig.levelScale
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: levelScale
+        path: ''
+        startLine: 640
+      syntax:
+        content:
+          CSharp: public Vector3 levelScale
+          VB: Public levelScale As Vector3
+        return:
+          type: Global.Vector3
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.roomTemplates
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.roomTemplates
+      language: CSharp
+      name:
+        CSharp: roomTemplates
+        VB: roomTemplates
+      nameWithType:
+        CSharp: GeneratorConfig.roomTemplates
+        VB: GeneratorConfig.roomTemplates
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.roomTemplates
+        VB: LevelGenerator.Utility.GeneratorConfig.roomTemplates
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: roomTemplates
+        path: ''
+        startLine: 642
+      syntax:
+        content:
+          CSharp: public List<GridRoom> roomTemplates
+          VB: Public roomTemplates As List(Of GridRoom)
+        return:
+          type: System.Collections.Generic.List{GridRoom}
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.disableSceneCaching
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.disableSceneCaching
+      language: CSharp
+      name:
+        CSharp: disableSceneCaching
+        VB: disableSceneCaching
+      nameWithType:
+        CSharp: GeneratorConfig.disableSceneCaching
+        VB: GeneratorConfig.disableSceneCaching
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.disableSceneCaching
+        VB: LevelGenerator.Utility.GeneratorConfig.disableSceneCaching
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: disableSceneCaching
+        path: ''
+        startLine: 646
+      syntax:
+        content:
+          CSharp: public bool disableSceneCaching
+          VB: Public disableSceneCaching As Boolean
+        return:
+          type: System.Boolean
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.automaticSave
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.automaticSave
+      language: CSharp
+      name:
+        CSharp: automaticSave
+        VB: automaticSave
+      nameWithType:
+        CSharp: GeneratorConfig.automaticSave
+        VB: GeneratorConfig.automaticSave
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.automaticSave
+        VB: LevelGenerator.Utility.GeneratorConfig.automaticSave
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: automaticSave
+        path: ''
+        startLine: 647
+      syntax:
+        content:
+          CSharp: public bool automaticSave
+          VB: Public automaticSave As Boolean
+        return:
+          type: System.Boolean
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.GeneratorConfig.automaticOcclusionCulling
+      commentId: F:LevelGenerator.Utility.GeneratorConfig.automaticOcclusionCulling
+      language: CSharp
+      name:
+        CSharp: automaticOcclusionCulling
+        VB: automaticOcclusionCulling
+      nameWithType:
+        CSharp: GeneratorConfig.automaticOcclusionCulling
+        VB: GeneratorConfig.automaticOcclusionCulling
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfig.automaticOcclusionCulling
+        VB: LevelGenerator.Utility.GeneratorConfig.automaticOcclusionCulling
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: automaticOcclusionCulling
+        path: ''
+        startLine: 648
+      syntax:
+        content:
+          CSharp: public bool automaticOcclusionCulling
+          VB: Public automaticOcclusionCulling As Boolean
+        return:
+          type: System.Boolean
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+  - id: LevelGenerator.Utility.GeneratorConfigUtility
+    commentId: T:LevelGenerator.Utility.GeneratorConfigUtility
+    language: CSharp
+    name:
+      CSharp: GeneratorConfigUtility
+      VB: GeneratorConfigUtility
+    nameWithType:
+      CSharp: GeneratorConfigUtility
+      VB: GeneratorConfigUtility
+    qualifiedName:
+      CSharp: LevelGenerator.Utility.GeneratorConfigUtility
+      VB: LevelGenerator.Utility.GeneratorConfigUtility
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Utility
+    source:
+      id: GeneratorConfigUtility
+      path: ''
+      startLine: 651
+    syntax:
+      content:
+        CSharp: public static class GeneratorConfigUtility
+        VB: Public Module GeneratorConfigUtility
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - static
+      - class
+      VB:
+      - Public
+      - Module
+    items:
+    - id: LevelGenerator.Utility.GeneratorConfigUtility.GetConfiguration(System.String)
+      commentId: M:LevelGenerator.Utility.GeneratorConfigUtility.GetConfiguration(System.String)
+      language: CSharp
+      name:
+        CSharp: GetConfiguration(String)
+        VB: GetConfiguration(String)
+      nameWithType:
+        CSharp: GeneratorConfigUtility.GetConfiguration(String)
+        VB: GeneratorConfigUtility.GetConfiguration(String)
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfigUtility.GetConfiguration(System.String)
+        VB: LevelGenerator.Utility.GeneratorConfigUtility.GetConfiguration(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: GetConfiguration
+        path: ''
+        startLine: 653
+      syntax:
+        content:
+          CSharp: public static GeneratorConfig GetConfiguration(string config)
+          VB: Public Shared Function GetConfiguration(config As String) As GeneratorConfig
+        parameters:
+        - id: config
+          type: System.String
+        return:
+          type: LevelGenerator.Utility.GeneratorConfig
+      overload: LevelGenerator.Utility.GeneratorConfigUtility.GetConfiguration*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: LevelGenerator.Utility.GeneratorConfigUtility.CreateConfiguration(System.String)
+      commentId: M:LevelGenerator.Utility.GeneratorConfigUtility.CreateConfiguration(System.String)
+      language: CSharp
+      name:
+        CSharp: CreateConfiguration(String)
+        VB: CreateConfiguration(String)
+      nameWithType:
+        CSharp: GeneratorConfigUtility.CreateConfiguration(String)
+        VB: GeneratorConfigUtility.CreateConfiguration(String)
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.GeneratorConfigUtility.CreateConfiguration(System.String)
+        VB: LevelGenerator.Utility.GeneratorConfigUtility.CreateConfiguration(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: CreateConfiguration
+        path: ''
+        startLine: 661
+      syntax:
+        content:
+          CSharp: public static GeneratorConfig CreateConfiguration(string name)
+          VB: Public Shared Function CreateConfiguration(name As String) As GeneratorConfig
+        parameters:
+        - id: name
+          type: System.String
+        return:
+          type: LevelGenerator.Utility.GeneratorConfig
+      overload: LevelGenerator.Utility.GeneratorConfigUtility.CreateConfiguration*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+  - id: LevelGenerator.Utility.SceneCache
+    commentId: T:LevelGenerator.Utility.SceneCache
+    language: CSharp
+    name:
+      CSharp: SceneCache
+      VB: SceneCache
+    nameWithType:
+      CSharp: SceneCache
+      VB: SceneCache
+    qualifiedName:
+      CSharp: LevelGenerator.Utility.SceneCache
+      VB: LevelGenerator.Utility.SceneCache
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Utility
+    source:
+      id: SceneCache
+      path: ''
+      startLine: 683
+    syntax:
+      content:
+        CSharp: public class SceneCache
+        VB: Public Class SceneCache
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: LevelGenerator.Utility.SceneCache.sceneName
+      commentId: F:LevelGenerator.Utility.SceneCache.sceneName
+      language: CSharp
+      name:
+        CSharp: sceneName
+        VB: sceneName
+      nameWithType:
+        CSharp: SceneCache.sceneName
+        VB: SceneCache.sceneName
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SceneCache.sceneName
+        VB: LevelGenerator.Utility.SceneCache.sceneName
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: sceneName
+        path: ''
+        startLine: 685
+      syntax:
+        content:
+          CSharp: public string sceneName
+          VB: Public sceneName As String
+        return:
+          type: System.String
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.SceneCache.sceneID
+      commentId: F:LevelGenerator.Utility.SceneCache.sceneID
+      language: CSharp
+      name:
+        CSharp: sceneID
+        VB: sceneID
+      nameWithType:
+        CSharp: SceneCache.sceneID
+        VB: SceneCache.sceneID
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SceneCache.sceneID
+        VB: LevelGenerator.Utility.SceneCache.sceneID
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: sceneID
+        path: ''
+        startLine: 686
+      syntax:
+        content:
+          CSharp: public string sceneID
+          VB: Public sceneID As String
+        return:
+          type: System.String
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.SceneCache.levelObjectID
+      commentId: F:LevelGenerator.Utility.SceneCache.levelObjectID
+      language: CSharp
+      name:
+        CSharp: levelObjectID
+        VB: levelObjectID
+      nameWithType:
+        CSharp: SceneCache.levelObjectID
+        VB: SceneCache.levelObjectID
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SceneCache.levelObjectID
+        VB: LevelGenerator.Utility.SceneCache.levelObjectID
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: levelObjectID
+        path: ''
+        startLine: 687
+      syntax:
+        content:
+          CSharp: public string levelObjectID
+          VB: Public levelObjectID As String
+        return:
+          type: System.String
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.SceneCache.lastSeed
+      commentId: F:LevelGenerator.Utility.SceneCache.lastSeed
+      language: CSharp
+      name:
+        CSharp: lastSeed
+        VB: lastSeed
+      nameWithType:
+        CSharp: SceneCache.lastSeed
+        VB: SceneCache.lastSeed
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SceneCache.lastSeed
+        VB: LevelGenerator.Utility.SceneCache.lastSeed
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: lastSeed
+        path: ''
+        startLine: 688
+      syntax:
+        content:
+          CSharp: public string lastSeed
+          VB: Public lastSeed As String
+        return:
+          type: System.String
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+  - id: LevelGenerator.Utility.SceneCacheUtility
+    commentId: T:LevelGenerator.Utility.SceneCacheUtility
+    language: CSharp
+    name:
+      CSharp: SceneCacheUtility
+      VB: SceneCacheUtility
+    nameWithType:
+      CSharp: SceneCacheUtility
+      VB: SceneCacheUtility
+    qualifiedName:
+      CSharp: LevelGenerator.Utility.SceneCacheUtility
+      VB: LevelGenerator.Utility.SceneCacheUtility
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Utility
+    source:
+      id: SceneCacheUtility
+      path: ''
+      startLine: 691
+    syntax:
+      content:
+        CSharp: public static class SceneCacheUtility
+        VB: Public Module SceneCacheUtility
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - static
+      - class
+      VB:
+      - Public
+      - Module
+    items:
+    - id: LevelGenerator.Utility.SceneCacheUtility.GetCache(Scene)
+      commentId: M:LevelGenerator.Utility.SceneCacheUtility.GetCache(Scene)
+      language: CSharp
+      name:
+        CSharp: GetCache(Scene)
+        VB: GetCache(Scene)
+      nameWithType:
+        CSharp: SceneCacheUtility.GetCache(Scene)
+        VB: SceneCacheUtility.GetCache(Scene)
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SceneCacheUtility.GetCache(Scene)
+        VB: LevelGenerator.Utility.SceneCacheUtility.GetCache(Scene)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: GetCache
+        path: ''
+        startLine: 694
+      syntax:
+        content:
+          CSharp: public static SceneCache GetCache(Scene scene)
+          VB: Public Shared Function GetCache(scene As Scene) As SceneCache
+        parameters:
+        - id: scene
+          type: Global.Scene
+        return:
+          type: LevelGenerator.Utility.SceneCache
+      overload: LevelGenerator.Utility.SceneCacheUtility.GetCache*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: LevelGenerator.Utility.SceneCacheUtility.SaveCache(LevelGenerator.Utility.SceneCache)
+      commentId: M:LevelGenerator.Utility.SceneCacheUtility.SaveCache(LevelGenerator.Utility.SceneCache)
+      language: CSharp
+      name:
+        CSharp: SaveCache(SceneCache)
+        VB: SaveCache(SceneCache)
+      nameWithType:
+        CSharp: SceneCacheUtility.SaveCache(SceneCache)
+        VB: SceneCacheUtility.SaveCache(SceneCache)
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SceneCacheUtility.SaveCache(LevelGenerator.Utility.SceneCache)
+        VB: LevelGenerator.Utility.SceneCacheUtility.SaveCache(LevelGenerator.Utility.SceneCache)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: SaveCache
+        path: ''
+        startLine: 707
+      syntax:
+        content:
+          CSharp: public static SceneCache SaveCache(SceneCache cache)
+          VB: Public Shared Function SaveCache(cache As SceneCache) As SceneCache
+        parameters:
+        - id: cache
+          type: LevelGenerator.Utility.SceneCache
+        return:
+          type: LevelGenerator.Utility.SceneCache
+      overload: LevelGenerator.Utility.SceneCacheUtility.SaveCache*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+  - id: LevelGenerator.Utility.SeedConfig
+    commentId: T:LevelGenerator.Utility.SeedConfig
+    language: CSharp
+    name:
+      CSharp: SeedConfig
+      VB: SeedConfig
+    nameWithType:
+      CSharp: SeedConfig
+      VB: SeedConfig
+    qualifiedName:
+      CSharp: LevelGenerator.Utility.SeedConfig
+      VB: LevelGenerator.Utility.SeedConfig
+    type: Struct
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Utility
+    source:
+      id: SeedConfig
+      path: ''
+      startLine: 730
+    syntax:
+      content:
+        CSharp: public struct SeedConfig
+        VB: Public Structure SeedConfig
+    modifiers:
+      CSharp:
+      - public
+      - struct
+      VB:
+      - Public
+      - Structure
+    items:
+    - id: LevelGenerator.Utility.SeedConfig.v0
+      commentId: F:LevelGenerator.Utility.SeedConfig.v0
+      language: CSharp
+      name:
+        CSharp: v0
+        VB: v0
+      nameWithType:
+        CSharp: SeedConfig.v0
+        VB: SeedConfig.v0
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SeedConfig.v0
+        VB: LevelGenerator.Utility.SeedConfig.v0
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: v0
+        path: ''
+        startLine: 734
+      syntax:
+        content:
+          CSharp: public uint v0
+          VB: Public v0 As UInteger
+        return:
+          type: System.UInt32
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.SeedConfig.v1
+      commentId: F:LevelGenerator.Utility.SeedConfig.v1
+      language: CSharp
+      name:
+        CSharp: v1
+        VB: v1
+      nameWithType:
+        CSharp: SeedConfig.v1
+        VB: SeedConfig.v1
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SeedConfig.v1
+        VB: LevelGenerator.Utility.SeedConfig.v1
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: v1
+        path: ''
+        startLine: 735
+      syntax:
+        content:
+          CSharp: public uint v1
+          VB: Public v1 As UInteger
+        return:
+          type: System.UInt32
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.SeedConfig.v2
+      commentId: F:LevelGenerator.Utility.SeedConfig.v2
+      language: CSharp
+      name:
+        CSharp: v2
+        VB: v2
+      nameWithType:
+        CSharp: SeedConfig.v2
+        VB: SeedConfig.v2
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SeedConfig.v2
+        VB: LevelGenerator.Utility.SeedConfig.v2
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: v2
+        path: ''
+        startLine: 736
+      syntax:
+        content:
+          CSharp: public uint v2
+          VB: Public v2 As UInteger
+        return:
+          type: System.UInt32
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.SeedConfig.v3
+      commentId: F:LevelGenerator.Utility.SeedConfig.v3
+      language: CSharp
+      name:
+        CSharp: v3
+        VB: v3
+      nameWithType:
+        CSharp: SeedConfig.v3
+        VB: SeedConfig.v3
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SeedConfig.v3
+        VB: LevelGenerator.Utility.SeedConfig.v3
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: v3
+        path: ''
+        startLine: 737
+      syntax:
+        content:
+          CSharp: public uint v3
+          VB: Public v3 As UInteger
+        return:
+          type: System.UInt32
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: LevelGenerator.Utility.SeedConfig.op_Implicit(Random.State)~LevelGenerator.Utility.SeedConfig
+      commentId: M:LevelGenerator.Utility.SeedConfig.op_Implicit(Random.State)~LevelGenerator.Utility.SeedConfig
+      language: CSharp
+      name:
+        CSharp: Implicit(Random.State to SeedConfig)
+        VB: Widening(Random.State to SeedConfig)
+      nameWithType:
+        CSharp: SeedConfig.Implicit(Random.State to SeedConfig)
+        VB: SeedConfig.Widening(Random.State to SeedConfig)
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SeedConfig.Implicit(Random.State to LevelGenerator.Utility.SeedConfig)
+        VB: LevelGenerator.Utility.SeedConfig.Widening(Random.State to LevelGenerator.Utility.SeedConfig)
+      type: Operator
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: op_Implicit
+        path: ''
+        startLine: 739
+      syntax:
+        content:
+          CSharp: public static implicit operator SeedConfig(Random.State aState)
+          VB: Public Shared Widening Operator CType(aState As Random.State) As SeedConfig
+        parameters:
+        - id: aState
+          type: Global.Random.State
+        return:
+          type: LevelGenerator.Utility.SeedConfig
+      overload: LevelGenerator.Utility.SeedConfig.op_Implicit*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: LevelGenerator.Utility.SeedConfig.op_Implicit(LevelGenerator.Utility.SeedConfig)~Random.State
+      commentId: M:LevelGenerator.Utility.SeedConfig.op_Implicit(LevelGenerator.Utility.SeedConfig)~Random.State
+      language: CSharp
+      name:
+        CSharp: Implicit(SeedConfig to Random.State)
+        VB: Widening(SeedConfig to Random.State)
+      nameWithType:
+        CSharp: SeedConfig.Implicit(SeedConfig to Random.State)
+        VB: SeedConfig.Widening(SeedConfig to Random.State)
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SeedConfig.Implicit(LevelGenerator.Utility.SeedConfig to Random.State)
+        VB: LevelGenerator.Utility.SeedConfig.Widening(LevelGenerator.Utility.SeedConfig to Random.State)
+      type: Operator
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: op_Implicit
+        path: ''
+        startLine: 740
+      syntax:
+        content:
+          CSharp: public static implicit operator Random.State(SeedConfig aState)
+          VB: Public Shared Widening Operator CType(aState As SeedConfig) As Random.State
+        parameters:
+        - id: aState
+          type: LevelGenerator.Utility.SeedConfig
+        return:
+          type: Global.Random.State
+      overload: LevelGenerator.Utility.SeedConfig.op_Implicit*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+  - id: LevelGenerator.Utility.SeedConfigUtility
+    commentId: T:LevelGenerator.Utility.SeedConfigUtility
+    language: CSharp
+    name:
+      CSharp: SeedConfigUtility
+      VB: SeedConfigUtility
+    nameWithType:
+      CSharp: SeedConfigUtility
+      VB: SeedConfigUtility
+    qualifiedName:
+      CSharp: LevelGenerator.Utility.SeedConfigUtility
+      VB: LevelGenerator.Utility.SeedConfigUtility
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: LevelGenerator.Utility
+    source:
+      id: SeedConfigUtility
+      path: ''
+      startLine: 743
+    syntax:
+      content:
+        CSharp: public static class SeedConfigUtility
+        VB: Public Module SeedConfigUtility
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - static
+      - class
+      VB:
+      - Public
+      - Module
+    items:
+    - id: LevelGenerator.Utility.SeedConfigUtility.ValidateSeed(System.String)
+      commentId: M:LevelGenerator.Utility.SeedConfigUtility.ValidateSeed(System.String)
+      language: CSharp
+      name:
+        CSharp: ValidateSeed(String)
+        VB: ValidateSeed(String)
+      nameWithType:
+        CSharp: SeedConfigUtility.ValidateSeed(String)
+        VB: SeedConfigUtility.ValidateSeed(String)
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SeedConfigUtility.ValidateSeed(System.String)
+        VB: LevelGenerator.Utility.SeedConfigUtility.ValidateSeed(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: ValidateSeed
+        path: ''
+        startLine: 745
+      syntax:
+        content:
+          CSharp: public static bool ValidateSeed(string seed)
+          VB: Public Shared Function ValidateSeed(seed As String) As Boolean
+        parameters:
+        - id: seed
+          type: System.String
+        return:
+          type: System.Boolean
+      overload: LevelGenerator.Utility.SeedConfigUtility.ValidateSeed*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: LevelGenerator.Utility.SeedConfigUtility.ExtractData(System.String)
+      commentId: M:LevelGenerator.Utility.SeedConfigUtility.ExtractData(System.String)
+      language: CSharp
+      name:
+        CSharp: ExtractData(String)
+        VB: ExtractData(String)
+      nameWithType:
+        CSharp: SeedConfigUtility.ExtractData(String)
+        VB: SeedConfigUtility.ExtractData(String)
+      qualifiedName:
+        CSharp: LevelGenerator.Utility.SeedConfigUtility.ExtractData(System.String)
+        VB: LevelGenerator.Utility.SeedConfigUtility.ExtractData(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: LevelGenerator.Utility
+      source:
+        id: ExtractData
+        path: ''
+        startLine: 758
+      syntax:
+        content:
+          CSharp: public static uint[] ExtractData(string seed)
+          VB: Public Shared Function ExtractData(seed As String) As UInteger()
+        parameters:
+        - id: seed
+          type: System.String
+        return:
+          type: System.UInt32[]
+      overload: LevelGenerator.Utility.SeedConfigUtility.ExtractData*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+references:
+  System:
+    name:
+      CSharp:
+      - name: System
+        nameWithType: System
+        qualifiedName: System
+        isExternal: true
+      VB:
+      - name: System
+        nameWithType: System
+        qualifiedName: System
+    isDefinition: true
+    commentId: N:System
+  System.Object:
+    name:
+      CSharp:
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      VB:
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.Object
+  Global.Transform:
+    name:
+      CSharp:
+      - id: Global.Transform
+        name: Transform
+        nameWithType: Transform
+        qualifiedName: Transform
+        isExternal: true
+      VB:
+      - id: Global.Transform
+        name: Transform
+        nameWithType: Transform
+        qualifiedName: Transform
+        isExternal: true
+    isDefinition: true
+    commentId: '!:Global.Transform'
+  Global.Vector2:
+    name:
+      CSharp:
+      - id: Global.Vector2
+        name: Vector2
+        nameWithType: Vector2
+        qualifiedName: Vector2
+        isExternal: true
+      VB:
+      - id: Global.Vector2
+        name: Vector2
+        nameWithType: Vector2
+        qualifiedName: Vector2
+        isExternal: true
+    isDefinition: true
+  Global.Vector3:
+    name:
+      CSharp:
+      - id: Global.Vector3
+        name: Vector3
+        nameWithType: Vector3
+        qualifiedName: Vector3
+        isExternal: true
+      VB:
+      - id: Global.Vector3
+        name: Vector3
+        nameWithType: Vector3
+        qualifiedName: Vector3
+        isExternal: true
+    isDefinition: true
+  LevelGenerator.Generator.GridCell.#ctor*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridCell.#ctor*
+        name: GridCell
+        nameWithType: GridCell.GridCell
+        qualifiedName: LevelGenerator.Generator.GridCell.GridCell
+      VB:
+      - id: LevelGenerator.Generator.GridCell.#ctor*
+        name: GridCell
+        nameWithType: GridCell.GridCell
+        qualifiedName: LevelGenerator.Generator.GridCell.GridCell
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.GridCell.#ctor
+  LevelGenerator.Generator:
+    name:
+      CSharp:
+      - name: LevelGenerator.Generator
+        nameWithType: LevelGenerator.Generator
+        qualifiedName: LevelGenerator.Generator
+      VB:
+      - name: LevelGenerator.Generator
+        nameWithType: LevelGenerator.Generator
+        qualifiedName: LevelGenerator.Generator
+    isDefinition: true
+    commentId: N:LevelGenerator.Generator
+  LevelGenerator.Generator.GridCell:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridCell
+        name: GridCell
+        nameWithType: GridCell
+        qualifiedName: LevelGenerator.Generator.GridCell
+      VB:
+      - id: LevelGenerator.Generator.GridCell
+        name: GridCell
+        nameWithType: GridCell
+        qualifiedName: LevelGenerator.Generator.GridCell
+    isDefinition: true
+    parent: LevelGenerator.Generator
+    commentId: T:LevelGenerator.Generator.GridCell
+  LevelGenerator.Generator.GridCell.AddNeighbour*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridCell.AddNeighbour*
+        name: AddNeighbour
+        nameWithType: GridCell.AddNeighbour
+        qualifiedName: LevelGenerator.Generator.GridCell.AddNeighbour
+      VB:
+      - id: LevelGenerator.Generator.GridCell.AddNeighbour*
+        name: AddNeighbour
+        nameWithType: GridCell.AddNeighbour
+        qualifiedName: LevelGenerator.Generator.GridCell.AddNeighbour
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.GridCell.AddNeighbour
+  LevelGenerator.Generator.GridRoom:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridRoom
+        name: GridRoom
+        nameWithType: GridRoom
+        qualifiedName: LevelGenerator.Generator.GridRoom
+      VB:
+      - id: LevelGenerator.Generator.GridRoom
+        name: GridRoom
+        nameWithType: GridRoom
+        qualifiedName: LevelGenerator.Generator.GridRoom
+    isDefinition: true
+    parent: LevelGenerator.Generator
+    commentId: T:LevelGenerator.Generator.GridRoom
+  LevelGenerator.Generator.GridCell.InstantiateRoom*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridCell.InstantiateRoom*
+        name: InstantiateRoom
+        nameWithType: GridCell.InstantiateRoom
+        qualifiedName: LevelGenerator.Generator.GridCell.InstantiateRoom
+      VB:
+      - id: LevelGenerator.Generator.GridCell.InstantiateRoom*
+        name: InstantiateRoom
+        nameWithType: GridCell.InstantiateRoom
+        qualifiedName: LevelGenerator.Generator.GridCell.InstantiateRoom
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.GridCell.InstantiateRoom
+  LevelGenerator.Generator.GridCell.GetGridPosition*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridCell.GetGridPosition*
+        name: GetGridPosition
+        nameWithType: GridCell.GetGridPosition
+        qualifiedName: LevelGenerator.Generator.GridCell.GetGridPosition
+      VB:
+      - id: LevelGenerator.Generator.GridCell.GetGridPosition*
+        name: GetGridPosition
+        nameWithType: GridCell.GetGridPosition
+        qualifiedName: LevelGenerator.Generator.GridCell.GetGridPosition
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.GridCell.GetGridPosition
+  System.Collections.Generic.IEnumerable`1:
+    name:
+      CSharp:
+      - id: System.Collections.Generic.IEnumerable`1
+        name: IEnumerable
+        nameWithType: IEnumerable
+        qualifiedName: System.Collections.Generic.IEnumerable
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - name: T
+        nameWithType: T
+        qualifiedName: T
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Collections.Generic.IEnumerable`1
+        name: IEnumerable
+        nameWithType: IEnumerable
+        qualifiedName: System.Collections.Generic.IEnumerable
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - name: T
+        nameWithType: T
+        qualifiedName: T
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    commentId: T:System.Collections.Generic.IEnumerable`1
+  System.Collections.Generic:
+    name:
+      CSharp:
+      - name: System.Collections.Generic
+        nameWithType: System.Collections.Generic
+        qualifiedName: System.Collections.Generic
+        isExternal: true
+      VB:
+      - name: System.Collections.Generic
+        nameWithType: System.Collections.Generic
+        qualifiedName: System.Collections.Generic
+    isDefinition: true
+    commentId: N:System.Collections.Generic
+  System.Collections.Generic.IEnumerable{LevelGenerator.Generator.GridCell}:
+    name:
+      CSharp:
+      - id: System.Collections.Generic.IEnumerable`1
+        name: IEnumerable
+        nameWithType: IEnumerable
+        qualifiedName: System.Collections.Generic.IEnumerable
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - id: LevelGenerator.Generator.GridCell
+        name: GridCell
+        nameWithType: GridCell
+        qualifiedName: LevelGenerator.Generator.GridCell
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Collections.Generic.IEnumerable`1
+        name: IEnumerable
+        nameWithType: IEnumerable
+        qualifiedName: System.Collections.Generic.IEnumerable
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - id: LevelGenerator.Generator.GridCell
+        name: GridCell
+        nameWithType: GridCell
+        qualifiedName: LevelGenerator.Generator.GridCell
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: false
+    definition: System.Collections.Generic.IEnumerable`1
+    parent: System.Collections.Generic
+    commentId: T:System.Collections.Generic.IEnumerable{LevelGenerator.Generator.GridCell}
+  LevelGenerator.Generator.GridCell.GetNeighbours*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridCell.GetNeighbours*
+        name: GetNeighbours
+        nameWithType: GridCell.GetNeighbours
+        qualifiedName: LevelGenerator.Generator.GridCell.GetNeighbours
+      VB:
+      - id: LevelGenerator.Generator.GridCell.GetNeighbours*
+        name: GetNeighbours
+        nameWithType: GridCell.GetNeighbours
+        qualifiedName: LevelGenerator.Generator.GridCell.GetNeighbours
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.GridCell.GetNeighbours
+  Global.GameObject:
+    name:
+      CSharp:
+      - id: Global.GameObject
+        name: GameObject
+        nameWithType: GameObject
+        qualifiedName: GameObject
+        isExternal: true
+      VB:
+      - id: Global.GameObject
+        name: GameObject
+        nameWithType: GameObject
+        qualifiedName: GameObject
+        isExternal: true
+    isDefinition: true
+  LevelGenerator.Generator.GridCell.GetPrefab*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridCell.GetPrefab*
+        name: GetPrefab
+        nameWithType: GridCell.GetPrefab
+        qualifiedName: LevelGenerator.Generator.GridCell.GetPrefab
+      VB:
+      - id: LevelGenerator.Generator.GridCell.GetPrefab*
+        name: GetPrefab
+        nameWithType: GridCell.GetPrefab
+        qualifiedName: LevelGenerator.Generator.GridCell.GetPrefab
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.GridCell.GetPrefab
+  System.Boolean:
+    name:
+      CSharp:
+      - id: System.Boolean
+        name: Boolean
+        nameWithType: Boolean
+        qualifiedName: System.Boolean
+        isExternal: true
+      VB:
+      - id: System.Boolean
+        name: Boolean
+        nameWithType: Boolean
+        qualifiedName: System.Boolean
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.Boolean
+  LevelGenerator.Generator.ExitDirection:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.ExitDirection
+        name: ExitDirection
+        nameWithType: ExitDirection
+        qualifiedName: LevelGenerator.Generator.ExitDirection
+      VB:
+      - id: LevelGenerator.Generator.ExitDirection
+        name: ExitDirection
+        nameWithType: ExitDirection
+        qualifiedName: LevelGenerator.Generator.ExitDirection
+    isDefinition: true
+    parent: LevelGenerator.Generator
+    commentId: T:LevelGenerator.Generator.ExitDirection
+  LevelGenerator.Generator.GridCell.HasExit*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridCell.HasExit*
+        name: HasExit
+        nameWithType: GridCell.HasExit
+        qualifiedName: LevelGenerator.Generator.GridCell.HasExit
+      VB:
+      - id: LevelGenerator.Generator.GridCell.HasExit*
+        name: HasExit
+        nameWithType: GridCell.HasExit
+        qualifiedName: LevelGenerator.Generator.GridCell.HasExit
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.GridCell.HasExit
+  LevelGenerator.Generator.GridCell.HasRoom*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.GridCell.HasRoom*
+        name: HasRoom
+        nameWithType: GridCell.HasRoom
+        qualifiedName: LevelGenerator.Generator.GridCell.HasRoom
+      VB:
+      - id: LevelGenerator.Generator.GridCell.HasRoom*
+        name: HasRoom
+        nameWithType: GridCell.HasRoom
+        qualifiedName: LevelGenerator.Generator.GridCell.HasRoom
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.GridCell.HasRoom
+  System.SerializableAttribute:
+    name:
+      CSharp:
+      - id: System.SerializableAttribute
+        name: SerializableAttribute
+        nameWithType: SerializableAttribute
+        qualifiedName: System.SerializableAttribute
+        isExternal: true
+      VB:
+      - id: System.SerializableAttribute
+        name: SerializableAttribute
+        nameWithType: SerializableAttribute
+        qualifiedName: System.SerializableAttribute
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.SerializableAttribute
+  System.SerializableAttribute.#ctor:
+    name:
+      CSharp:
+      - id: System.SerializableAttribute.#ctor
+        name: SerializableAttribute
+        nameWithType: SerializableAttribute.SerializableAttribute
+        qualifiedName: System.SerializableAttribute.SerializableAttribute
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+      VB:
+      - id: System.SerializableAttribute.#ctor
+        name: SerializableAttribute
+        nameWithType: SerializableAttribute.SerializableAttribute
+        qualifiedName: System.SerializableAttribute.SerializableAttribute
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    parent: System.SerializableAttribute
+    commentId: M:System.SerializableAttribute.#ctor
+  System.Collections.Generic.List`1:
+    name:
+      CSharp:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - name: T
+        nameWithType: T
+        qualifiedName: T
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - name: T
+        nameWithType: T
+        qualifiedName: T
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    commentId: T:System.Collections.Generic.List`1
+  System.Collections.Generic.List{LevelGenerator.Generator.ExitDirection}:
+    name:
+      CSharp:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - id: LevelGenerator.Generator.ExitDirection
+        name: ExitDirection
+        nameWithType: ExitDirection
+        qualifiedName: LevelGenerator.Generator.ExitDirection
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - id: LevelGenerator.Generator.ExitDirection
+        name: ExitDirection
+        nameWithType: ExitDirection
+        qualifiedName: LevelGenerator.Generator.ExitDirection
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: false
+    definition: System.Collections.Generic.List`1
+    parent: System.Collections.Generic
+    commentId: T:System.Collections.Generic.List{LevelGenerator.Generator.ExitDirection}
+  LevelGenerator.Utility:
+    name:
+      CSharp:
+      - name: LevelGenerator.Utility
+        nameWithType: LevelGenerator.Utility
+        qualifiedName: LevelGenerator.Utility
+      VB:
+      - name: LevelGenerator.Utility
+        nameWithType: LevelGenerator.Utility
+        qualifiedName: LevelGenerator.Utility
+    isDefinition: true
+    commentId: N:LevelGenerator.Utility
+  LevelGenerator.Utility.GeneratorConfig:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.GeneratorConfig
+        name: GeneratorConfig
+        nameWithType: GeneratorConfig
+        qualifiedName: LevelGenerator.Utility.GeneratorConfig
+      VB:
+      - id: LevelGenerator.Utility.GeneratorConfig
+        name: GeneratorConfig
+        nameWithType: GeneratorConfig
+        qualifiedName: LevelGenerator.Utility.GeneratorConfig
+    isDefinition: true
+    parent: LevelGenerator.Utility
+    commentId: T:LevelGenerator.Utility.GeneratorConfig
+  LevelGenerator.Generator.LevelGenerator.SetConfiguration*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.LevelGenerator.SetConfiguration*
+        name: SetConfiguration
+        nameWithType: LevelGenerator.SetConfiguration
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.SetConfiguration
+      VB:
+      - id: LevelGenerator.Generator.LevelGenerator.SetConfiguration*
+        name: SetConfiguration
+        nameWithType: LevelGenerator.SetConfiguration
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.SetConfiguration
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.LevelGenerator.SetConfiguration
+  LevelGenerator.Generator.LevelGenerator.GenerateNewLevel:
+    commentId: M:LevelGenerator.Generator.LevelGenerator.GenerateNewLevel
+  LevelGenerator.Generator.LevelGenerator:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.LevelGenerator
+        name: LevelGenerator
+        nameWithType: LevelGenerator
+        qualifiedName: LevelGenerator.Generator.LevelGenerator
+      VB:
+      - id: LevelGenerator.Generator.LevelGenerator
+        name: LevelGenerator
+        nameWithType: LevelGenerator
+        qualifiedName: LevelGenerator.Generator.LevelGenerator
+    isDefinition: true
+    commentId: T:LevelGenerator.Generator.LevelGenerator
+  LevelGenerator.Generator.LevelGenerator.GenerateNewLevel*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.LevelGenerator.GenerateNewLevel*
+        name: GenerateNewLevel
+        nameWithType: LevelGenerator.GenerateNewLevel
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.GenerateNewLevel
+      VB:
+      - id: LevelGenerator.Generator.LevelGenerator.GenerateNewLevel*
+        name: GenerateNewLevel
+        nameWithType: LevelGenerator.GenerateNewLevel
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.GenerateNewLevel
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.LevelGenerator.GenerateNewLevel
+  LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed*
+        name: GenerateLevelFromSeed
+        nameWithType: LevelGenerator.GenerateLevelFromSeed
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed
+      VB:
+      - id: LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed*
+        name: GenerateLevelFromSeed
+        nameWithType: LevelGenerator.GenerateLevelFromSeed
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed
+  LevelGenerator.Generator.LevelGenerator.ClearLevel*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.LevelGenerator.ClearLevel*
+        name: ClearLevel
+        nameWithType: LevelGenerator.ClearLevel
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.ClearLevel
+      VB:
+      - id: LevelGenerator.Generator.LevelGenerator.ClearLevel*
+        name: ClearLevel
+        nameWithType: LevelGenerator.ClearLevel
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.ClearLevel
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.LevelGenerator.ClearLevel
+  LevelGenerator.Generator.LevelGenerator.GetSeed:
+    commentId: M:LevelGenerator.Generator.LevelGenerator.GetSeed
+  System.String:
+    name:
+      CSharp:
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      VB:
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.String
+  LevelGenerator.Generator.LevelGenerator.SetSeed*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.LevelGenerator.SetSeed*
+        name: SetSeed
+        nameWithType: LevelGenerator.SetSeed
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.SetSeed
+      VB:
+      - id: LevelGenerator.Generator.LevelGenerator.SetSeed*
+        name: SetSeed
+        nameWithType: LevelGenerator.SetSeed
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.SetSeed
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.LevelGenerator.SetSeed
+  LevelGenerator.Generator.LevelGenerator.SetSeed(System.String):
+    commentId: M:LevelGenerator.Generator.LevelGenerator.SetSeed(System.String)
+  LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed:
+    commentId: M:LevelGenerator.Generator.LevelGenerator.GenerateLevelFromSeed
+  LevelGenerator.Generator.LevelGenerator.GetSeed*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.LevelGenerator.GetSeed*
+        name: GetSeed
+        nameWithType: LevelGenerator.GetSeed
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.GetSeed
+      VB:
+      - id: LevelGenerator.Generator.LevelGenerator.GetSeed*
+        name: GetSeed
+        nameWithType: LevelGenerator.GetSeed
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.GetSeed
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.LevelGenerator.GetSeed
+  LevelGenerator.Generator.LevelGenerator.DisableCaching:
+    commentId: M:LevelGenerator.Generator.LevelGenerator.DisableCaching
+  LevelGenerator.Generator.LevelGenerator.EnableCaching*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.LevelGenerator.EnableCaching*
+        name: EnableCaching
+        nameWithType: LevelGenerator.EnableCaching
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.EnableCaching
+      VB:
+      - id: LevelGenerator.Generator.LevelGenerator.EnableCaching*
+        name: EnableCaching
+        nameWithType: LevelGenerator.EnableCaching
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.EnableCaching
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.LevelGenerator.EnableCaching
+  LevelGenerator.Generator.LevelGenerator.EnableCaching:
+    commentId: M:LevelGenerator.Generator.LevelGenerator.EnableCaching
+  LevelGenerator.Generator.LevelGenerator.DisableCaching*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.LevelGenerator.DisableCaching*
+        name: DisableCaching
+        nameWithType: LevelGenerator.DisableCaching
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.DisableCaching
+      VB:
+      - id: LevelGenerator.Generator.LevelGenerator.DisableCaching*
+        name: DisableCaching
+        nameWithType: LevelGenerator.DisableCaching
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.DisableCaching
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.LevelGenerator.DisableCaching
+  LevelGenerator.Generator.LevelGenerator.ClearCache*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Generator.LevelGenerator.ClearCache*
+        name: ClearCache
+        nameWithType: LevelGenerator.ClearCache
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.ClearCache
+      VB:
+      - id: LevelGenerator.Generator.LevelGenerator.ClearCache*
+        name: ClearCache
+        nameWithType: LevelGenerator.ClearCache
+        qualifiedName: LevelGenerator.Generator.LevelGenerator.ClearCache
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Generator.LevelGenerator.ClearCache
+  LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
+        name: EventHandler.GeneratorLostReferenceCallback
+        nameWithType: EventHandler.GeneratorLostReferenceCallback
+        qualifiedName: LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
+      VB:
+      - id: LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
+        name: EventHandler.GeneratorLostReferenceCallback
+        nameWithType: EventHandler.GeneratorLostReferenceCallback
+        qualifiedName: LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
+    isDefinition: true
+    parent: LevelGenerator.Utility
+    commentId: T:LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
+  LevelGenerator.Utility.EventHandler.LostReference*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.EventHandler.LostReference*
+        name: LostReference
+        nameWithType: EventHandler.LostReference
+        qualifiedName: LevelGenerator.Utility.EventHandler.LostReference
+      VB:
+      - id: LevelGenerator.Utility.EventHandler.LostReference*
+        name: LostReference
+        nameWithType: EventHandler.LostReference
+        qualifiedName: LevelGenerator.Utility.EventHandler.LostReference
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Utility.EventHandler.LostReference
+  LevelGenerator.Utility.EventHandler:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.EventHandler
+        name: EventHandler
+        nameWithType: EventHandler
+        qualifiedName: LevelGenerator.Utility.EventHandler
+      VB:
+      - id: LevelGenerator.Utility.EventHandler
+        name: EventHandler
+        nameWithType: EventHandler
+        qualifiedName: LevelGenerator.Utility.EventHandler
+    isDefinition: true
+    commentId: T:LevelGenerator.Utility.EventHandler
+  Global.Scene:
+    name:
+      CSharp:
+      - id: Global.Scene
+        name: Scene
+        nameWithType: Scene
+        qualifiedName: Scene
+        isExternal: true
+      VB:
+      - id: Global.Scene
+        name: Scene
+        nameWithType: Scene
+        qualifiedName: Scene
+        isExternal: true
+    isDefinition: true
+  Global.OpenSceneMode:
+    name:
+      CSharp:
+      - id: Global.OpenSceneMode
+        name: OpenSceneMode
+        nameWithType: OpenSceneMode
+        qualifiedName: OpenSceneMode
+        isExternal: true
+      VB:
+      - id: Global.OpenSceneMode
+        name: OpenSceneMode
+        nameWithType: OpenSceneMode
+        qualifiedName: OpenSceneMode
+        isExternal: true
+    isDefinition: true
+    commentId: '!:Global.OpenSceneMode'
+  LevelGenerator.Utility.GridAlignment:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.GridAlignment
+        name: GridAlignment
+        nameWithType: GridAlignment
+        qualifiedName: LevelGenerator.Utility.GridAlignment
+      VB:
+      - id: LevelGenerator.Utility.GridAlignment
+        name: GridAlignment
+        nameWithType: GridAlignment
+        qualifiedName: LevelGenerator.Utility.GridAlignment
+    isDefinition: true
+    parent: LevelGenerator.Utility
+    commentId: T:LevelGenerator.Utility.GridAlignment
+  System.Int32:
+    name:
+      CSharp:
+      - id: System.Int32
+        name: Int32
+        nameWithType: Int32
+        qualifiedName: System.Int32
+        isExternal: true
+      VB:
+      - id: System.Int32
+        name: Int32
+        nameWithType: Int32
+        qualifiedName: System.Int32
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.Int32
+  System.Collections.Generic.List{GridRoom}:
+    name:
+      CSharp:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - id: Global.GridRoom
+        name: GridRoom
+        nameWithType: GridRoom
+        qualifiedName: GridRoom
+        isExternal: true
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - id: Global.GridRoom
+        name: GridRoom
+        nameWithType: GridRoom
+        qualifiedName: GridRoom
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: false
+    definition: System.Collections.Generic.List`1
+    parent: System.Collections.Generic
+    commentId: T:System.Collections.Generic.List{GridRoom}
+  LevelGenerator.Utility.GeneratorConfigUtility.GetConfiguration*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.GeneratorConfigUtility.GetConfiguration*
+        name: GetConfiguration
+        nameWithType: GeneratorConfigUtility.GetConfiguration
+        qualifiedName: LevelGenerator.Utility.GeneratorConfigUtility.GetConfiguration
+      VB:
+      - id: LevelGenerator.Utility.GeneratorConfigUtility.GetConfiguration*
+        name: GetConfiguration
+        nameWithType: GeneratorConfigUtility.GetConfiguration
+        qualifiedName: LevelGenerator.Utility.GeneratorConfigUtility.GetConfiguration
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Utility.GeneratorConfigUtility.GetConfiguration
+  LevelGenerator.Utility.GeneratorConfigUtility.CreateConfiguration*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.GeneratorConfigUtility.CreateConfiguration*
+        name: CreateConfiguration
+        nameWithType: GeneratorConfigUtility.CreateConfiguration
+        qualifiedName: LevelGenerator.Utility.GeneratorConfigUtility.CreateConfiguration
+      VB:
+      - id: LevelGenerator.Utility.GeneratorConfigUtility.CreateConfiguration*
+        name: CreateConfiguration
+        nameWithType: GeneratorConfigUtility.CreateConfiguration
+        qualifiedName: LevelGenerator.Utility.GeneratorConfigUtility.CreateConfiguration
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Utility.GeneratorConfigUtility.CreateConfiguration
+  LevelGenerator.Utility.GeneratorConfigUtility:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.GeneratorConfigUtility
+        name: GeneratorConfigUtility
+        nameWithType: GeneratorConfigUtility
+        qualifiedName: LevelGenerator.Utility.GeneratorConfigUtility
+      VB:
+      - id: LevelGenerator.Utility.GeneratorConfigUtility
+        name: GeneratorConfigUtility
+        nameWithType: GeneratorConfigUtility
+        qualifiedName: LevelGenerator.Utility.GeneratorConfigUtility
+    isDefinition: true
+    commentId: T:LevelGenerator.Utility.GeneratorConfigUtility
+  LevelGenerator.Utility.SceneCache:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.SceneCache
+        name: SceneCache
+        nameWithType: SceneCache
+        qualifiedName: LevelGenerator.Utility.SceneCache
+      VB:
+      - id: LevelGenerator.Utility.SceneCache
+        name: SceneCache
+        nameWithType: SceneCache
+        qualifiedName: LevelGenerator.Utility.SceneCache
+    isDefinition: true
+    parent: LevelGenerator.Utility
+    commentId: T:LevelGenerator.Utility.SceneCache
+  LevelGenerator.Utility.SceneCacheUtility.GetCache*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.SceneCacheUtility.GetCache*
+        name: GetCache
+        nameWithType: SceneCacheUtility.GetCache
+        qualifiedName: LevelGenerator.Utility.SceneCacheUtility.GetCache
+      VB:
+      - id: LevelGenerator.Utility.SceneCacheUtility.GetCache*
+        name: GetCache
+        nameWithType: SceneCacheUtility.GetCache
+        qualifiedName: LevelGenerator.Utility.SceneCacheUtility.GetCache
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Utility.SceneCacheUtility.GetCache
+  LevelGenerator.Utility.SceneCacheUtility.SaveCache*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.SceneCacheUtility.SaveCache*
+        name: SaveCache
+        nameWithType: SceneCacheUtility.SaveCache
+        qualifiedName: LevelGenerator.Utility.SceneCacheUtility.SaveCache
+      VB:
+      - id: LevelGenerator.Utility.SceneCacheUtility.SaveCache*
+        name: SaveCache
+        nameWithType: SceneCacheUtility.SaveCache
+        qualifiedName: LevelGenerator.Utility.SceneCacheUtility.SaveCache
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Utility.SceneCacheUtility.SaveCache
+  LevelGenerator.Utility.SceneCacheUtility:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.SceneCacheUtility
+        name: SceneCacheUtility
+        nameWithType: SceneCacheUtility
+        qualifiedName: LevelGenerator.Utility.SceneCacheUtility
+      VB:
+      - id: LevelGenerator.Utility.SceneCacheUtility
+        name: SceneCacheUtility
+        nameWithType: SceneCacheUtility
+        qualifiedName: LevelGenerator.Utility.SceneCacheUtility
+    isDefinition: true
+    commentId: T:LevelGenerator.Utility.SceneCacheUtility
+  System.ValueType:
+    name:
+      CSharp:
+      - id: System.ValueType
+        name: ValueType
+        nameWithType: ValueType
+        qualifiedName: System.ValueType
+        isExternal: true
+      VB:
+      - id: System.ValueType
+        name: ValueType
+        nameWithType: ValueType
+        qualifiedName: System.ValueType
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.ValueType
+  System.UInt32:
+    name:
+      CSharp:
+      - id: System.UInt32
+        name: UInt32
+        nameWithType: UInt32
+        qualifiedName: System.UInt32
+        isExternal: true
+      VB:
+      - id: System.UInt32
+        name: UInt32
+        nameWithType: UInt32
+        qualifiedName: System.UInt32
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.UInt32
+  LevelGenerator.Utility.SeedConfig:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.SeedConfig
+        name: SeedConfig
+        nameWithType: SeedConfig
+        qualifiedName: LevelGenerator.Utility.SeedConfig
+      VB:
+      - id: LevelGenerator.Utility.SeedConfig
+        name: SeedConfig
+        nameWithType: SeedConfig
+        qualifiedName: LevelGenerator.Utility.SeedConfig
+    isDefinition: true
+    parent: LevelGenerator.Utility
+    commentId: T:LevelGenerator.Utility.SeedConfig
+  Global.Random.State:
+    name:
+      CSharp:
+      - id: Global.Random.State
+        name: Random.State
+        nameWithType: Random.State
+        qualifiedName: Random.State
+        isExternal: true
+      VB:
+      - id: Global.Random.State
+        name: Random.State
+        nameWithType: Random.State
+        qualifiedName: Random.State
+        isExternal: true
+    isDefinition: true
+  LevelGenerator.Utility.SeedConfig.op_Implicit*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.SeedConfig.op_Implicit*
+        name: Implicit
+        nameWithType: SeedConfig.Implicit
+        qualifiedName: LevelGenerator.Utility.SeedConfig.Implicit
+      VB:
+      - id: LevelGenerator.Utility.SeedConfig.op_Implicit*
+        name: Widening
+        nameWithType: SeedConfig.Widening
+        qualifiedName: LevelGenerator.Utility.SeedConfig.Widening
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Utility.SeedConfig.op_Implicit
+  LevelGenerator.Utility.SeedConfigUtility.ValidateSeed*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.SeedConfigUtility.ValidateSeed*
+        name: ValidateSeed
+        nameWithType: SeedConfigUtility.ValidateSeed
+        qualifiedName: LevelGenerator.Utility.SeedConfigUtility.ValidateSeed
+      VB:
+      - id: LevelGenerator.Utility.SeedConfigUtility.ValidateSeed*
+        name: ValidateSeed
+        nameWithType: SeedConfigUtility.ValidateSeed
+        qualifiedName: LevelGenerator.Utility.SeedConfigUtility.ValidateSeed
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Utility.SeedConfigUtility.ValidateSeed
+  System.UInt32[]:
+    name:
+      CSharp:
+      - id: System.UInt32
+        name: UInt32
+        nameWithType: UInt32
+        qualifiedName: System.UInt32
+        isExternal: true
+      - name: '[]'
+        nameWithType: '[]'
+        qualifiedName: '[]'
+      VB:
+      - id: System.UInt32
+        name: UInt32
+        nameWithType: UInt32
+        qualifiedName: System.UInt32
+        isExternal: true
+      - name: ()
+        nameWithType: ()
+        qualifiedName: ()
+    isDefinition: false
+  LevelGenerator.Utility.SeedConfigUtility.ExtractData*:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.SeedConfigUtility.ExtractData*
+        name: ExtractData
+        nameWithType: SeedConfigUtility.ExtractData
+        qualifiedName: LevelGenerator.Utility.SeedConfigUtility.ExtractData
+      VB:
+      - id: LevelGenerator.Utility.SeedConfigUtility.ExtractData*
+        name: ExtractData
+        nameWithType: SeedConfigUtility.ExtractData
+        qualifiedName: LevelGenerator.Utility.SeedConfigUtility.ExtractData
+    isDefinition: true
+    commentId: Overload:LevelGenerator.Utility.SeedConfigUtility.ExtractData
+  LevelGenerator.Utility.SeedConfigUtility:
+    name:
+      CSharp:
+      - id: LevelGenerator.Utility.SeedConfigUtility
+        name: SeedConfigUtility
+        nameWithType: SeedConfigUtility
+        qualifiedName: LevelGenerator.Utility.SeedConfigUtility
+      VB:
+      - id: LevelGenerator.Utility.SeedConfigUtility
+        name: SeedConfigUtility
+        nameWithType: SeedConfigUtility
+        qualifiedName: LevelGenerator.Utility.SeedConfigUtility
+    isDefinition: true
+    commentId: T:LevelGenerator.Utility.SeedConfigUtility

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class GridCell
+    <title>Class GeneratorConfig
    | Grid Level Generator Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class GridCell
+    <meta name="title" content="Class GeneratorConfig
    | Grid Level Generator Documentation ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -77,206 +77,37 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LevelGenerator.Generator.GridCell">
+            <article class="content wrap" id="_content" data-uid="LevelGenerator.Utility.GeneratorConfig">
   
   
-  <h1 id="LevelGenerator_Generator_GridCell" data-uid="LevelGenerator.Generator.GridCell" class="text-break">Class GridCell
+  <h1 id="LevelGenerator_Utility_GeneratorConfig" data-uid="LevelGenerator.Utility.GeneratorConfig" class="text-break">Class GeneratorConfig
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">GridCell</span></div>
+    <div class="level1"><span class="xref">GeneratorConfig</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LevelGenerator.Generator.html">LevelGenerator.Generator</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="LevelGenerator.Utility.html">LevelGenerator.Utility</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="LevelGenerator_Generator_GridCell_syntax">Syntax</h5>
+  <h5 id="LevelGenerator_Utility_GeneratorConfig_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serializable]
-public class GridCell</code></pre>
+public class GeneratorConfig : ScriptableObject</code></pre>
   </div>
-  <h3 id="constructors">Constructors
+  <h3 id="fields">Fields
   </h3>
   
   
-  <a id="LevelGenerator_Generator_GridCell__ctor_" data-uid="LevelGenerator.Generator.GridCell.#ctor*"></a>
-  <h4 id="LevelGenerator_Generator_GridCell__ctor_Transform_Vector2_Vector3_Vector3_Vector3_" data-uid="LevelGenerator.Generator.GridCell.#ctor(Transform,Vector2,Vector3,Vector3,Vector3)">GridCell(Transform, Vector2, Vector3, Vector3, Vector3)</h4>
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_automaticOcclusionCulling" data-uid="LevelGenerator.Utility.GeneratorConfig.automaticOcclusionCulling">automaticOcclusionCulling</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GridCell(Transform parent, Vector2 gridPosition, Vector3 worldPosition, Vector3 worldRotation, Vector3 worldScale)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool automaticOcclusionCulling</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Transform</span></td>
-        <td><span class="parametername">parent</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Vector2</span></td>
-        <td><span class="parametername">gridPosition</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Vector3</span></td>
-        <td><span class="parametername">worldPosition</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Vector3</span></td>
-        <td><span class="parametername">worldRotation</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Vector3</span></td>
-        <td><span class="parametername">worldScale</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  
-  
-  <a id="LevelGenerator_Generator_GridCell_AddNeighbour_" data-uid="LevelGenerator.Generator.GridCell.AddNeighbour*"></a>
-  <h4 id="LevelGenerator_Generator_GridCell_AddNeighbour_LevelGenerator_Generator_GridCell_" data-uid="LevelGenerator.Generator.GridCell.AddNeighbour(LevelGenerator.Generator.GridCell)">AddNeighbour(GridCell)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddNeighbour(GridCell neighbour)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LevelGenerator.Generator.GridCell.html">GridCell</a></td>
-        <td><span class="parametername">neighbour</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="LevelGenerator_Generator_GridCell_GetGridPosition_" data-uid="LevelGenerator.Generator.GridCell.GetGridPosition*"></a>
-  <h4 id="LevelGenerator_Generator_GridCell_GetGridPosition" data-uid="LevelGenerator.Generator.GridCell.GetGridPosition">GetGridPosition()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector2 GetGridPosition()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Vector2</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="LevelGenerator_Generator_GridCell_GetNeighbours_" data-uid="LevelGenerator.Generator.GridCell.GetNeighbours*"></a>
-  <h4 id="LevelGenerator_Generator_GridCell_GetNeighbours" data-uid="LevelGenerator.Generator.GridCell.GetNeighbours">GetNeighbours()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;GridCell&gt; GetNeighbours()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="LevelGenerator.Generator.GridCell.html">GridCell</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="LevelGenerator_Generator_GridCell_GetPrefab_" data-uid="LevelGenerator.Generator.GridCell.GetPrefab*"></a>
-  <h4 id="LevelGenerator_Generator_GridCell_GetPrefab" data-uid="LevelGenerator.Generator.GridCell.GetPrefab">GetPrefab()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GameObject GetPrefab()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">GameObject</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="LevelGenerator_Generator_GridCell_HasExit_" data-uid="LevelGenerator.Generator.GridCell.HasExit*"></a>
-  <h4 id="LevelGenerator_Generator_GridCell_HasExit_LevelGenerator_Generator_ExitDirection_" data-uid="LevelGenerator.Generator.GridCell.HasExit(LevelGenerator.Generator.ExitDirection)">HasExit(ExitDirection)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool HasExit(ExitDirection exit)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="LevelGenerator.Generator.ExitDirection.html">ExitDirection</a></td>
-        <td><span class="parametername">exit</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -293,15 +124,14 @@ public class GridCell</code></pre>
   </table>
   
   
-  <a id="LevelGenerator_Generator_GridCell_HasRoom_" data-uid="LevelGenerator.Generator.GridCell.HasRoom*"></a>
-  <h4 id="LevelGenerator_Generator_GridCell_HasRoom" data-uid="LevelGenerator.Generator.GridCell.HasRoom">HasRoom()</h4>
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_automaticSave" data-uid="LevelGenerator.Utility.GeneratorConfig.automaticSave">automaticSave</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool HasRoom()</code></pre>
+    <pre><code class="lang-csharp hljs">public bool automaticSave</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -318,27 +148,312 @@ public class GridCell</code></pre>
   </table>
   
   
-  <a id="LevelGenerator_Generator_GridCell_InstantiateRoom_" data-uid="LevelGenerator.Generator.GridCell.InstantiateRoom*"></a>
-  <h4 id="LevelGenerator_Generator_GridCell_InstantiateRoom_LevelGenerator_Generator_GridRoom_" data-uid="LevelGenerator.Generator.GridCell.InstantiateRoom(LevelGenerator.Generator.GridRoom)">InstantiateRoom(GridRoom)</h4>
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_cellPositionOffset" data-uid="LevelGenerator.Utility.GeneratorConfig.cellPositionOffset">cellPositionOffset</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void InstantiateRoom(GridRoom gridRoom)</code></pre>
+    <pre><code class="lang-csharp hljs">public Vector2 cellPositionOffset</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LevelGenerator.Generator.GridRoom.html">GridRoom</a></td>
-        <td><span class="parametername">gridRoom</span></td>
+        <td><span class="xref">Vector2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_cellRotation" data-uid="LevelGenerator.Utility.GeneratorConfig.cellRotation">cellRotation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 cellRotation</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_cellScale" data-uid="LevelGenerator.Utility.GeneratorConfig.cellScale">cellScale</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 cellScale</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_disableSceneCaching" data-uid="LevelGenerator.Utility.GeneratorConfig.disableSceneCaching">disableSceneCaching</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool disableSceneCaching</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_forcedLevelGeneration" data-uid="LevelGenerator.Utility.GeneratorConfig.forcedLevelGeneration">forcedLevelGeneration</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool forcedLevelGeneration</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_gridAlignment" data-uid="LevelGenerator.Utility.GeneratorConfig.gridAlignment">gridAlignment</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GridAlignment gridAlignment</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LevelGenerator.Utility.GridAlignment.html">GridAlignment</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_gridHeight" data-uid="LevelGenerator.Utility.GeneratorConfig.gridHeight">gridHeight</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int gridHeight</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_gridWidth" data-uid="LevelGenerator.Utility.GeneratorConfig.gridWidth">gridWidth</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int gridWidth</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_levelPosition" data-uid="LevelGenerator.Utility.GeneratorConfig.levelPosition">levelPosition</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 levelPosition</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_levelRotation" data-uid="LevelGenerator.Utility.GeneratorConfig.levelRotation">levelRotation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 levelRotation</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_levelScale" data-uid="LevelGenerator.Utility.GeneratorConfig.levelScale">levelScale</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 levelScale</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_minLevelSize" data-uid="LevelGenerator.Utility.GeneratorConfig.minLevelSize">minLevelSize</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int minLevelSize</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="LevelGenerator_Utility_GeneratorConfig_roomTemplates" data-uid="LevelGenerator.Utility.GeneratorConfig.roomTemplates">roomTemplates</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;GridRoom&gt; roomTemplates</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">GridRoom</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>

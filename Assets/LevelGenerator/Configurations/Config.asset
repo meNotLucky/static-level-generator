@@ -114,3 +114,6 @@ MonoBehaviour:
     isEssential: 1
     hasFixedPosition: 1
     fixedPosition: {x: 1, y: 1}
+  enableSceneCaching: 1
+  automaticSave: 0
+  automaticOcclusionCulling: 0

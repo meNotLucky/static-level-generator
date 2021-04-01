@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Xml.Serialization;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LevelGenerator.Utility
 {
@@ -17,27 +16,34 @@ namespace LevelGenerator.Utility
 
     public static class SceneCacheUtility
     {
-        public static SceneCache GetCache(string config)
+        private const string CachePath = "Library/LevelGeneratorCache/";
+        public static SceneCache GetCache(Scene scene)
         {
-            if (config == null) return default;
-            var path = "Library/LevelGeneratorCache/" + config + ".xml";
+            var sceneID = AssetDatabase.AssetPathToGUID(scene.path);
+            var path = CachePath + sceneID + ".xml";
+            
+            if (!File.Exists(path))
+                return null;
+            
             var serializer = new XmlSerializer(typeof(SceneCache));
             using (var reader = new StreamReader(path))
-            {
                 return (SceneCache) serializer.Deserialize(reader);
-            }
         }
         
-        public static void SaveCache(SceneCache cache)
+        public static SceneCache SaveCache(SceneCache cache)
         {  
             var writer = new XmlSerializer(typeof(SceneCache));
         
-            Directory.CreateDirectory("Library/LevelGeneratorCache");
-            var path = "Library/LevelGeneratorCache/" + cache.sceneID + ".xml";
+            if(!Directory.Exists(CachePath))
+                Directory.CreateDirectory(CachePath);
+            
+            var path = CachePath + cache.sceneID + ".xml";
             var file = File.Create(path);  
 
             writer.Serialize(file, cache);
             file.Close();
+
+            return cache;
         }
     }
 }

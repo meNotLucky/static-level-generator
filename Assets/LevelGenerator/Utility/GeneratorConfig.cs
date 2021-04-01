@@ -29,6 +29,12 @@ namespace LevelGenerator.Utility
         public Vector3 levelScale = new Vector3(1.0f, 1.0f, 1.0f);
 
         public List<GridRoom> roomTemplates = new List<GridRoom>();
+        
+        // EXPERIMENTAL
+
+        public bool disableSceneCaching;
+        public bool automaticSave;
+        public bool automaticOcclusionCulling;
     }
     
     public static class GeneratorConfigUtility
@@ -43,8 +49,8 @@ namespace LevelGenerator.Utility
 
         public static GeneratorConfig CreateConfiguration(string name)
         {
-            if(GetConfiguration(name) != null)
-                Debug.LogWarning("Level Configuration '" + name + "' already exists and will be overwritten.");
+            // if(GetConfiguration(name) != null)
+            //     Debug.LogWarning("Level Configuration '" + name + "' already exists and will be overwritten.");
 
             var config = ScriptableObject.CreateInstance<GeneratorConfig>();
             AssetDatabase.CreateAsset(config, "Assets/LevelGenerator/Configurations/" + name + ".asset");

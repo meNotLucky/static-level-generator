@@ -24,7 +24,7 @@ namespace LevelGenerator.Utility
             var seedValid = true;
             var stringData = seed.Split('-');
             if (stringData.Length != 4) seedValid = false;
-            if (stringData.Any(t => t.Length < 7 || t.Length > 10))
+            if (stringData.Any(t => t.Length < 6 || t.Length > 10))
             {
                 seedValid = false;
             }
@@ -32,8 +32,9 @@ namespace LevelGenerator.Utility
             return seedValid;
         }
 
-        public static uint[] ExtractSeedData(string seed)
+        public static uint[] ExtractData(string seed)
         {
+            if (!ValidateSeed(seed)) return default;
             var seedData = new uint[4];
             var stringData = seed.Split('-');
             for (var i = 0; i < stringData.Length; i++)

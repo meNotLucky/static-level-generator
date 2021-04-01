@@ -1,23 +1,25 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using LevelGenerator.Utility;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
+using LevelGenerator.Utility;
 
 namespace LevelGenerator.Generator
 {
     /// <summary>
-    /// The Level Generator Component.
+    /// The static Level Generator.
     /// </summary>
     public static class LevelGenerator
     {
         private static GeneratorConfig _config = ScriptableObject.CreateInstance<GeneratorConfig>();
 
+        private static string _sceneID = "";
         private static string _levelSeed = "";
         private static string _levelObjectID = "";
-
+        
         private static readonly List<GridCell> Grid = new List<GridCell>();
         private static readonly List<GridCell> OpenCells = new List<GridCell>();
 
@@ -66,7 +68,7 @@ namespace LevelGenerator.Generator
         {
             if (SeedConfigUtility.ValidateSeed(_levelSeed))
             {
-                var seedData = SeedConfigUtility.ExtractSeedData(_levelSeed);
+                var seedData = SeedConfigUtility.ExtractData(_levelSeed);
                 var data = new SeedConfig { v0 = seedData[0], v1 = seedData[1], v2 = seedData[2], v3 = seedData[3] };
                 Random.state = data;
                 InitiateLevelGeneration();
@@ -93,6 +95,8 @@ namespace LevelGenerator.Generator
                 Object.Destroy(GameObject.Find(_levelObjectID));
             else
                 Object.DestroyImmediate(GameObject.Find(_levelObjectID));
+
+            EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
             
             Grid.Clear();
         }
@@ -103,7 +107,7 @@ namespace LevelGenerator.Generator
         /// <param name="seed">Level Seed string</param>
         /// <returns>true on success, false if seed is invalid</returns>
         /// <remarks>
-        /// The seed format is defined by four sections of 7-10 numbers, divided by a dash (-).<br/>
+        /// The seed format is defined by four sections of 6-10 numbers, divided by a dash (-).<br/>
         /// Example seed: 2885257376-2099986581-1044521005-723764510
         /// </remarks>
         /// <seealso cref="GetSeed"/>
@@ -127,8 +131,41 @@ namespace LevelGenerator.Generator
             return _levelSeed;
         }
 
+        /// <summary>
+        /// Enables scene caching for saving info on generated levels.
+        /// </summary>
+        /// <seealso cref="DisableCaching"/>
+        public static void EnableCaching()
+        {
+            if (_config.disableSceneCaching) return;
+            DisableCaching();
+            EventHandler.generatorLostReference += ApplyOrCreateCache;
+            EditorSceneManager.sceneOpened += ApplyOrCreateCache;
+            EditorSceneManager.sceneSaved += UpdateAndSaveCache;   
+        }
+
+        /// <summary>
+        /// Disables scene caching for saving info on generated levels.
+        /// </summary>
+        /// <seealso cref="EnableCaching"/>
+        public static void DisableCaching()
+        {
+            EventHandler.generatorLostReference -= ApplyOrCreateCache;
+            EditorSceneManager.sceneOpened -= ApplyOrCreateCache;
+            EditorSceneManager.sceneSaved -= UpdateAndSaveCache;
+        }
+        
+        public static void ClearCache()
+        {
+            var cache = Directory.GetFiles("Library/LevelGeneratorCache/");
+            foreach (var file in cache)
+                File.Delete(file);
+        }
+
         // --- PRIVATE FUNCTIONS --- //
-    
+        
+        // -- GENERATING
+
         private static void InitiateLevelGeneration()
         {
             while (!ValidateLevel())
@@ -138,7 +175,8 @@ namespace LevelGenerator.Generator
                 var level = GameObject.Find(_levelObjectID);
                 if (level == null)
                 {
-                    _levelObjectID = Random.Range(10000, 99999).ToString();
+                    var data = SeedConfigUtility.ExtractData(_levelSeed);
+                    _levelObjectID = data[0].ToString();
                     level = new GameObject() { name = _levelObjectID };
                 }
 
@@ -150,22 +188,19 @@ namespace LevelGenerator.Generator
                 level.transform.localScale = _config.levelScale;
             }
 
-            if (!Application.isPlaying)
-            {
-                var scene = SceneManager.GetActiveScene();
-                var sceneID = AssetDatabase.AssetPathToGUID(scene.path);
-                var cache = new SceneCache() {
-                    sceneName = scene.name,
-                    sceneID = sceneID,
-                    lastSeed = _levelSeed,
-                    levelObjectID = _levelObjectID
-                };
-                SceneCacheUtility.SaveCache(cache);
-                
-                EditorSceneManager.MarkSceneDirty(scene);
-                //EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
-                //StaticOcclusionCulling.Compute();   
-            }
+            if (Application.isPlaying)
+                return;
+            
+            var scene = SceneManager.GetActiveScene();
+            //UpdateCache(scene);
+            EditorSceneManager.MarkSceneDirty(scene);
+            
+            // EXPERIMENTAL
+            
+            if(_config.automaticSave)
+                EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+            if(_config.automaticOcclusionCulling)
+                StaticOcclusionCulling.Compute();
         }
 
         private static bool ValidateLevel()
@@ -338,15 +373,28 @@ namespace LevelGenerator.Generator
             if (validRooms.Count == 0)
             {
                 if(!_config.forcedLevelGeneration)
-                    Debug.LogWarning("Failed to add room to cell: " + parentGridCell.GetGridPosition());
+                    Debug.LogWarning("Failed to add room to cell: " + parentGridCell.GetGridPosition() + ". No template that fits can be found.");
             
                 _cellRoomFailed = true;
                 return;
             }
 
+            // todo: mess around with room spawn chance
+            
             var index = Random.Range(0, validRooms.Count);
             var room = validRooms[index];
-        
+            foreach (var vRoom in validRooms)
+            {
+                var chance = Random.Range(0, 10);
+                if (vRoom.exitDirections.Contains(ExitDirection.Top) && vRoom.exitDirections.Contains(ExitDirection.Bottom) && !vRoom.exitDirections.Contains(ExitDirection.Left) && !vRoom.exitDirections.Contains(ExitDirection.Right) ||
+                    !vRoom.exitDirections.Contains(ExitDirection.Top) && !vRoom.exitDirections.Contains(ExitDirection.Bottom) && vRoom.exitDirections.Contains(ExitDirection.Left) && vRoom.exitDirections.Contains(ExitDirection.Right) ||
+                    vRoom.exitDirections.Count == 1)
+                {
+                    if (chance < 3) continue;
+                    room = vRoom;
+                }
+            }
+
             // note : set and spawn room
             parentGridCell.InstantiateRoom(room);
             //_lastCell = parentCell;
@@ -411,9 +459,41 @@ namespace LevelGenerator.Generator
             var exitsValid = true;
             foreach (var unused in mustExclude.Where(direction => gridRoom.exitDirections.Contains(direction)))  exitsValid = false;
             foreach (var unused in mustInclude.Where(direction => !gridRoom.exitDirections.Contains(direction))) exitsValid = false;
-            if (gridRoom.exitDirections.Count == 1 && mustExclude.Count < 3) exitsValid = false;
+            //if (gridRoom.exitDirections.Count == 1 && mustExclude.Count < 3) exitsValid = false;
 
             return exitsValid;
+        }
+        
+        // -- CACHING
+
+        private static void ApplyOrCreateCache(Scene scene, OpenSceneMode sceneMode)
+        {
+            var currentScene = AssetDatabase.AssetPathToGUID(scene.path);
+            if (_sceneID == currentScene)
+                return;
+
+            var cache = SceneCacheUtility.GetCache(SceneManager.GetActiveScene()) ?? SetNewCache(scene);
+            _sceneID = cache.sceneID;
+            _levelObjectID = cache.levelObjectID;
+            SetSeed(cache.lastSeed);
+        }
+        
+        private static SceneCache SetNewCache(Scene scene)
+        {
+            var sceneID = AssetDatabase.AssetPathToGUID(scene.path);
+            var cache = new SceneCache() {
+                sceneName = scene.name,
+                sceneID = sceneID,
+                lastSeed = _levelSeed,
+                levelObjectID = _levelObjectID
+            };
+
+            return cache;
+        }
+        
+        private static void UpdateAndSaveCache(Scene scene)
+        {
+            SceneCacheUtility.SaveCache(SetNewCache(scene));
         }
     }
 }
