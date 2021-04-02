@@ -1,47 +1,51 @@
-﻿using System.IO;
-using System.Xml.Serialization;
+﻿using System;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace LevelGenerator.Utility
 {
-    public class SceneCache
+    public class SceneCache : ScriptableObject
     {
-        public string sceneName;
-        public string sceneID;
-        public string levelObjectID;
-        public string lastSeed;
+        public string sceneID = "";
+        
+        public CacheData editModeCache = new CacheData();
+        public CacheData playModeCache = new CacheData();
+    }
+
+    [Serializable]
+    public class CacheData
+    {
+        public string levelObjectID = "";
+        public string levelSeed = "";
     }
 
     public static class SceneCacheUtility
     {
         private const string CachePath = "Library/LevelGeneratorCache/";
-        public static SceneCache GetCache(Scene scene)
+        public static SceneCache DeserializeCache(Scene scene)
         {
             var sceneID = AssetDatabase.AssetPathToGUID(scene.path);
-            var path = CachePath + sceneID + ".xml";
+            var path = CachePath + sceneID + ".json";
             
             if (!File.Exists(path))
                 return null;
-            
-            var serializer = new XmlSerializer(typeof(SceneCache));
-            using (var reader = new StreamReader(path))
-                return (SceneCache) serializer.Deserialize(reader);
+
+            var json = File.ReadAllText(path);
+            var cache = ScriptableObject.CreateInstance<SceneCache>();
+            JsonUtility.FromJsonOverwrite(json, cache);
+            return cache;
         }
         
-        public static SceneCache SaveCache(SceneCache cache)
-        {  
-            var writer = new XmlSerializer(typeof(SceneCache));
-        
+        public static SceneCache SerializeCache(SceneCache cache)
+        {
             if(!Directory.Exists(CachePath))
                 Directory.CreateDirectory(CachePath);
             
-            var path = CachePath + cache.sceneID + ".xml";
-            var file = File.Create(path);  
-
-            writer.Serialize(file, cache);
-            file.Close();
+            var path = CachePath + cache.sceneID + ".json";
+            var json = JsonUtility.ToJson(cache, true);
+            File.WriteAllText(path, json);
 
             return cache;
         }

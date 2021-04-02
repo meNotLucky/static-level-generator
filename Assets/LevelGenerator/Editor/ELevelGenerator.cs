@@ -11,39 +11,38 @@ namespace LevelGenerator.Editor
     public class ELevelGenerator : EditorWindow
     {
         public bool settingsChangedWarning;
-
-        private static GeneratorConfig _config;
         
-        [MenuItem("Window/Level Generator")]
+        private bool _isInPlayMode;
+        private GeneratorConfig _config;
+        
+        [MenuItem("Window/Level Generator/Open Generator", false, 2500)]
         public static void Initialize()
         {
-            FindOrCreateGeneratorConfig();
             GetWindow<ELevelGenerator>(false, "Level Generator", true);
         }
 
         private void OnEnable()
         {
             Generator.LevelGenerator.EnableCaching();
+            Utility.EventHandler.OnGeneratorRecompile();
         }
 
         private void OnDisable()
         {
             Generator.LevelGenerator.DisableCaching();
         }
-        
-        private static void FindOrCreateGeneratorConfig()
-        {
-            _config = GeneratorConfigUtility.GetConfiguration("Config");
-            if (_config == null)
-                _config = GeneratorConfigUtility.CreateConfiguration("Config");
-        }
-        
+
         private void OnGUI()
         {
             if (_config == null)
             {
-                Utility.EventHandler.GeneratorLostReference();
-                FindOrCreateGeneratorConfig();
+                _config = GeneratorConfigUtility.GetConfiguration("Config") ??
+                          GeneratorConfigUtility.CreateConfiguration("Config");
+            }
+
+            if (EditorApplication.isCompiling)
+            {
+                Utility.EventHandler.OnGeneratorRecompile();
             }
 
             var myIcon = EditorGUIUtility.Load("Assets/LevelGenerator/Editor/Resources/DG_Icon.png") as Texture2D;
@@ -76,7 +75,6 @@ namespace LevelGenerator.Editor
                     {
                         if (GUILayout.Button("Generate New Level", GUILayout.MinHeight(30), GUILayout.MinWidth(180)))
                         {
-                            Generator.LevelGenerator.ClearLevel();
                             Generator.LevelGenerator.SetConfiguration(_config);
                             Generator.LevelGenerator.GenerateNewLevel();
                             settingsChangedWarning = false;
@@ -84,7 +82,6 @@ namespace LevelGenerator.Editor
                         }
                         if (GUILayout.Button("Generate Level From Seed", GUILayout.MinHeight(30), GUILayout.MinWidth(180)))
                         {
-                            Generator.LevelGenerator.ClearLevel();
                             Generator.LevelGenerator.SetConfiguration(_config);
                             Generator.LevelGenerator.GenerateLevelFromSeed();
                             settingsChangedWarning = false;

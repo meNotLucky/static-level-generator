@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
@@ -6,6 +7,10 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 using LevelGenerator.Utility;
+
+using EventHandler = LevelGenerator.Utility.EventHandler;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace LevelGenerator.Generator
 {
@@ -15,11 +20,8 @@ namespace LevelGenerator.Generator
     public static class LevelGenerator
     {
         private static GeneratorConfig _config = ScriptableObject.CreateInstance<GeneratorConfig>();
+        private static SceneCache _localCache = ScriptableObject.CreateInstance<SceneCache>();
 
-        private static string _sceneID = "";
-        private static string _levelSeed = "";
-        private static string _levelObjectID = "";
-        
         private static readonly List<GridCell> Grid = new List<GridCell>();
         private static readonly List<GridCell> OpenCells = new List<GridCell>();
 
@@ -54,8 +56,10 @@ namespace LevelGenerator.Generator
         /// </example>
         public static void GenerateNewLevel()
         {
+            Undo.RegisterCompleteObjectUndo(_localCache, "Updated scene cache");
+
             SeedConfig data = Random.state;
-            _levelSeed = data.v0 + "-" + data.v1 + "-" + data.v2 + "-" + data.v3;
+            _localCache.editModeCache.levelSeed = data.v0 + "-" + data.v1 + "-" + data.v2 + "-" + data.v3;
             
             InitiateLevelGeneration();
         }
@@ -66,16 +70,18 @@ namespace LevelGenerator.Generator
         /// <seealso cref="GenerateNewLevel"/>
         public static void GenerateLevelFromSeed()
         {
-            if (SeedConfigUtility.ValidateSeed(_levelSeed))
+            Undo.RegisterCompleteObjectUndo(_localCache, "Updated scene cache");
+
+            if (SeedConfigUtility.ValidateSeed(_localCache.editModeCache.levelSeed))
             {
-                var seedData = SeedConfigUtility.ExtractData(_levelSeed);
+                var seedData = SeedConfigUtility.ExtractData(_localCache.editModeCache.levelSeed);
                 var data = new SeedConfig { v0 = seedData[0], v1 = seedData[1], v2 = seedData[2], v3 = seedData[3] };
                 Random.state = data;
                 InitiateLevelGeneration();
             }
             else
             {
-                Debug.LogWarning("Seed format was invalid, generated new level from seed: " + _levelSeed);
+                Debug.LogWarning("Seed format was invalid, generated new level from seed: " + _localCache.editModeCache.levelSeed);
                 GenerateNewLevel();
             }
         }
@@ -88,15 +94,19 @@ namespace LevelGenerator.Generator
         /// </remarks>
         public static void ClearLevel()
         {
+            var level = GameObject.Find(_localCache.editModeCache.levelObjectID);
+            if (level == null) return;
+
+            if (EditorApplication.isPlaying)
+                Object.Destroy(level);
+            else
+            {
+                Undo.DestroyObjectImmediate(level);
+                EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
+            }
+            
             _essentialRoomFailed = false;
             _cellRoomFailed = false;
-        
-            if(EditorApplication.isPlaying)
-                Object.Destroy(GameObject.Find(_levelObjectID));
-            else
-                Object.DestroyImmediate(GameObject.Find(_levelObjectID));
-
-            EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
             
             Grid.Clear();
         }
@@ -116,7 +126,7 @@ namespace LevelGenerator.Generator
             if (!SeedConfigUtility.ValidateSeed(seed))
                 return false;
         
-            _levelSeed = seed;
+            _localCache.editModeCache.levelSeed = seed;
             return true;
         }
 
@@ -128,7 +138,7 @@ namespace LevelGenerator.Generator
         /// <seealso cref="GenerateLevelFromSeed"/>
         public static string GetSeed()
         {
-            return _levelSeed;
+            return _localCache ? _localCache.editModeCache.levelSeed : "";
         }
 
         /// <summary>
@@ -139,9 +149,11 @@ namespace LevelGenerator.Generator
         {
             if (_config.disableSceneCaching) return;
             DisableCaching();
-            EventHandler.generatorLostReference += ApplyOrCreateCache;
-            EditorSceneManager.sceneOpened += ApplyOrCreateCache;
-            EditorSceneManager.sceneSaved += UpdateAndSaveCache;   
+            EditorSceneManager.sceneOpened += CacheOnSceneOpened;
+            EditorSceneManager.sceneSaved += CacheOnSceneSaved;
+            EventHandler.generatorRecompiled += CacheOnGeneratorRecompiled;
+            EditorApplication.playModeStateChanged += CacheOnPlayModeStateChange;
+            Undo.undoRedoPerformed += CacheOnUndoRedoPerformed;
         }
 
         /// <summary>
@@ -150,9 +162,11 @@ namespace LevelGenerator.Generator
         /// <seealso cref="EnableCaching"/>
         public static void DisableCaching()
         {
-            EventHandler.generatorLostReference -= ApplyOrCreateCache;
-            EditorSceneManager.sceneOpened -= ApplyOrCreateCache;
-            EditorSceneManager.sceneSaved -= UpdateAndSaveCache;
+            EditorSceneManager.sceneOpened -= CacheOnSceneOpened;
+            EditorSceneManager.sceneSaved -= CacheOnSceneSaved;
+            EventHandler.generatorRecompiled -= CacheOnGeneratorRecompiled;
+            EditorApplication.playModeStateChanged -= CacheOnPlayModeStateChange;
+            Undo.undoRedoPerformed -= CacheOnUndoRedoPerformed;
         }
         
         public static void ClearCache()
@@ -168,17 +182,15 @@ namespace LevelGenerator.Generator
 
         private static void InitiateLevelGeneration()
         {
-            while (!ValidateLevel())
+            var levelValid = false;
+            while (!levelValid)
             {
                 ClearLevel();
 
-                var level = GameObject.Find(_levelObjectID);
-                if (level == null)
-                {
-                    var data = SeedConfigUtility.ExtractData(_levelSeed);
-                    _levelObjectID = data[0].ToString();
-                    level = new GameObject() { name = _levelObjectID };
-                }
+                var data = SeedConfigUtility.ExtractData(_localCache.editModeCache.levelSeed);
+                _localCache.editModeCache.levelObjectID = data[0].ToString();
+                var level = new GameObject() { name = _localCache.editModeCache.levelObjectID };
+                Undo.RegisterCreatedObjectUndo(level, "Created new level");
 
                 GenerateGrid();
                 GenerateRooms();
@@ -186,13 +198,15 @@ namespace LevelGenerator.Generator
                 level.transform.position = _config.levelPosition;
                 level.transform.eulerAngles = _config.levelRotation;
                 level.transform.localScale = _config.levelScale;
+
+                levelValid = ValidateLevel();
             }
 
             if (Application.isPlaying)
                 return;
             
             var scene = SceneManager.GetActiveScene();
-            //UpdateCache(scene);
+            _localCache.sceneID = AssetDatabase.AssetPathToGUID(scene.path);
             EditorSceneManager.MarkSceneDirty(scene);
             
             // EXPERIMENTAL
@@ -232,7 +246,7 @@ namespace LevelGenerator.Generator
                 {
                     var worldPos = _config.gridAlignment == GridAlignment.Horizontal ? new Vector3(x * _config.cellPositionOffset.x, 0, y * _config.cellPositionOffset.y)
                         : new Vector3(x * _config.cellPositionOffset.x, y * _config.cellPositionOffset.y, 0);
-                    var newCell = new GridCell(GameObject.Find(_levelObjectID).transform, new Vector2(x, y), worldPos, _config.cellRotation, _config.cellScale);
+                    var newCell = new GridCell(GameObject.Find(_localCache.editModeCache.levelObjectID).transform, new Vector2(x, y), worldPos, _config.cellRotation, _config.cellScale);
                     Grid.Add(newCell);
                 }
             }
@@ -267,8 +281,7 @@ namespace LevelGenerator.Generator
         private static void GenerateRooms()
         {
             // note : set the initial cell and room
-            var startCellIndex = ((_config.gridHeight * _config.gridWidth) / 2) - (_config.gridHeight / 2);
-            var startCell = Grid[startCellIndex];
+            var startCell = GetCell(new Vector2(_config.gridWidth / 2, 0));
             //_lastCell = startCell;
             
             foreach (var room in _config.roomTemplates)
@@ -307,6 +320,7 @@ namespace LevelGenerator.Generator
 
         private static void GenerateEssentialRooms()
         {
+            // note : fixed positions
             foreach (var room in _config.roomTemplates.Where(room => room.isEssential).Where(room => room.hasFixedPosition))
             {
                 var cell = GetCell(room.fixedPosition);
@@ -323,6 +337,7 @@ namespace LevelGenerator.Generator
                 OpenCells.Add(cell);
             }
 
+            // note : loose positions
             foreach (var room in _config.roomTemplates.Where(room => room.isEssential).Where(room => !room.hasFixedPosition))
             {
                 var validCells = GetValidCells(room);
@@ -390,7 +405,7 @@ namespace LevelGenerator.Generator
                     !vRoom.exitDirections.Contains(ExitDirection.Top) && !vRoom.exitDirections.Contains(ExitDirection.Bottom) && vRoom.exitDirections.Contains(ExitDirection.Left) && vRoom.exitDirections.Contains(ExitDirection.Right) ||
                     vRoom.exitDirections.Count == 1)
                 {
-                    if (chance < 3) continue;
+                    if (chance < 2) continue;
                     room = vRoom;
                 }
             }
@@ -464,36 +479,70 @@ namespace LevelGenerator.Generator
             return exitsValid;
         }
         
-        // -- CACHING
+        // -- CACHING FUNCTIONALITY
 
-        private static void ApplyOrCreateCache(Scene scene, OpenSceneMode sceneMode)
+        private static bool ApplyDeserializedCache()
         {
-            var currentScene = AssetDatabase.AssetPathToGUID(scene.path);
-            if (_sceneID == currentScene)
-                return;
+            var cache = SceneCacheUtility.DeserializeCache(SceneManager.GetActiveScene());
+            if (!cache) return false;
+            
+            _localCache = cache;
+            return true;
+        }
 
-            var cache = SceneCacheUtility.GetCache(SceneManager.GetActiveScene()) ?? SetNewCache(scene);
-            _sceneID = cache.sceneID;
-            _levelObjectID = cache.levelObjectID;
-            SetSeed(cache.lastSeed);
+        private static void SerializeLocalCache()
+        {
+            SceneCacheUtility.SerializeCache(_localCache);
+        }
+
+        private static void CreatePlayModeCache()
+        {
+            _localCache.playModeCache = _localCache.editModeCache;
+            SerializeLocalCache();
+        }
+
+        // -- CACHING EVENT DELEGATES
+        
+        private static void CacheOnSceneOpened(Scene scene, OpenSceneMode openSceneMode)
+        {
+            if (ApplyDeserializedCache()) return;
+            
+            var cache = ScriptableObject.CreateInstance<SceneCache>();
+            cache.sceneID = AssetDatabase.AssetPathToGUID(scene.path);
+            cache.editModeCache = new CacheData();
+            cache.playModeCache = new CacheData();
+            _localCache = cache;
+            SceneCacheUtility.SerializeCache(cache);
         }
         
-        private static SceneCache SetNewCache(Scene scene)
+        private static void CacheOnSceneSaved(Scene scene)
         {
-            var sceneID = AssetDatabase.AssetPathToGUID(scene.path);
-            var cache = new SceneCache() {
-                sceneName = scene.name,
-                sceneID = sceneID,
-                lastSeed = _levelSeed,
-                levelObjectID = _levelObjectID
-            };
-
-            return cache;
+            SerializeLocalCache();
         }
-        
-        private static void UpdateAndSaveCache(Scene scene)
+
+        private static void CacheOnGeneratorRecompiled()
         {
-            SceneCacheUtility.SaveCache(SetNewCache(scene));
+            ApplyDeserializedCache();
+        }
+
+        private static void CacheOnPlayModeStateChange(PlayModeStateChange stateChange)
+        {
+            switch (stateChange)
+            {
+            case PlayModeStateChange.ExitingEditMode:
+                CreatePlayModeCache();
+                break;
+            case PlayModeStateChange.EnteredPlayMode:
+            case PlayModeStateChange.EnteredEditMode:
+                ApplyDeserializedCache();
+                break;
+            }
+        }
+
+        private static void CacheOnUndoRedoPerformed()
+        {
+            Undo.FlushUndoRecordObjects();
+            SerializeLocalCache();
         }
     }
 }

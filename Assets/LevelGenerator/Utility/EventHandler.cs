@@ -1,4 +1,5 @@
-﻿using UnityEditor.SceneManagement;
+﻿using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 namespace LevelGenerator.Utility
@@ -6,22 +7,16 @@ namespace LevelGenerator.Utility
     public static class EventHandler
     {
         // delegates
-        public delegate void GeneratorLostReferenceCallback(Scene scene, OpenSceneMode sceneMode);
+        public delegate void GeneratorRecompililationCallback();
 
         // events
-        public static event GeneratorLostReferenceCallback generatorLostReference;
+        public static event GeneratorRecompililationCallback generatorRecompiled;
+        
         
         // event invocators
-        private static void OnGeneratorLostReference(Scene scene, OpenSceneMode sceneMode)
+        public static void OnGeneratorRecompile()
         {
-            generatorLostReference?.Invoke(scene, sceneMode);
-        }
-        
-        // methods
-        
-        public static void GeneratorLostReference()
-        {
-            OnGeneratorLostReference(SceneManager.GetActiveScene(), OpenSceneMode.Single);
+            generatorRecompiled?.Invoke();
         }
     }
 }

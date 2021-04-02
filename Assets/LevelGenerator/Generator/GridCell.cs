@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using LevelGenerator.Utility;
+using UnityEditor;
 using UnityEngine;
 
 namespace LevelGenerator.Generator
@@ -36,7 +37,8 @@ namespace LevelGenerator.Generator
 
         public void InstantiateRoom(GridRoom gridRoom)
         {
-            if(_roomSet) Object.Destroy(_roomObject);
+            if (!_cellObject || _roomSet)
+                return;
                 
             _gridRoom = gridRoom;
             _roomSet = true;

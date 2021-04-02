@@ -6,7 +6,7 @@ Preset:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DefaultLevelConfiguration
+  m_Name: Default
   m_TargetType:
     m_NativeTypeID: 114
     m_ManagedTypePPtr: {fileID: 11500000, guid: 6664b42b96c5ac6498e79d9d394a5709, type: 3}
@@ -46,11 +46,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: cellPositionOffset.x
-    value: 19
+    value: 21
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: cellPositionOffset.y
-    value: 19
+    value: 21
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: cellRotation.x
@@ -66,15 +66,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: cellScale.x
-    value: 120
+    value: 80
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: cellScale.y
-    value: 120
+    value: 80
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: cellScale.z
-    value: 120
+    value: 80
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: levelPosition.x

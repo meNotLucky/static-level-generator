@@ -17,9 +17,9 @@ MonoBehaviour:
   minLevelSize: 10
   forcedLevelGeneration: 0
   gridAlignment: 0
-  cellPositionOffset: {x: 19, y: 19}
+  cellPositionOffset: {x: 21, y: 21}
   cellRotation: {x: 0, y: 0, z: 0}
-  cellScale: {x: 120, y: 120, z: 120}
+  cellScale: {x: 80, y: 80, z: 80}
   levelPosition: {x: 0, y: 0, z: 0}
   levelRotation: {x: 0, y: 0, z: 0}
   levelScale: {x: 1, y: 1, z: 1}
@@ -114,6 +114,6 @@ MonoBehaviour:
     isEssential: 1
     hasFixedPosition: 1
     fixedPosition: {x: 1, y: 1}
-  enableSceneCaching: 1
+  disableSceneCaching: 0
   automaticSave: 0
   automaticOcclusionCulling: 0
