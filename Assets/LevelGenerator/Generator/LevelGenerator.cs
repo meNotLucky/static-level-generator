@@ -8,7 +8,6 @@ using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 using LevelGenerator.Utility;
 
-using EventHandler = LevelGenerator.Utility.EventHandler;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
@@ -87,7 +86,7 @@ namespace LevelGenerator.Generator
         }
 
         /// <summary>
-        /// Destroys the current level completely with all of the instantiated <see cref="GridRoom"/>s.
+        /// Destroys the current level completely with all of the instantiated <see cref="GridRoomLayout"/>s.
         /// </summary>
         /// <remarks>
         /// The levelSeed will not be deleted, but will be replaced once a new level is generated.
@@ -104,6 +103,10 @@ namespace LevelGenerator.Generator
                     Undo.DestroyObjectImmediate(level);
                     EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
                 }
+            }
+            else
+            {
+                Debug.LogError("Failed to find cached object: " + _localCache.editModeCache.levelObjectID);
             }
 
             _essentialRoomFailed = false;
@@ -153,7 +156,6 @@ namespace LevelGenerator.Generator
             DisableCaching();
             EditorSceneManager.sceneOpened += CacheOnSceneOpened;
             EditorSceneManager.sceneSaved += CacheOnSceneSaved;
-            EventHandler.generatorRecompiled += CacheOnGeneratorRecompiled;
             EditorApplication.playModeStateChanged += CacheOnPlayModeStateChange;
             Undo.undoRedoPerformed += CacheOnUndoRedoPerformed;
         }
@@ -166,7 +168,6 @@ namespace LevelGenerator.Generator
         {
             EditorSceneManager.sceneOpened -= CacheOnSceneOpened;
             EditorSceneManager.sceneSaved -= CacheOnSceneSaved;
-            EventHandler.generatorRecompiled -= CacheOnGeneratorRecompiled;
             EditorApplication.playModeStateChanged -= CacheOnPlayModeStateChange;
             Undo.undoRedoPerformed -= CacheOnUndoRedoPerformed;
         }
@@ -203,22 +204,20 @@ namespace LevelGenerator.Generator
                 level.transform.eulerAngles = _config.levelRotation;
                 level.transform.localScale = _config.levelScale;
 
-                bool gridSuccess = true, minMaxSizeSucess = true, forcedGenSucess = true;
-                levelValid = ValidateLevel(ref gridSuccess, ref minMaxSizeSucess, ref forcedGenSucess);
+                bool gridSuccess = true, minMaxSizeSucess = true, allRoomsSucess = true;
+                levelValid = ValidateLevel(ref gridSuccess, ref minMaxSizeSucess, ref allRoomsSucess);
                 if(!levelValid)
                     validationTimeOut++;
 
-                if (validationTimeOut > 100)
+                if (validationTimeOut > 200)
                 {
-                    string errorStr = "Partial generation fail! Generator timed out since over 100 level iterations failed validation. Validation Errors:\n";
+                    Debug.LogError("Partial generation fail! Generator timed out since over 200 level iterations failed validation. Errors:\n");
                     if (!gridSuccess)
-                        errorStr += " - Grid could not be created!";
+                        Debug.LogError("Validation Error: Grid could not be created!");
                     if (!minMaxSizeSucess)
-                        errorStr += " - Level size within minimum and maximum parameters could not be reached with current configuration!";
-                    if (!forcedGenSucess)
-                        errorStr += " - One or more rooms failed to be created with Forced Generation enabled!";
-
-                    Debug.LogError(errorStr);
+                        Debug.LogError("Validation Error: Level size within minimum and maximum parameters could not be reached with current configuration!");
+                    if (!allRoomsSucess)
+                        Debug.LogError("Validation Error: One or more rooms failed to spawn! Make sure all rooms marked 'essential' align with your current configuration.");
                     return;
                 }
             }
@@ -238,7 +237,7 @@ namespace LevelGenerator.Generator
                 StaticOcclusionCulling.Compute();
         }
 
-        private static bool ValidateLevel(ref bool gridSucceeded, ref bool minMaxSizeSucceeded, ref bool forcedGenerationSucceeded)
+        private static bool ValidateLevel(ref bool gridSucceeded, ref bool minMaxSizeSucceeded, ref bool allRoomsSucceeded)
         {
             // note : check that grid is created
             if (Grid.Count == 0)
@@ -249,14 +248,11 @@ namespace LevelGenerator.Generator
             if (size < _config.minLevelSize || size > _config.maxLevelSize)
                 minMaxSizeSucceeded = false;
 
-            // note : if forced level generation, check that all rooms spawned correctly
-            if (_config.forcedLevelGeneration)
-            {
-                if (_essentialRoomFailed || _cellRoomFailed)
-                    forcedGenerationSucceeded = false;
-            }
+            // note : check that all rooms spawned correctly
+            if (_essentialRoomFailed || _cellRoomFailed)
+                allRoomsSucceeded = false;
 
-            return (gridSucceeded && minMaxSizeSucceeded && forcedGenerationSucceeded);
+            return (gridSucceeded && minMaxSizeSucceeded && allRoomsSucceeded);
         }
 
         private static void GenerateGrid()
@@ -306,14 +302,15 @@ namespace LevelGenerator.Generator
 
             // note : set the initial cell and room
             var startCell = GetCell(new Vector2(_config.gridWidth / 2, _config.gridHeight / 2));
-            var validStartRooms = _config.roomTemplates.Where(room => !room.isEssential).ToArray();
+
+            var validStartRooms = _config.roomTemplates.Where(room => room.isStartRoom).ToArray();
+            if (validStartRooms.Length == 0)
+                validStartRooms = _config.roomTemplates.Where(room => !room.isEssential).ToArray();
+
             var index = Random.Range(0, validStartRooms.Length);
             var startRoom = validStartRooms[index];
-            //_lastCell = startCell;
-            startCell.InstantiateRoom(startRoom);
 
-            // note : add essential rooms
-            //GenerateEssentialRooms();
+            startCell.InstantiateRoom(startRoom);
 
             // note : generate neighbour rooms for the starting cell
             GenerateNeighbourRooms(startCell);
@@ -326,37 +323,20 @@ namespace LevelGenerator.Generator
                 foreach (var cell in currentlyGeneratingCells)
                     GenerateNeighbourRooms(cell);
             }
-            
+
+            // note : add essential rooms
+            GenerateEssentialRooms();
+
             //_lastCell.SetRoomColor(new Color(0.67f, 0f, 0f));
         }
 
         private static void GenerateEssentialRooms()
         {
-            // note : fixed positions
-            foreach (var room in _config.roomTemplates.Where(room => room.isEssential).Where(room => room.hasFixedPosition))
+            foreach (var room in _config.roomTemplates.Where(room => room.isEssential))
             {
-                var cell = GetCell(room.fixedPosition);
-                if (cell is null)
-                {
-                    Debug.LogWarning("Essential room " + room.prefab.name + " has invalid fixed position " + room.fixedPosition);
-                    continue;
-                }
-            
-                if(cell.HasRoom())
-                    Debug.LogWarning("Essential room " + room.prefab.name + " and " + cell.GetRoom().prefab.name + " are both fixed to grid position " + room.fixedPosition + ", this has caused overlapping!");
-            
-                cell.InstantiateRoom(room);
-                //OpenCells.Add(cell);
-            }
-
-            // note : loose positions
-            foreach (var room in _config.roomTemplates.Where(room => room.isEssential).Where(room => !room.hasFixedPosition))
-            {
-                var validCells = GetValidCells(room);
+                var validCells = GetRoomsForEssentialReplacement(room);
                 if (validCells.Count == 0)
                 {
-                    if(!_config.forcedLevelGeneration)
-                        Debug.LogWarning("Failed to add Essential room: " + room.prefab.name);
                     _essentialRoomFailed = true;
                     break;
                 }
@@ -405,9 +385,7 @@ namespace LevelGenerator.Generator
             var validRooms = GetValidRooms(parentGridCell);
             if (validRooms.Count == 0)
             {
-                if(!_config.forcedLevelGeneration)
-                    Debug.LogWarning("Failed to add room to cell: " + parentGridCell.GetGridPosition() + ". No template that fits can be found.");
-            
+                Debug.LogWarning("Failed to add room to cell: " + parentGridCell.GetGridPosition() + ". No template that fits can be found.");            
                 _cellRoomFailed = true;
                 return;
             }
@@ -417,15 +395,18 @@ namespace LevelGenerator.Generator
             var index = Random.Range(0, validRooms.Count);
             var room = validRooms[index];
 
+            float lowestDensity = (float)_config.minLevelSize / (float)(_config.gridWidth * _config.gridHeight) * 30.0f;
+            int density = Mathf.Clamp(_config.levelDensity + (int)lowestDensity, 0, 100);
+
             bool roomAccepted = false;
             foreach (var vRoom in validRooms)
             {
                 var chance = Random.Range(0, 100);
 
-                if ((vRoom.HasExitDirections(ExitDirection.Top, ExitDirection.Bottom) && !vRoom.HasAnyOfExitDirections(ExitDirection.Right, ExitDirection.Left)) ||
-                    (!vRoom.HasAnyOfExitDirections(ExitDirection.Top, ExitDirection.Bottom) && vRoom.HasExitDirections(ExitDirection.Right, ExitDirection.Left)))
+                if ((vRoom.HasAllOfExitDirections(ExitDirection.Top, ExitDirection.Bottom) && !vRoom.HasAnyOfExitDirections(ExitDirection.Right, ExitDirection.Left)) ||
+                    (!vRoom.HasAnyOfExitDirections(ExitDirection.Top, ExitDirection.Bottom) && vRoom.HasAllOfExitDirections(ExitDirection.Right, ExitDirection.Left)))
                 {
-                    if (chance < _config.levelDensity)
+                    if (chance <= density)
                         continue;
 
                     room = vRoom;
@@ -435,7 +416,7 @@ namespace LevelGenerator.Generator
                 var size = Grid.Count(cell => cell.HasRoom());
                 if (!roomAccepted && vRoom.exitDirections.Count == 1 && size > _config.minLevelSize)
                 {
-                    if (chance < _config.levelDensity)
+                    if (chance <= density)
                         continue;
 
                     room = vRoom;
@@ -454,25 +435,23 @@ namespace LevelGenerator.Generator
                 OpenCells.Add(parentGridCell);
         }
     
-        private static List<GridRoom> GetValidRooms(GridCell gridCell)
+        private static List<GridRoomLayout> GetValidRooms(GridCell gridCell)
         {
             var mustInclude = new List<ExitDirection>();
             var mustExclude = new List<ExitDirection>();
         
             CalculateExitRequirements(gridCell, ref mustInclude, ref mustExclude);
-            return _config.roomTemplates.Where(room => !room.isEssential).Where(room => ValidateExitRequirements(room, mustInclude, mustExclude)).ToList();
+            return _config.roomTemplates.Where(room => !room.isEssential)
+                                        .Where(room => !room.isStartRoom)
+                                        .Where(room => ValidateExitRequirements(room, mustInclude, mustExclude)).ToList();
         }
 
-        private static List<GridCell> GetValidCells(GridRoom gridRoom)
+        private static List<GridCell> GetRoomsForEssentialReplacement(GridRoomLayout gridRoom)
         {
             var validCells = new List<GridCell>();
-            foreach (var cell in Grid.Where(cell => !cell.HasRoom()))
+            foreach (var cell in Grid.Where(cell => cell.HasRoom()))
             {
-                var mustInclude = new List<ExitDirection>();
-                var mustExclude = new List<ExitDirection>();
-                CalculateExitRequirements(cell, ref mustInclude, ref mustExclude);
-            
-                if(ValidateExitRequirements(gridRoom, mustInclude, mustExclude))
+                if (cell.GetRoom().HasExactExitDirections(gridRoom.exitDirections.ToArray()))
                     validCells.Add(cell);
             }
 
@@ -504,11 +483,11 @@ namespace LevelGenerator.Generator
             if ((int)gridPos.x == 0) mustExclude.Add(ExitDirection.Left);
         }
 
-        private static bool ValidateExitRequirements(GridRoom gridRoom, IEnumerable<ExitDirection> mustInclude, IReadOnlyCollection<ExitDirection> mustExclude)
+        private static bool ValidateExitRequirements(GridRoomLayout gridRoom, IEnumerable<ExitDirection> mustInclude, IReadOnlyCollection<ExitDirection> mustExclude)
         {
             var exitsValid = true;
-            foreach (var unused in mustExclude.Where(direction => gridRoom.HasExitDirections(direction)))  exitsValid = false;
-            foreach (var unused in mustInclude.Where(direction => !gridRoom.HasExitDirections(direction))) exitsValid = false;
+            foreach (var unused in mustExclude.Where(direction => gridRoom.HasAllOfExitDirections(direction)))  exitsValid = false;
+            foreach (var unused in mustInclude.Where(direction => !gridRoom.HasAllOfExitDirections(direction))) exitsValid = false;
             //if (gridRoom.exitDirections.Count == 1 && mustExclude.Count < 3) exitsValid = false;
 
             return exitsValid;
@@ -555,9 +534,11 @@ namespace LevelGenerator.Generator
             SerializeLocalCache();
         }
 
+        [UnityEditor.Callbacks.DidReloadScripts]
         private static void CacheOnGeneratorRecompiled()
         {
-            ApplyDeserializedCache();
+            if (!_config.disableSceneCaching)
+                ApplyDeserializedCache();
         }
 
         private static void CacheOnPlayModeStateChange(PlayModeStateChange stateChange)

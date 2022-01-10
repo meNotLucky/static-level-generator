@@ -14,7 +14,9 @@ namespace LevelGenerator.Editor
         
         private bool _isInPlayMode;
         private GeneratorConfig _config;
-        
+
+        private Vector2 _scrollPos = Vector2.zero;
+
         [MenuItem("Window/Level Generator/Open Generator", false, 2500)]
         public static void Initialize()
         {
@@ -24,7 +26,6 @@ namespace LevelGenerator.Editor
         private void OnEnable()
         {
             Generator.LevelGenerator.EnableCaching();
-            Utility.EventHandler.OnGeneratorRecompile();
         }
 
         private void OnDisable()
@@ -34,15 +35,12 @@ namespace LevelGenerator.Editor
 
         private void OnGUI()
         {
+            _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos);
+
             if (_config == null)
             {
                 _config = GeneratorConfigUtility.GetConfiguration("Config") ??
                           GeneratorConfigUtility.CreateConfiguration("Config");
-            }
-
-            if (EditorApplication.isCompiling)
-            {
-                Utility.EventHandler.OnGeneratorRecompile();
             }
 
             var myIcon = EditorGUIUtility.Load("Assets/LevelGenerator/Editor/Resources/DG_Icon.png") as Texture2D;
@@ -50,28 +48,27 @@ namespace LevelGenerator.Editor
 
             GUILayout.Space(24);
 
-            GUILayout.BeginHorizontal();
+            using (new GUILayout.HorizontalScope())
             {
                 var icon = EditorGUIUtility.Load("Assets/LevelGenerator/Editor/Resources/DG_Logo.png") as Texture;
                 GUILayout.FlexibleSpace();
                 GUILayout.Label(icon, new GUIStyle() { fixedHeight = 75, alignment = TextAnchor.MiddleCenter});
                 GUILayout.FlexibleSpace();
             }
-            GUILayout.EndHorizontal();
             
             GUILayout.Space(24);
 
             // note : commands
-            
-            GUILayout.BeginVertical("Generator Commands", "box");
+
+            using (new GUILayout.VerticalScope("Generator Commands", "box"))
             {
                 GUILayout.Space(12);
 
                 EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
-                GUILayout.BeginHorizontal();
+                using (new GUILayout.HorizontalScope())
                 {
-                    GUILayout.BeginVertical();
+                    using (new GUILayout.VerticalScope())
                     {
                         if (GUILayout.Button("Generate New Level", GUILayout.MinHeight(30), GUILayout.MinWidth(180)))
                         {
@@ -95,28 +92,25 @@ namespace LevelGenerator.Editor
                             Generator.LevelGenerator.ClearCache();
                         }
                     }
-                    GUILayout.EndVertical();
 
                     EditorGUILayout.HelpBox("Levels can be generated both in and out of play mode. If a level is generated in play mode, it will be reset upon exiting play mode. Generating a new level will automatically clear the last one.\n\nTo save a generated level, make sure to copy and save the seed from the \"Generator Seed\" section bellow. Note that the seed may yield different results with different configurations.", MessageType.None);
                 }
-                GUILayout.EndHorizontal();
                 
                 GUILayout.Space(12);
             }
-            GUILayout.EndVertical();
 
             GUILayout.Space(12);
-            
+
             // note : seed
-            
-            GUILayout.BeginVertical("Generator Seed", "box");
+
+            using (new GUILayout.VerticalScope("Generator Seed", "box"))
             {
                 GUILayout.Space(12);
 
                 EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
                 var centerSeedText = new GUIStyle(GUI.skin.textField) {alignment = TextAnchor.MiddleCenter};
-                GUILayout.BeginHorizontal();
+                using (new GUILayout.HorizontalScope())
                 {
                     GUILayout.FlexibleSpace();
                     var seed = EditorGUILayout.TextField(new GUIContent("", ""), Generator.LevelGenerator.GetSeed(), centerSeedText, GUILayout.MaxWidth(320));
@@ -125,11 +119,9 @@ namespace LevelGenerator.Editor
                     if(seed != null) seed = Regex.Replace(seed, @"[^0-9 -]", "");
                     Generator.LevelGenerator.SetSeed(seed);
                 }
-                GUILayout.EndHorizontal();
                 
                 GUILayout.Space(12);
             }
-            GUILayout.EndVertical();
             
             GUILayout.Space(12);
 
@@ -144,7 +136,9 @@ namespace LevelGenerator.Editor
             {
                 EditorGUILayout.HelpBox("Any changed settings will only be applied once a new level is generated.", MessageType.Info);
             }
-            
+
+            EditorGUILayout.EndScrollView();
+
             if (!EditorGUI.EndChangeCheck())
                 return;
             

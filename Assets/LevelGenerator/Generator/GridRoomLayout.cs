@@ -6,16 +6,15 @@ namespace LevelGenerator.Generator
     public enum ExitDirection { Top, Right, Bottom, Left }
 
     [System.Serializable]
-    public class GridRoom
+    public class GridRoomLayout
     {
         public GameObject prefab;
         public List<ExitDirection> exitDirections = new List<ExitDirection>();
-        public bool isEssential, hasFixedPosition;
-        public Vector2 fixedPosition = Vector2.zero;
+        public bool isEssential, isStartRoom;
 
-        public bool HasExitDirections(ExitDirection direction, params ExitDirection[] directions)
+        public bool HasAllOfExitDirections(params ExitDirection[] directions)
         {
-            if (!exitDirections.Contains(direction))
+            if (directions.Length == 0)
                 return false;
 
             foreach (var dir in directions)
@@ -27,10 +26,10 @@ namespace LevelGenerator.Generator
             return true;
         }
 
-        public bool HasAnyOfExitDirections(ExitDirection direction, params ExitDirection[] directions)
+        public bool HasAnyOfExitDirections(params ExitDirection[] directions)
         {
-            if (exitDirections.Contains(direction))
-                return true;
+            if (directions.Length == 0)
+                return false;
 
             foreach (var dir in directions)
             {
@@ -39,6 +38,20 @@ namespace LevelGenerator.Generator
             }
 
             return false;
+        }
+
+        public bool HasExactExitDirections(params ExitDirection[] directions)
+        {
+            if (directions.Length == 0)
+                return false;
+
+            if (!HasAllOfExitDirections(directions))
+                return false;
+
+            if (exitDirections.Count != directions.Length)
+                return false;
+
+            return true;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace LevelGenerator.Editor
         public static void Initialize(GeneratorConfig config)
         {
             _config = config;
-            GetWindow<ERoomTemplates>(true, "Room Templates", true);
+            GetWindow<ERoomTemplates>(false, "Room Templates", true);
         }
 
         private void OnGUI()
@@ -29,23 +29,24 @@ namespace LevelGenerator.Editor
             EditorGUI.BeginChangeCheck();
             {
                 GUILayout.Space(12);
-            
-                GUILayout.BeginHorizontal();
+
+                using (new GUILayout.HorizontalScope())
                 {
                     GUILayout.FlexibleSpace();
                     GUILayout.Label("Room Templates");
                     GUILayout.FlexibleSpace();
                 }
-                GUILayout.EndHorizontal();
             
                 EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
                 for(var i = 0; i < _config.roomTemplates.Count; i++)
                 {
-                    GUILayout.BeginVertical("", "box");
+                    using (new GUILayout.VerticalScope("box"))
                     {
-                        GUILayout.BeginHorizontal();
+                        using (new GUILayout.HorizontalScope())
                         {
+                            GUILayout.Space(4);
+
                             GUILayout.Label("Room " + (i + 1));
 
                             if (GUILayout.Button("Delete Room", GUILayout.MinHeight(20), GUILayout.MaxWidth(100)))
@@ -53,101 +54,85 @@ namespace LevelGenerator.Editor
                                 _config.roomTemplates.RemoveAt(i);
                                 continue;
                             }
+
+                            GUILayout.Space(4);
                         }
-                        GUILayout.EndHorizontal();
                     
                         GUILayout.Space(12);
 
-                        _config.roomTemplates[i].prefab = (GameObject)EditorGUILayout.ObjectField("Room Prefab", _config.roomTemplates[i].prefab, typeof(GameObject), false);
-                    
-                        GUILayout.BeginHorizontal();
+                        using (new GUILayout.HorizontalScope())
                         {
-                            GUILayout.Label("Room Exits");
-                        
+                            using (new GUILayout.VerticalScope(GUILayout.Height(120)))
+                            {
+                                GUILayout.Label("Room Prefab");
+
+                                GUILayout.Label("Room Exits");
+
+                                GUILayout.FlexibleSpace();
+
+                                _config.roomTemplates[i].isEssential = EditorGUILayout.ToggleLeft("Essential", _config.roomTemplates[i].isEssential, GUILayout.MaxWidth(100), GUILayout.ExpandWidth(false));
+                                _config.roomTemplates[i].isStartRoom = EditorGUILayout.ToggleLeft("Start Room", _config.roomTemplates[i].isStartRoom, GUILayout.MaxWidth(100), GUILayout.ExpandWidth(false));
+                            }
+
                             GUILayout.FlexibleSpace();
 
-                            if (_config.roomTemplates[i].exitDirections.Count >= 4)
-                                GUI.enabled = false;
-                            if (GUILayout.Button("Add Exit", GUILayout.MaxWidth(100)))
-                                _config.roomTemplates[i].exitDirections.Add(ExitDirection.Top);
-
-                            GUI.enabled = true;
-            
-                            GUILayout.BeginVertical();
+                            using (new GUILayout.VerticalScope())
                             {
-                                for(var d = 0; d < _config.roomTemplates[i].exitDirections.Count; d++)
-                                {
-                                    GUILayout.BeginHorizontal();
-                                    {
-                                        var direction = _config.roomTemplates[i].exitDirections[d];
-                                        direction = (ExitDirection)EditorGUILayout.EnumPopup(direction, GUILayout.MaxWidth(100));
-                                        _config.roomTemplates[i].exitDirections[d] = direction;
+                                _config.roomTemplates[i].prefab = (GameObject)EditorGUILayout.ObjectField(_config.roomTemplates[i].prefab, typeof(GameObject), false, GUILayout.MaxWidth(220));
 
-                                        if (_config.roomTemplates[i].exitDirections.Count < 2)
-                                            GUI.enabled = false;
-                                        if (GUILayout.Button("Remove", GUILayout.MaxWidth(70)))
-                                            _config.roomTemplates[i].exitDirections.RemoveAt(d);
-                                
-                                        GUI.enabled = true;  
+                                using (new GUILayout.HorizontalScope())
+                                {
+                                    if (_config.roomTemplates[i].exitDirections.Count >= 4)
+                                        GUI.enabled = false;
+                                    if (GUILayout.Button("+", GUILayout.MaxWidth(20)))
+                                        _config.roomTemplates[i].exitDirections.Add(ExitDirection.Top);
+
+                                    GUI.enabled = true;
+
+                                    using (new GUILayout.VerticalScope())
+                                    {
+                                        for (var d = 0; d < _config.roomTemplates[i].exitDirections.Count; d++)
+                                        {
+                                            using (new GUILayout.HorizontalScope())
+                                            {
+                                                var direction = _config.roomTemplates[i].exitDirections[d];
+                                                direction = (ExitDirection)EditorGUILayout.EnumPopup(direction, GUILayout.MaxWidth(70));
+                                                _config.roomTemplates[i].exitDirections[d] = direction;
+
+                                                if (_config.roomTemplates[i].exitDirections.Count < 2)
+                                                    GUI.enabled = false;
+                                                if (GUILayout.Button("-", GUILayout.MaxWidth(20)))
+                                                    _config.roomTemplates[i].exitDirections.RemoveAt(d);
+
+                                                GUI.enabled = true;
+                                            }
+                                        }
                                     }
-                                    GUILayout.EndHorizontal();
+
+                                    Texture2D texture = AssetPreview.GetAssetPreview(_config.roomTemplates[i].prefab);
+                                    if (texture)
+                                        GUILayout.Label(texture, GUILayout.MaxHeight(100));
                                 }
                             }
-                            GUILayout.EndVertical();
-                        }
-                        GUILayout.EndHorizontal();
-                    
-                        GUILayout.BeginHorizontal();
-                        {
-                            _config.roomTemplates[i].isEssential = EditorGUILayout.ToggleLeft("Is Essential", _config.roomTemplates[i].isEssential, GUILayout.MaxWidth(100), GUILayout.ExpandWidth(false));
-                            if(_config.roomTemplates[i].isEssential)
-                                _config.roomTemplates[i].hasFixedPosition = EditorGUILayout.ToggleLeft("Has Fixed Position", _config.roomTemplates[i].hasFixedPosition);
-                        }
-                        GUILayout.EndHorizontal();
-
-                        if (_config.roomTemplates[i].isEssential && _config.roomTemplates[i].hasFixedPosition)
-                        {
-                            GUILayout.BeginHorizontal();
-                            {
-                                EditorGUILayout.LabelField("Grid Position", GUILayout.ExpandWidth(false), GUILayout.MaxWidth(100));
-                            
-                                EditorGUIUtility.labelWidth = 10;
-                            
-                                var posX = EditorGUILayout.IntField("X", (int)_config.roomTemplates[i].fixedPosition.x + 1, GUILayout.MaxWidth(80));
-                                posX = Mathf.Clamp(posX, 1, _config.gridWidth);
-                                GUILayout.Space(2);
-                                var label = _config.gridAlignment == GridAlignment.Horizontal ? "Z" : "Y";
-                                var posY = EditorGUILayout.IntField(label, (int)_config.roomTemplates[i].fixedPosition.y + 1, GUILayout.MaxWidth(80));
-                                posY = Mathf.Clamp(posY, 1, _config.gridHeight);
-                            
-                                _config.roomTemplates[i].fixedPosition = new Vector2(posX - 1, posY - 1);
-                            
-                                GUILayout.Label("", GUILayout.MaxWidth(60));
-                            
-                                EditorGUIUtility.labelWidth = 0;
-                            }
-                            GUILayout.EndHorizontal();
                         }
                     }
-                    GUILayout.EndVertical();
-                
-                    EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+
+                    GUILayout.Space(12);
                 }
-            
-                GUILayout.BeginHorizontal();
+
+                using (new GUILayout.HorizontalScope())
                 {
                     GUILayout.FlexibleSpace();
 
-                    if (GUILayout.Button("Add Room", GUILayout.MinHeight(25), GUILayout.MaxWidth(110)))
+                    if (GUILayout.Button("Add Template", GUILayout.MinHeight(25), GUILayout.MaxWidth(110)))
                     {
-                        var room = new GridRoom();
+                        var room = new GridRoomLayout();
                         room.exitDirections.Add(ExitDirection.Top);
                         _config.roomTemplates.Add(room);
                     }
                 
                     GUILayout.FlexibleSpace();
                 }
-                GUILayout.EndHorizontal();
             
                 GUILayout.Space(12);
 

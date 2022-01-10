@@ -134,12 +134,12 @@ references:
   isSpec: "True"
   fullName: LevelGenerator.Generator.GridCell.HasRoom
   nameWithType: GridCell.HasRoom
-- uid: LevelGenerator.Generator.GridCell.InstantiateRoom(LevelGenerator.Generator.GridRoom)
-  name: InstantiateRoom(GridRoom)
-  href: api/LevelGenerator.Generator.GridCell.html#LevelGenerator_Generator_GridCell_InstantiateRoom_LevelGenerator_Generator_GridRoom_
-  commentId: M:LevelGenerator.Generator.GridCell.InstantiateRoom(LevelGenerator.Generator.GridRoom)
-  fullName: LevelGenerator.Generator.GridCell.InstantiateRoom(LevelGenerator.Generator.GridRoom)
-  nameWithType: GridCell.InstantiateRoom(GridRoom)
+- uid: LevelGenerator.Generator.GridCell.InstantiateRoom(LevelGenerator.Generator.GridRoomLayout)
+  name: InstantiateRoom(GridRoomLayout)
+  href: api/LevelGenerator.Generator.GridCell.html#LevelGenerator_Generator_GridCell_InstantiateRoom_LevelGenerator_Generator_GridRoomLayout_
+  commentId: M:LevelGenerator.Generator.GridCell.InstantiateRoom(LevelGenerator.Generator.GridRoomLayout)
+  fullName: LevelGenerator.Generator.GridCell.InstantiateRoom(LevelGenerator.Generator.GridRoomLayout)
+  nameWithType: GridCell.InstantiateRoom(GridRoomLayout)
 - uid: LevelGenerator.Generator.GridCell.InstantiateRoom*
   name: InstantiateRoom
   href: api/LevelGenerator.Generator.GridCell.html#LevelGenerator_Generator_GridCell_InstantiateRoom_
@@ -153,74 +153,84 @@ references:
   commentId: F:LevelGenerator.Generator.GridCell.isConnected
   fullName: LevelGenerator.Generator.GridCell.isConnected
   nameWithType: GridCell.isConnected
-- uid: LevelGenerator.Generator.GridRoom
-  name: GridRoom
-  href: api/LevelGenerator.Generator.GridRoom.html
-  commentId: T:LevelGenerator.Generator.GridRoom
-  fullName: LevelGenerator.Generator.GridRoom
-  nameWithType: GridRoom
-- uid: LevelGenerator.Generator.GridRoom.exitDirections
+- uid: LevelGenerator.Generator.GridRoomLayout
+  name: GridRoomLayout
+  href: api/LevelGenerator.Generator.GridRoomLayout.html
+  commentId: T:LevelGenerator.Generator.GridRoomLayout
+  fullName: LevelGenerator.Generator.GridRoomLayout
+  nameWithType: GridRoomLayout
+- uid: LevelGenerator.Generator.GridRoomLayout.exitDirections
   name: exitDirections
-  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_exitDirections
-  commentId: F:LevelGenerator.Generator.GridRoom.exitDirections
-  fullName: LevelGenerator.Generator.GridRoom.exitDirections
-  nameWithType: GridRoom.exitDirections
-- uid: LevelGenerator.Generator.GridRoom.fixedPosition
-  name: fixedPosition
-  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_fixedPosition
-  commentId: F:LevelGenerator.Generator.GridRoom.fixedPosition
-  fullName: LevelGenerator.Generator.GridRoom.fixedPosition
-  nameWithType: GridRoom.fixedPosition
-- uid: LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection,LevelGenerator.Generator.ExitDirection[])
-  name: HasAnyOfExitDirections(ExitDirection, ExitDirection[])
-  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_HasAnyOfExitDirections_LevelGenerator_Generator_ExitDirection_LevelGenerator_Generator_ExitDirection___
-  commentId: M:LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection,LevelGenerator.Generator.ExitDirection[])
-  name.vb: HasAnyOfExitDirections(ExitDirection, ExitDirection())
-  fullName: LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection, LevelGenerator.Generator.ExitDirection[])
-  fullName.vb: LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection, LevelGenerator.Generator.ExitDirection())
-  nameWithType: GridRoom.HasAnyOfExitDirections(ExitDirection, ExitDirection[])
-  nameWithType.vb: GridRoom.HasAnyOfExitDirections(ExitDirection, ExitDirection())
-- uid: LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections*
+  href: api/LevelGenerator.Generator.GridRoomLayout.html#LevelGenerator_Generator_GridRoomLayout_exitDirections
+  commentId: F:LevelGenerator.Generator.GridRoomLayout.exitDirections
+  fullName: LevelGenerator.Generator.GridRoomLayout.exitDirections
+  nameWithType: GridRoomLayout.exitDirections
+- uid: LevelGenerator.Generator.GridRoomLayout.HasAllOfExitDirections(LevelGenerator.Generator.ExitDirection[])
+  name: HasAllOfExitDirections(ExitDirection[])
+  href: api/LevelGenerator.Generator.GridRoomLayout.html#LevelGenerator_Generator_GridRoomLayout_HasAllOfExitDirections_LevelGenerator_Generator_ExitDirection___
+  commentId: M:LevelGenerator.Generator.GridRoomLayout.HasAllOfExitDirections(LevelGenerator.Generator.ExitDirection[])
+  name.vb: HasAllOfExitDirections(ExitDirection())
+  fullName: LevelGenerator.Generator.GridRoomLayout.HasAllOfExitDirections(LevelGenerator.Generator.ExitDirection[])
+  fullName.vb: LevelGenerator.Generator.GridRoomLayout.HasAllOfExitDirections(LevelGenerator.Generator.ExitDirection())
+  nameWithType: GridRoomLayout.HasAllOfExitDirections(ExitDirection[])
+  nameWithType.vb: GridRoomLayout.HasAllOfExitDirections(ExitDirection())
+- uid: LevelGenerator.Generator.GridRoomLayout.HasAllOfExitDirections*
+  name: HasAllOfExitDirections
+  href: api/LevelGenerator.Generator.GridRoomLayout.html#LevelGenerator_Generator_GridRoomLayout_HasAllOfExitDirections_
+  commentId: Overload:LevelGenerator.Generator.GridRoomLayout.HasAllOfExitDirections
+  isSpec: "True"
+  fullName: LevelGenerator.Generator.GridRoomLayout.HasAllOfExitDirections
+  nameWithType: GridRoomLayout.HasAllOfExitDirections
+- uid: LevelGenerator.Generator.GridRoomLayout.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection[])
+  name: HasAnyOfExitDirections(ExitDirection[])
+  href: api/LevelGenerator.Generator.GridRoomLayout.html#LevelGenerator_Generator_GridRoomLayout_HasAnyOfExitDirections_LevelGenerator_Generator_ExitDirection___
+  commentId: M:LevelGenerator.Generator.GridRoomLayout.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection[])
+  name.vb: HasAnyOfExitDirections(ExitDirection())
+  fullName: LevelGenerator.Generator.GridRoomLayout.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection[])
+  fullName.vb: LevelGenerator.Generator.GridRoomLayout.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection())
+  nameWithType: GridRoomLayout.HasAnyOfExitDirections(ExitDirection[])
+  nameWithType.vb: GridRoomLayout.HasAnyOfExitDirections(ExitDirection())
+- uid: LevelGenerator.Generator.GridRoomLayout.HasAnyOfExitDirections*
   name: HasAnyOfExitDirections
-  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_HasAnyOfExitDirections_
-  commentId: Overload:LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections
+  href: api/LevelGenerator.Generator.GridRoomLayout.html#LevelGenerator_Generator_GridRoomLayout_HasAnyOfExitDirections_
+  commentId: Overload:LevelGenerator.Generator.GridRoomLayout.HasAnyOfExitDirections
   isSpec: "True"
-  fullName: LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections
-  nameWithType: GridRoom.HasAnyOfExitDirections
-- uid: LevelGenerator.Generator.GridRoom.HasExitDirections(LevelGenerator.Generator.ExitDirection,LevelGenerator.Generator.ExitDirection[])
-  name: HasExitDirections(ExitDirection, ExitDirection[])
-  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_HasExitDirections_LevelGenerator_Generator_ExitDirection_LevelGenerator_Generator_ExitDirection___
-  commentId: M:LevelGenerator.Generator.GridRoom.HasExitDirections(LevelGenerator.Generator.ExitDirection,LevelGenerator.Generator.ExitDirection[])
-  name.vb: HasExitDirections(ExitDirection, ExitDirection())
-  fullName: LevelGenerator.Generator.GridRoom.HasExitDirections(LevelGenerator.Generator.ExitDirection, LevelGenerator.Generator.ExitDirection[])
-  fullName.vb: LevelGenerator.Generator.GridRoom.HasExitDirections(LevelGenerator.Generator.ExitDirection, LevelGenerator.Generator.ExitDirection())
-  nameWithType: GridRoom.HasExitDirections(ExitDirection, ExitDirection[])
-  nameWithType.vb: GridRoom.HasExitDirections(ExitDirection, ExitDirection())
-- uid: LevelGenerator.Generator.GridRoom.HasExitDirections*
-  name: HasExitDirections
-  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_HasExitDirections_
-  commentId: Overload:LevelGenerator.Generator.GridRoom.HasExitDirections
+  fullName: LevelGenerator.Generator.GridRoomLayout.HasAnyOfExitDirections
+  nameWithType: GridRoomLayout.HasAnyOfExitDirections
+- uid: LevelGenerator.Generator.GridRoomLayout.HasExactExitDirections(LevelGenerator.Generator.ExitDirection[])
+  name: HasExactExitDirections(ExitDirection[])
+  href: api/LevelGenerator.Generator.GridRoomLayout.html#LevelGenerator_Generator_GridRoomLayout_HasExactExitDirections_LevelGenerator_Generator_ExitDirection___
+  commentId: M:LevelGenerator.Generator.GridRoomLayout.HasExactExitDirections(LevelGenerator.Generator.ExitDirection[])
+  name.vb: HasExactExitDirections(ExitDirection())
+  fullName: LevelGenerator.Generator.GridRoomLayout.HasExactExitDirections(LevelGenerator.Generator.ExitDirection[])
+  fullName.vb: LevelGenerator.Generator.GridRoomLayout.HasExactExitDirections(LevelGenerator.Generator.ExitDirection())
+  nameWithType: GridRoomLayout.HasExactExitDirections(ExitDirection[])
+  nameWithType.vb: GridRoomLayout.HasExactExitDirections(ExitDirection())
+- uid: LevelGenerator.Generator.GridRoomLayout.HasExactExitDirections*
+  name: HasExactExitDirections
+  href: api/LevelGenerator.Generator.GridRoomLayout.html#LevelGenerator_Generator_GridRoomLayout_HasExactExitDirections_
+  commentId: Overload:LevelGenerator.Generator.GridRoomLayout.HasExactExitDirections
   isSpec: "True"
-  fullName: LevelGenerator.Generator.GridRoom.HasExitDirections
-  nameWithType: GridRoom.HasExitDirections
-- uid: LevelGenerator.Generator.GridRoom.hasFixedPosition
-  name: hasFixedPosition
-  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_hasFixedPosition
-  commentId: F:LevelGenerator.Generator.GridRoom.hasFixedPosition
-  fullName: LevelGenerator.Generator.GridRoom.hasFixedPosition
-  nameWithType: GridRoom.hasFixedPosition
-- uid: LevelGenerator.Generator.GridRoom.isEssential
+  fullName: LevelGenerator.Generator.GridRoomLayout.HasExactExitDirections
+  nameWithType: GridRoomLayout.HasExactExitDirections
+- uid: LevelGenerator.Generator.GridRoomLayout.isEssential
   name: isEssential
-  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_isEssential
-  commentId: F:LevelGenerator.Generator.GridRoom.isEssential
-  fullName: LevelGenerator.Generator.GridRoom.isEssential
-  nameWithType: GridRoom.isEssential
-- uid: LevelGenerator.Generator.GridRoom.prefab
+  href: api/LevelGenerator.Generator.GridRoomLayout.html#LevelGenerator_Generator_GridRoomLayout_isEssential
+  commentId: F:LevelGenerator.Generator.GridRoomLayout.isEssential
+  fullName: LevelGenerator.Generator.GridRoomLayout.isEssential
+  nameWithType: GridRoomLayout.isEssential
+- uid: LevelGenerator.Generator.GridRoomLayout.isStartRoom
+  name: isStartRoom
+  href: api/LevelGenerator.Generator.GridRoomLayout.html#LevelGenerator_Generator_GridRoomLayout_isStartRoom
+  commentId: F:LevelGenerator.Generator.GridRoomLayout.isStartRoom
+  fullName: LevelGenerator.Generator.GridRoomLayout.isStartRoom
+  nameWithType: GridRoomLayout.isStartRoom
+- uid: LevelGenerator.Generator.GridRoomLayout.prefab
   name: prefab
-  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_prefab
-  commentId: F:LevelGenerator.Generator.GridRoom.prefab
-  fullName: LevelGenerator.Generator.GridRoom.prefab
-  nameWithType: GridRoom.prefab
+  href: api/LevelGenerator.Generator.GridRoomLayout.html#LevelGenerator_Generator_GridRoomLayout_prefab
+  commentId: F:LevelGenerator.Generator.GridRoomLayout.prefab
+  fullName: LevelGenerator.Generator.GridRoomLayout.prefab
+  nameWithType: GridRoomLayout.prefab
 - uid: LevelGenerator.Generator.LevelGenerator
   name: LevelGenerator
   href: api/LevelGenerator.Generator.LevelGenerator.html
@@ -368,37 +378,6 @@ references:
   commentId: F:LevelGenerator.Utility.CacheData.levelSeed
   fullName: LevelGenerator.Utility.CacheData.levelSeed
   nameWithType: CacheData.levelSeed
-- uid: LevelGenerator.Utility.EventHandler
-  name: EventHandler
-  href: api/LevelGenerator.Utility.EventHandler.html
-  commentId: T:LevelGenerator.Utility.EventHandler
-  fullName: LevelGenerator.Utility.EventHandler
-  nameWithType: EventHandler
-- uid: LevelGenerator.Utility.EventHandler.generatorRecompiled
-  name: generatorRecompiled
-  href: api/LevelGenerator.Utility.EventHandler.html#LevelGenerator_Utility_EventHandler_generatorRecompiled
-  commentId: E:LevelGenerator.Utility.EventHandler.generatorRecompiled
-  fullName: LevelGenerator.Utility.EventHandler.generatorRecompiled
-  nameWithType: EventHandler.generatorRecompiled
-- uid: LevelGenerator.Utility.EventHandler.GeneratorRecompililationCallback
-  name: EventHandler.GeneratorRecompililationCallback
-  href: api/LevelGenerator.Utility.EventHandler.GeneratorRecompililationCallback.html
-  commentId: T:LevelGenerator.Utility.EventHandler.GeneratorRecompililationCallback
-  fullName: LevelGenerator.Utility.EventHandler.GeneratorRecompililationCallback
-  nameWithType: EventHandler.GeneratorRecompililationCallback
-- uid: LevelGenerator.Utility.EventHandler.OnGeneratorRecompile
-  name: OnGeneratorRecompile()
-  href: api/LevelGenerator.Utility.EventHandler.html#LevelGenerator_Utility_EventHandler_OnGeneratorRecompile
-  commentId: M:LevelGenerator.Utility.EventHandler.OnGeneratorRecompile
-  fullName: LevelGenerator.Utility.EventHandler.OnGeneratorRecompile()
-  nameWithType: EventHandler.OnGeneratorRecompile()
-- uid: LevelGenerator.Utility.EventHandler.OnGeneratorRecompile*
-  name: OnGeneratorRecompile
-  href: api/LevelGenerator.Utility.EventHandler.html#LevelGenerator_Utility_EventHandler_OnGeneratorRecompile_
-  commentId: Overload:LevelGenerator.Utility.EventHandler.OnGeneratorRecompile
-  isSpec: "True"
-  fullName: LevelGenerator.Utility.EventHandler.OnGeneratorRecompile
-  nameWithType: EventHandler.OnGeneratorRecompile
 - uid: LevelGenerator.Utility.GeneratorConfig
   name: GeneratorConfig
   href: api/LevelGenerator.Utility.GeneratorConfig.html
@@ -441,12 +420,6 @@ references:
   commentId: F:LevelGenerator.Utility.GeneratorConfig.disableSceneCaching
   fullName: LevelGenerator.Utility.GeneratorConfig.disableSceneCaching
   nameWithType: GeneratorConfig.disableSceneCaching
-- uid: LevelGenerator.Utility.GeneratorConfig.forcedLevelGeneration
-  name: forcedLevelGeneration
-  href: api/LevelGenerator.Utility.GeneratorConfig.html#LevelGenerator_Utility_GeneratorConfig_forcedLevelGeneration
-  commentId: F:LevelGenerator.Utility.GeneratorConfig.forcedLevelGeneration
-  fullName: LevelGenerator.Utility.GeneratorConfig.forcedLevelGeneration
-  nameWithType: GeneratorConfig.forcedLevelGeneration
 - uid: LevelGenerator.Utility.GeneratorConfig.gridAlignment
   name: gridAlignment
   href: api/LevelGenerator.Utility.GeneratorConfig.html#LevelGenerator_Utility_GeneratorConfig_gridAlignment

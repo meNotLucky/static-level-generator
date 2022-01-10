@@ -40,7 +40,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LevelGenerator.Generator.GridCell.html",
-          "hash": "qhaVZHE5+ZpVbUySaL4bCp4woAmbWsW08hPWQa1GHeM="
+          "hash": "qsUF2/I4Uca+wUM8DSa7oofAi3x844iLIGzbLIGtymM="
         }
       },
       "is_incremental": false,
@@ -48,11 +48,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Generator.GridRoom.yml",
+      "source_relative_path": "api/LevelGenerator.Generator.GridRoomLayout.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LevelGenerator.Generator.GridRoom.html",
-          "hash": "9BUAyXFPqkVo7vKFodnfdnWf1Z5lKvc2+zdgPg7nKBw="
+          "relative_path": "api/LevelGenerator.Generator.GridRoomLayout.html",
+          "hash": "USINwS/wyZ0ynDZXlakzZDfTF/itxKYOxw5aZOs6kN0="
         }
       },
       "is_incremental": false,
@@ -64,7 +64,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LevelGenerator.Generator.LevelGenerator.html",
-          "hash": "fsRAm3cdSfv/pwtTtsbO67zJB5FrFoTZECHbeuk7s70="
+          "hash": "UZTXNDJqGgB7lY0oIunkk+GbxiHwFXAsJw/ckZ4mfHQ="
         }
       },
       "is_incremental": false,
@@ -76,7 +76,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LevelGenerator.Generator.html",
-          "hash": "GwVHBGMYPZj54UDrywZ/elfs2fNEenHaKETJeScJYzk="
+          "hash": "J14LX4LpGXWDzmRBcqfZYo20TxbY67KjCuRvx99hD5k="
         }
       },
       "is_incremental": false,
@@ -96,35 +96,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Utility.EventHandler.GeneratorRecompililationCallback.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LevelGenerator.Utility.EventHandler.GeneratorRecompililationCallback.html",
-          "hash": "MbZmvHvwRfiRRcXuzzNqbKCcIZyFdxvxATUbHoXY9zc="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/LevelGenerator.Utility.EventHandler.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/LevelGenerator.Utility.EventHandler.html",
-          "hash": "QesALk7jWrrpAUb4apS1GEKom7Lluawf5ooZaEqGXoY="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/LevelGenerator.Utility.GeneratorConfig.yml",
       "output": {
         ".html": {
           "relative_path": "api/LevelGenerator.Utility.GeneratorConfig.html",
-          "hash": "cH4k416QC2XWNPfXImqydxUFpJXPgF4NmZBD8CP7ktY="
+          "hash": "D0h/xTCT5uvXyXhJEsoadV3H3ZerGubAk44hXs2t5hU="
         }
       },
       "is_incremental": false,
@@ -208,7 +184,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LevelGenerator.Utility.html",
-          "hash": "3cd4Km0fK0goFVB20qhjmXM22RxOJSYkBkMNjvMA+jg="
+          "hash": "5b6oG7UMLhtmqi0/f13pRlfTT6GTpaqbRVnNYSAb4Lc="
         }
       },
       "is_incremental": false,
@@ -220,7 +196,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "5403BTKtJtbzONfy5yq4uyI/Q4ZMXrSzLbOCvZZqqxE="
+          "hash": "YW+ViNHZw0IvcrK8JRiQGxIt475HjTTB9mXLK3bZ+as="
         }
       },
       "is_incremental": false,
@@ -279,7 +255,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "OW2N2n3XOm1MXUN+3OfByBAvvmUHoHvuONU/L1H9h1Y="
+          "hash": "w42dkuTCkuBmmFcNgC/sapz+Oe7p2Fgz+vZYUsCQytg="
         }
       },
       "is_incremental": false,
@@ -327,8 +303,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 16,
-          "skipped_file_count": 16
+          "total_file_count": 14,
+          "skipped_file_count": 13
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
