@@ -13,7 +13,7 @@ namespace LevelGenerator.Generator
         private readonly GameObject _cellObject;
         private GameObject _roomObject;
 
-        private GridRoom _gridRoom;
+        private GridRoomLayout _gridRoom;
         private bool _roomSet;
 
         public bool isConnected;
@@ -37,11 +37,19 @@ namespace LevelGenerator.Generator
             _neighbours.Add(neighbour);
         }
 
-        public void InstantiateRoom(GridRoom gridRoom)
+        public void InstantiateRoom(GridRoomLayout gridRoom)
         {
-            if (!_cellObject || _roomSet)
+            if (!_cellObject)
                 return;
-                
+
+            if(_roomObject)
+            {
+                if (EditorApplication.isPlaying)
+                    Object.Destroy(_roomObject);
+                else
+                    Undo.DestroyObjectImmediate(_roomObject);
+            }
+
             _gridRoom = gridRoom;
             _roomSet = true;
             _roomObject = Object.Instantiate(gridRoom.prefab, _cellObject.transform);
@@ -57,14 +65,14 @@ namespace LevelGenerator.Generator
             return _neighbours;
         }
 
-        public GridRoom GetRoom()
+        public GridRoomLayout GetRoom()
         {
             return _gridRoom;
         }
 
         public bool HasExit(ExitDirection exit)
         {
-            return _gridRoom.HasExitDirections(exit);
+            return _gridRoom.HasAllOfExitDirections(exit);
         }
 
         public bool HasRoom()

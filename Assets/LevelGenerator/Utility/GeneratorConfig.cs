@@ -18,8 +18,6 @@ namespace LevelGenerator.Utility
 
         public int levelDensity = 50;
 
-        public bool forcedLevelGeneration = false;
-
         public GridAlignment gridAlignment = GridAlignment.Horizontal;
     
         public Vector2 cellPositionOffset = new Vector2(1.0f, 1.0f);
@@ -31,7 +29,7 @@ namespace LevelGenerator.Utility
         public Vector3 levelRotation = new Vector3();
         public Vector3 levelScale = new Vector3(1.0f, 1.0f, 1.0f);
 
-        public List<GridRoom> roomTemplates = new List<GridRoom>();
+        public List<GridRoomLayout> roomTemplates = new List<GridRoomLayout>();
         
         // EXPERIMENTAL
 
