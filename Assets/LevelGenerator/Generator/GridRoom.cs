@@ -12,5 +12,33 @@ namespace LevelGenerator.Generator
         public List<ExitDirection> exitDirections = new List<ExitDirection>();
         public bool isEssential, hasFixedPosition;
         public Vector2 fixedPosition = Vector2.zero;
+
+        public bool HasExitDirections(ExitDirection direction, params ExitDirection[] directions)
+        {
+            if (!exitDirections.Contains(direction))
+                return false;
+
+            foreach (var dir in directions)
+            {
+                if (!exitDirections.Contains(dir))
+                    return false;
+            }
+
+            return true;
+        }
+
+        public bool HasAnyOfExitDirections(ExitDirection direction, params ExitDirection[] directions)
+        {
+            if (exitDirections.Contains(direction))
+                return true;
+
+            foreach (var dir in directions)
+            {
+                if (exitDirections.Contains(dir))
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

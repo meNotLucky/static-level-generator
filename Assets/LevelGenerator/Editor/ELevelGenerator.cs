@@ -97,7 +97,7 @@ namespace LevelGenerator.Editor
                     }
                     GUILayout.EndVertical();
 
-                    EditorGUILayout.HelpBox("Levels can be generated both in and out of play mode. If a level is generated in play mode, it will be reset upon exiting play mode. To save a level generated in play mode, make sure to copy the seed from the \"Generator Settings\" section. Generating a new level will automatically clear the last one.", MessageType.None);
+                    EditorGUILayout.HelpBox("Levels can be generated both in and out of play mode. If a level is generated in play mode, it will be reset upon exiting play mode. Generating a new level will automatically clear the last one.\n\nTo save a generated level, make sure to copy and save the seed from the \"Generator Seed\" section bellow. Note that the seed may yield different results with different configurations.", MessageType.None);
                 }
                 GUILayout.EndHorizontal();
                 
@@ -133,7 +133,7 @@ namespace LevelGenerator.Editor
             
             GUILayout.Space(12);
 
-            // note : settings
+            // note : configuration
 
             EditorGUI.BeginChangeCheck();
             
@@ -142,7 +142,6 @@ namespace LevelGenerator.Editor
 
             if (settingsChangedWarning)
             {
-                GUILayout.Space(12);
                 EditorGUILayout.HelpBox("Any changed settings will only be applied once a new level is generated.", MessageType.Info);
             }
             

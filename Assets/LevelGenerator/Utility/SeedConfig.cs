@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LevelGenerator.Utility
 {
-    [StructLayout(LayoutKind.Explicit)]
+    [System.Serializable, StructLayout(LayoutKind.Explicit)]
     public struct SeedConfig
     {
         [FieldOffset(0)] private Random.State state;

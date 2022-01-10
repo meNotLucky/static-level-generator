@@ -12,7 +12,6 @@ namespace LevelGenerator.Utility
         // events
         public static event GeneratorRecompililationCallback generatorRecompiled;
         
-        
         // event invocators
         public static void OnGeneratorRecompile()
         {

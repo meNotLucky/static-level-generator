@@ -95,19 +95,19 @@ references:
   isSpec: "True"
   fullName: LevelGenerator.Generator.GridCell.GetNeighbours
   nameWithType: GridCell.GetNeighbours
-- uid: LevelGenerator.Generator.GridCell.GetPrefab
-  name: GetPrefab()
-  href: api/LevelGenerator.Generator.GridCell.html#LevelGenerator_Generator_GridCell_GetPrefab
-  commentId: M:LevelGenerator.Generator.GridCell.GetPrefab
-  fullName: LevelGenerator.Generator.GridCell.GetPrefab()
-  nameWithType: GridCell.GetPrefab()
-- uid: LevelGenerator.Generator.GridCell.GetPrefab*
-  name: GetPrefab
-  href: api/LevelGenerator.Generator.GridCell.html#LevelGenerator_Generator_GridCell_GetPrefab_
-  commentId: Overload:LevelGenerator.Generator.GridCell.GetPrefab
+- uid: LevelGenerator.Generator.GridCell.GetRoom
+  name: GetRoom()
+  href: api/LevelGenerator.Generator.GridCell.html#LevelGenerator_Generator_GridCell_GetRoom
+  commentId: M:LevelGenerator.Generator.GridCell.GetRoom
+  fullName: LevelGenerator.Generator.GridCell.GetRoom()
+  nameWithType: GridCell.GetRoom()
+- uid: LevelGenerator.Generator.GridCell.GetRoom*
+  name: GetRoom
+  href: api/LevelGenerator.Generator.GridCell.html#LevelGenerator_Generator_GridCell_GetRoom_
+  commentId: Overload:LevelGenerator.Generator.GridCell.GetRoom
   isSpec: "True"
-  fullName: LevelGenerator.Generator.GridCell.GetPrefab
-  nameWithType: GridCell.GetPrefab
+  fullName: LevelGenerator.Generator.GridCell.GetRoom
+  nameWithType: GridCell.GetRoom
 - uid: LevelGenerator.Generator.GridCell.HasExit(LevelGenerator.Generator.ExitDirection)
   name: HasExit(ExitDirection)
   href: api/LevelGenerator.Generator.GridCell.html#LevelGenerator_Generator_GridCell_HasExit_LevelGenerator_Generator_ExitDirection_
@@ -147,6 +147,12 @@ references:
   isSpec: "True"
   fullName: LevelGenerator.Generator.GridCell.InstantiateRoom
   nameWithType: GridCell.InstantiateRoom
+- uid: LevelGenerator.Generator.GridCell.isConnected
+  name: isConnected
+  href: api/LevelGenerator.Generator.GridCell.html#LevelGenerator_Generator_GridCell_isConnected
+  commentId: F:LevelGenerator.Generator.GridCell.isConnected
+  fullName: LevelGenerator.Generator.GridCell.isConnected
+  nameWithType: GridCell.isConnected
 - uid: LevelGenerator.Generator.GridRoom
   name: GridRoom
   href: api/LevelGenerator.Generator.GridRoom.html
@@ -165,6 +171,38 @@ references:
   commentId: F:LevelGenerator.Generator.GridRoom.fixedPosition
   fullName: LevelGenerator.Generator.GridRoom.fixedPosition
   nameWithType: GridRoom.fixedPosition
+- uid: LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection,LevelGenerator.Generator.ExitDirection[])
+  name: HasAnyOfExitDirections(ExitDirection, ExitDirection[])
+  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_HasAnyOfExitDirections_LevelGenerator_Generator_ExitDirection_LevelGenerator_Generator_ExitDirection___
+  commentId: M:LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection,LevelGenerator.Generator.ExitDirection[])
+  name.vb: HasAnyOfExitDirections(ExitDirection, ExitDirection())
+  fullName: LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection, LevelGenerator.Generator.ExitDirection[])
+  fullName.vb: LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections(LevelGenerator.Generator.ExitDirection, LevelGenerator.Generator.ExitDirection())
+  nameWithType: GridRoom.HasAnyOfExitDirections(ExitDirection, ExitDirection[])
+  nameWithType.vb: GridRoom.HasAnyOfExitDirections(ExitDirection, ExitDirection())
+- uid: LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections*
+  name: HasAnyOfExitDirections
+  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_HasAnyOfExitDirections_
+  commentId: Overload:LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections
+  isSpec: "True"
+  fullName: LevelGenerator.Generator.GridRoom.HasAnyOfExitDirections
+  nameWithType: GridRoom.HasAnyOfExitDirections
+- uid: LevelGenerator.Generator.GridRoom.HasExitDirections(LevelGenerator.Generator.ExitDirection,LevelGenerator.Generator.ExitDirection[])
+  name: HasExitDirections(ExitDirection, ExitDirection[])
+  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_HasExitDirections_LevelGenerator_Generator_ExitDirection_LevelGenerator_Generator_ExitDirection___
+  commentId: M:LevelGenerator.Generator.GridRoom.HasExitDirections(LevelGenerator.Generator.ExitDirection,LevelGenerator.Generator.ExitDirection[])
+  name.vb: HasExitDirections(ExitDirection, ExitDirection())
+  fullName: LevelGenerator.Generator.GridRoom.HasExitDirections(LevelGenerator.Generator.ExitDirection, LevelGenerator.Generator.ExitDirection[])
+  fullName.vb: LevelGenerator.Generator.GridRoom.HasExitDirections(LevelGenerator.Generator.ExitDirection, LevelGenerator.Generator.ExitDirection())
+  nameWithType: GridRoom.HasExitDirections(ExitDirection, ExitDirection[])
+  nameWithType.vb: GridRoom.HasExitDirections(ExitDirection, ExitDirection())
+- uid: LevelGenerator.Generator.GridRoom.HasExitDirections*
+  name: HasExitDirections
+  href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_HasExitDirections_
+  commentId: Overload:LevelGenerator.Generator.GridRoom.HasExitDirections
+  isSpec: "True"
+  fullName: LevelGenerator.Generator.GridRoom.HasExitDirections
+  nameWithType: GridRoom.HasExitDirections
 - uid: LevelGenerator.Generator.GridRoom.hasFixedPosition
   name: hasFixedPosition
   href: api/LevelGenerator.Generator.GridRoom.html#LevelGenerator_Generator_GridRoom_hasFixedPosition
@@ -312,37 +350,55 @@ references:
   commentId: N:LevelGenerator.Utility
   fullName: LevelGenerator.Utility
   nameWithType: LevelGenerator.Utility
+- uid: LevelGenerator.Utility.CacheData
+  name: CacheData
+  href: api/LevelGenerator.Utility.CacheData.html
+  commentId: T:LevelGenerator.Utility.CacheData
+  fullName: LevelGenerator.Utility.CacheData
+  nameWithType: CacheData
+- uid: LevelGenerator.Utility.CacheData.levelObjectID
+  name: levelObjectID
+  href: api/LevelGenerator.Utility.CacheData.html#LevelGenerator_Utility_CacheData_levelObjectID
+  commentId: F:LevelGenerator.Utility.CacheData.levelObjectID
+  fullName: LevelGenerator.Utility.CacheData.levelObjectID
+  nameWithType: CacheData.levelObjectID
+- uid: LevelGenerator.Utility.CacheData.levelSeed
+  name: levelSeed
+  href: api/LevelGenerator.Utility.CacheData.html#LevelGenerator_Utility_CacheData_levelSeed
+  commentId: F:LevelGenerator.Utility.CacheData.levelSeed
+  fullName: LevelGenerator.Utility.CacheData.levelSeed
+  nameWithType: CacheData.levelSeed
 - uid: LevelGenerator.Utility.EventHandler
   name: EventHandler
   href: api/LevelGenerator.Utility.EventHandler.html
   commentId: T:LevelGenerator.Utility.EventHandler
   fullName: LevelGenerator.Utility.EventHandler
   nameWithType: EventHandler
-- uid: LevelGenerator.Utility.EventHandler.generatorLostReference
-  name: generatorLostReference
-  href: api/LevelGenerator.Utility.EventHandler.html#LevelGenerator_Utility_EventHandler_generatorLostReference
-  commentId: E:LevelGenerator.Utility.EventHandler.generatorLostReference
-  fullName: LevelGenerator.Utility.EventHandler.generatorLostReference
-  nameWithType: EventHandler.generatorLostReference
-- uid: LevelGenerator.Utility.EventHandler.GeneratorLostReference
-  name: GeneratorLostReference()
-  href: api/LevelGenerator.Utility.EventHandler.html#LevelGenerator_Utility_EventHandler_GeneratorLostReference
-  commentId: M:LevelGenerator.Utility.EventHandler.GeneratorLostReference
-  fullName: LevelGenerator.Utility.EventHandler.GeneratorLostReference()
-  nameWithType: EventHandler.GeneratorLostReference()
-- uid: LevelGenerator.Utility.EventHandler.GeneratorLostReference*
-  name: GeneratorLostReference
-  href: api/LevelGenerator.Utility.EventHandler.html#LevelGenerator_Utility_EventHandler_GeneratorLostReference_
-  commentId: Overload:LevelGenerator.Utility.EventHandler.GeneratorLostReference
+- uid: LevelGenerator.Utility.EventHandler.generatorRecompiled
+  name: generatorRecompiled
+  href: api/LevelGenerator.Utility.EventHandler.html#LevelGenerator_Utility_EventHandler_generatorRecompiled
+  commentId: E:LevelGenerator.Utility.EventHandler.generatorRecompiled
+  fullName: LevelGenerator.Utility.EventHandler.generatorRecompiled
+  nameWithType: EventHandler.generatorRecompiled
+- uid: LevelGenerator.Utility.EventHandler.GeneratorRecompililationCallback
+  name: EventHandler.GeneratorRecompililationCallback
+  href: api/LevelGenerator.Utility.EventHandler.GeneratorRecompililationCallback.html
+  commentId: T:LevelGenerator.Utility.EventHandler.GeneratorRecompililationCallback
+  fullName: LevelGenerator.Utility.EventHandler.GeneratorRecompililationCallback
+  nameWithType: EventHandler.GeneratorRecompililationCallback
+- uid: LevelGenerator.Utility.EventHandler.OnGeneratorRecompile
+  name: OnGeneratorRecompile()
+  href: api/LevelGenerator.Utility.EventHandler.html#LevelGenerator_Utility_EventHandler_OnGeneratorRecompile
+  commentId: M:LevelGenerator.Utility.EventHandler.OnGeneratorRecompile
+  fullName: LevelGenerator.Utility.EventHandler.OnGeneratorRecompile()
+  nameWithType: EventHandler.OnGeneratorRecompile()
+- uid: LevelGenerator.Utility.EventHandler.OnGeneratorRecompile*
+  name: OnGeneratorRecompile
+  href: api/LevelGenerator.Utility.EventHandler.html#LevelGenerator_Utility_EventHandler_OnGeneratorRecompile_
+  commentId: Overload:LevelGenerator.Utility.EventHandler.OnGeneratorRecompile
   isSpec: "True"
-  fullName: LevelGenerator.Utility.EventHandler.GeneratorLostReference
-  nameWithType: EventHandler.GeneratorLostReference
-- uid: LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
-  name: EventHandler.GeneratorLostReferenceCallback
-  href: api/LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback.html
-  commentId: T:LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
-  fullName: LevelGenerator.Utility.EventHandler.GeneratorLostReferenceCallback
-  nameWithType: EventHandler.GeneratorLostReferenceCallback
+  fullName: LevelGenerator.Utility.EventHandler.OnGeneratorRecompile
+  nameWithType: EventHandler.OnGeneratorRecompile
 - uid: LevelGenerator.Utility.GeneratorConfig
   name: GeneratorConfig
   href: api/LevelGenerator.Utility.GeneratorConfig.html
@@ -409,6 +465,12 @@ references:
   commentId: F:LevelGenerator.Utility.GeneratorConfig.gridWidth
   fullName: LevelGenerator.Utility.GeneratorConfig.gridWidth
   nameWithType: GeneratorConfig.gridWidth
+- uid: LevelGenerator.Utility.GeneratorConfig.levelDensity
+  name: levelDensity
+  href: api/LevelGenerator.Utility.GeneratorConfig.html#LevelGenerator_Utility_GeneratorConfig_levelDensity
+  commentId: F:LevelGenerator.Utility.GeneratorConfig.levelDensity
+  fullName: LevelGenerator.Utility.GeneratorConfig.levelDensity
+  nameWithType: GeneratorConfig.levelDensity
 - uid: LevelGenerator.Utility.GeneratorConfig.levelPosition
   name: levelPosition
   href: api/LevelGenerator.Utility.GeneratorConfig.html#LevelGenerator_Utility_GeneratorConfig_levelPosition
@@ -427,6 +489,12 @@ references:
   commentId: F:LevelGenerator.Utility.GeneratorConfig.levelScale
   fullName: LevelGenerator.Utility.GeneratorConfig.levelScale
   nameWithType: GeneratorConfig.levelScale
+- uid: LevelGenerator.Utility.GeneratorConfig.maxLevelSize
+  name: maxLevelSize
+  href: api/LevelGenerator.Utility.GeneratorConfig.html#LevelGenerator_Utility_GeneratorConfig_maxLevelSize
+  commentId: F:LevelGenerator.Utility.GeneratorConfig.maxLevelSize
+  fullName: LevelGenerator.Utility.GeneratorConfig.maxLevelSize
+  nameWithType: GeneratorConfig.maxLevelSize
 - uid: LevelGenerator.Utility.GeneratorConfig.minLevelSize
   name: minLevelSize
   href: api/LevelGenerator.Utility.GeneratorConfig.html#LevelGenerator_Utility_GeneratorConfig_minLevelSize
@@ -495,62 +563,56 @@ references:
   commentId: T:LevelGenerator.Utility.SceneCache
   fullName: LevelGenerator.Utility.SceneCache
   nameWithType: SceneCache
-- uid: LevelGenerator.Utility.SceneCache.lastSeed
-  name: lastSeed
-  href: api/LevelGenerator.Utility.SceneCache.html#LevelGenerator_Utility_SceneCache_lastSeed
-  commentId: F:LevelGenerator.Utility.SceneCache.lastSeed
-  fullName: LevelGenerator.Utility.SceneCache.lastSeed
-  nameWithType: SceneCache.lastSeed
-- uid: LevelGenerator.Utility.SceneCache.levelObjectID
-  name: levelObjectID
-  href: api/LevelGenerator.Utility.SceneCache.html#LevelGenerator_Utility_SceneCache_levelObjectID
-  commentId: F:LevelGenerator.Utility.SceneCache.levelObjectID
-  fullName: LevelGenerator.Utility.SceneCache.levelObjectID
-  nameWithType: SceneCache.levelObjectID
+- uid: LevelGenerator.Utility.SceneCache.editModeCache
+  name: editModeCache
+  href: api/LevelGenerator.Utility.SceneCache.html#LevelGenerator_Utility_SceneCache_editModeCache
+  commentId: F:LevelGenerator.Utility.SceneCache.editModeCache
+  fullName: LevelGenerator.Utility.SceneCache.editModeCache
+  nameWithType: SceneCache.editModeCache
+- uid: LevelGenerator.Utility.SceneCache.playModeCache
+  name: playModeCache
+  href: api/LevelGenerator.Utility.SceneCache.html#LevelGenerator_Utility_SceneCache_playModeCache
+  commentId: F:LevelGenerator.Utility.SceneCache.playModeCache
+  fullName: LevelGenerator.Utility.SceneCache.playModeCache
+  nameWithType: SceneCache.playModeCache
 - uid: LevelGenerator.Utility.SceneCache.sceneID
   name: sceneID
   href: api/LevelGenerator.Utility.SceneCache.html#LevelGenerator_Utility_SceneCache_sceneID
   commentId: F:LevelGenerator.Utility.SceneCache.sceneID
   fullName: LevelGenerator.Utility.SceneCache.sceneID
   nameWithType: SceneCache.sceneID
-- uid: LevelGenerator.Utility.SceneCache.sceneName
-  name: sceneName
-  href: api/LevelGenerator.Utility.SceneCache.html#LevelGenerator_Utility_SceneCache_sceneName
-  commentId: F:LevelGenerator.Utility.SceneCache.sceneName
-  fullName: LevelGenerator.Utility.SceneCache.sceneName
-  nameWithType: SceneCache.sceneName
 - uid: LevelGenerator.Utility.SceneCacheUtility
   name: SceneCacheUtility
   href: api/LevelGenerator.Utility.SceneCacheUtility.html
   commentId: T:LevelGenerator.Utility.SceneCacheUtility
   fullName: LevelGenerator.Utility.SceneCacheUtility
   nameWithType: SceneCacheUtility
-- uid: LevelGenerator.Utility.SceneCacheUtility.GetCache(Scene)
-  name: GetCache(Scene)
-  href: api/LevelGenerator.Utility.SceneCacheUtility.html#LevelGenerator_Utility_SceneCacheUtility_GetCache_Scene_
-  commentId: M:LevelGenerator.Utility.SceneCacheUtility.GetCache(Scene)
-  fullName: LevelGenerator.Utility.SceneCacheUtility.GetCache(Scene)
-  nameWithType: SceneCacheUtility.GetCache(Scene)
-- uid: LevelGenerator.Utility.SceneCacheUtility.GetCache*
-  name: GetCache
-  href: api/LevelGenerator.Utility.SceneCacheUtility.html#LevelGenerator_Utility_SceneCacheUtility_GetCache_
-  commentId: Overload:LevelGenerator.Utility.SceneCacheUtility.GetCache
+- uid: LevelGenerator.Utility.SceneCacheUtility.DeserializeCache(Scene)
+  name: DeserializeCache(Scene)
+  href: api/LevelGenerator.Utility.SceneCacheUtility.html#LevelGenerator_Utility_SceneCacheUtility_DeserializeCache_Scene_
+  commentId: M:LevelGenerator.Utility.SceneCacheUtility.DeserializeCache(Scene)
+  fullName: LevelGenerator.Utility.SceneCacheUtility.DeserializeCache(Scene)
+  nameWithType: SceneCacheUtility.DeserializeCache(Scene)
+- uid: LevelGenerator.Utility.SceneCacheUtility.DeserializeCache*
+  name: DeserializeCache
+  href: api/LevelGenerator.Utility.SceneCacheUtility.html#LevelGenerator_Utility_SceneCacheUtility_DeserializeCache_
+  commentId: Overload:LevelGenerator.Utility.SceneCacheUtility.DeserializeCache
   isSpec: "True"
-  fullName: LevelGenerator.Utility.SceneCacheUtility.GetCache
-  nameWithType: SceneCacheUtility.GetCache
-- uid: LevelGenerator.Utility.SceneCacheUtility.SaveCache(LevelGenerator.Utility.SceneCache)
-  name: SaveCache(SceneCache)
-  href: api/LevelGenerator.Utility.SceneCacheUtility.html#LevelGenerator_Utility_SceneCacheUtility_SaveCache_LevelGenerator_Utility_SceneCache_
-  commentId: M:LevelGenerator.Utility.SceneCacheUtility.SaveCache(LevelGenerator.Utility.SceneCache)
-  fullName: LevelGenerator.Utility.SceneCacheUtility.SaveCache(LevelGenerator.Utility.SceneCache)
-  nameWithType: SceneCacheUtility.SaveCache(SceneCache)
-- uid: LevelGenerator.Utility.SceneCacheUtility.SaveCache*
-  name: SaveCache
-  href: api/LevelGenerator.Utility.SceneCacheUtility.html#LevelGenerator_Utility_SceneCacheUtility_SaveCache_
-  commentId: Overload:LevelGenerator.Utility.SceneCacheUtility.SaveCache
+  fullName: LevelGenerator.Utility.SceneCacheUtility.DeserializeCache
+  nameWithType: SceneCacheUtility.DeserializeCache
+- uid: LevelGenerator.Utility.SceneCacheUtility.SerializeCache(LevelGenerator.Utility.SceneCache)
+  name: SerializeCache(SceneCache)
+  href: api/LevelGenerator.Utility.SceneCacheUtility.html#LevelGenerator_Utility_SceneCacheUtility_SerializeCache_LevelGenerator_Utility_SceneCache_
+  commentId: M:LevelGenerator.Utility.SceneCacheUtility.SerializeCache(LevelGenerator.Utility.SceneCache)
+  fullName: LevelGenerator.Utility.SceneCacheUtility.SerializeCache(LevelGenerator.Utility.SceneCache)
+  nameWithType: SceneCacheUtility.SerializeCache(SceneCache)
+- uid: LevelGenerator.Utility.SceneCacheUtility.SerializeCache*
+  name: SerializeCache
+  href: api/LevelGenerator.Utility.SceneCacheUtility.html#LevelGenerator_Utility_SceneCacheUtility_SerializeCache_
+  commentId: Overload:LevelGenerator.Utility.SceneCacheUtility.SerializeCache
   isSpec: "True"
-  fullName: LevelGenerator.Utility.SceneCacheUtility.SaveCache
-  nameWithType: SceneCacheUtility.SaveCache
+  fullName: LevelGenerator.Utility.SceneCacheUtility.SerializeCache
+  nameWithType: SceneCacheUtility.SerializeCache
 - uid: LevelGenerator.Utility.SeedConfig
   name: SeedConfig
   href: api/LevelGenerator.Utility.SeedConfig.html

@@ -26,21 +26,42 @@ namespace LevelGenerator.Editor
                 {
                     GUILayout.BeginVertical();
                     {
-                        config.gridWidth = Mathf.Clamp(EditorGUILayout.IntField(new GUIContent("Horizontal Grid Size", "The max number of cells that can be generated horizontally."), config.gridWidth), 1, 500);
-                        config.gridHeight = Mathf.Clamp(EditorGUILayout.IntField(new GUIContent("Vertical Grid Size", "The max number of cells that can be generated vertically."), config.gridHeight), 1, 500);
-                        GUILayout.Space(12);
-                        var minimumSize = EditorGUILayout.IntField(new GUIContent("Minimum Level Size", "The minimum number of rooms allowed to be generated. This may cause long loading times if set too high."), config.minLevelSize);
-                        var gridSize = config.gridHeight * config.gridWidth;
-                        config.minLevelSize = Mathf.Clamp(minimumSize, 0, gridSize);
+                        config.gridWidth = Mathf.Clamp(EditorGUILayout.IntField(new GUIContent("Horizontal Grid Size", "The number of cells that are generated horizontally."), config.gridWidth), 1, 500);
+                        config.gridHeight = Mathf.Clamp(EditorGUILayout.IntField(new GUIContent("Vertical Grid Size", "The number of cells that are generated vertically."), config.gridHeight), 1, 500);
                     }
                     GUILayout.EndVertical();
 
-                    EditorGUILayout.HelpBox("The Grid Size defines the bounds of the grid the level will be generated in. It does not define the total size of the level.\n\nThe Minimum Level Size defines the smallest number of rooms generated.", MessageType.None);
+                    EditorGUILayout.HelpBox("The grid size defines the bounds of the grid the level will be generated in. It does not define the total size of the level.", MessageType.None);
                 }
                 GUILayout.EndHorizontal();
 
-                if (config.minLevelSize > ((float) (config.gridHeight * config.gridWidth) / 3) * 2)
-                    EditorGUILayout.HelpBox("A high Minimum Level Size can result in longer load times. It is recommended to keep the minimum size bellow 2/3 of the total grid size (" + config.gridHeight * config.gridWidth + ").", MessageType.Warning);
+                // The Minimum Level Size defines the smallest number of rooms generated.
+                GUILayout.Space(12);
+
+                GUILayout.BeginHorizontal();
+                {
+                    GUILayout.BeginVertical();
+                    {
+                        var maximumSize = EditorGUILayout.IntField(new GUIContent("Maximum Level Size", "Maximum number of rooms allowed to be generated. May cause long loading times if set too close to minimum size."), config.maxLevelSize);
+                        var minimumSize = EditorGUILayout.IntField(new GUIContent("Minimum Level Size", "Minimum number of rooms allowed to be generated. May cause long loading times if set too close to maximum size."), config.minLevelSize);
+
+                        var gridSize = config.gridHeight * config.gridWidth;
+                        config.maxLevelSize = Mathf.Clamp(maximumSize, config.minLevelSize, gridSize);
+                        config.minLevelSize = Mathf.Clamp(minimumSize, 0, maximumSize);
+                    }
+                    GUILayout.EndVertical();
+
+                    EditorGUILayout.HelpBox("The maximum and minimum level size defines the largest and smallest number of rooms generated respectively.", MessageType.None);
+                }
+                GUILayout.EndHorizontal();
+
+                if (config.minLevelSize > ((float) (config.gridHeight * config.gridWidth) / 2))
+                    EditorGUILayout.HelpBox("A high Minimum Level Size can result in longer load times. It is recommended to keep the minimum size bellow half of the total grid size (" + (config.gridHeight * config.gridWidth) / 2 + ").", MessageType.Warning);
+
+                GUILayout.Space(12);
+
+                EditorGUILayout.LabelField(new GUIContent("Level Density", "Determines how closely packed your rooms will be. Only works when corridors (two-exit-rooms) are included in the templates."));
+                config.levelDensity = EditorGUILayout.IntSlider(config.levelDensity, 0, 100);
 
                 GUILayout.Space(12);
 
@@ -51,13 +72,13 @@ namespace LevelGenerator.Editor
 
                 GUILayout.Space(12);
 
-                config.gridAlignment = (GridAlignment) EditorGUILayout.EnumPopup("Grid Alignment", config.gridAlignment);
+                config.gridAlignment = (GridAlignment) EditorGUILayout.EnumPopup(new GUIContent("Grid Alignment", "How the grid should be stacked."), config.gridAlignment);
 
                 GUILayout.Space(12);
 
                 GUILayout.BeginHorizontal();
                 {
-                    EditorGUILayout.LabelField("Cell Spacing", GUILayout.ExpandWidth(false), GUILayout.MinWidth(120));
+                    EditorGUILayout.LabelField(new GUIContent("Cell Spacing", "The physical space in between each cell, measured in Unity-units."), GUILayout.ExpandWidth(false), GUILayout.MinWidth(120));
 
                     EditorGUIUtility.labelWidth = 10;
 
@@ -78,7 +99,7 @@ namespace LevelGenerator.Editor
 
                 GUILayout.Space(2);
                 
-                _showCellTransform = EditorGUILayout.Foldout(_showCellTransform, "Cell Transform");
+                _showCellTransform = EditorGUILayout.Foldout(_showCellTransform, new GUIContent("Cell Transform", "The transform of each individual cell in the grid."));
 
                 GUILayout.BeginHorizontal();
                 {
@@ -96,7 +117,7 @@ namespace LevelGenerator.Editor
                 }
                 GUILayout.EndHorizontal();
                 
-                _showLevelTransform = EditorGUILayout.Foldout(_showLevelTransform, "Level Transform");
+                _showLevelTransform = EditorGUILayout.Foldout(_showLevelTransform, new GUIContent("Level Transform", "The transform of the whole generated level."));
 
                 GUILayout.BeginHorizontal();
                 {
@@ -116,7 +137,7 @@ namespace LevelGenerator.Editor
 
                 GUILayout.Space(12);
                 
-                _showExperimentalSettings = EditorGUILayout.Foldout(_showExperimentalSettings, "Experimental Features");
+                _showExperimentalSettings = EditorGUILayout.Foldout(_showExperimentalSettings, new GUIContent("Experimental Features", "Have fun with these, at your own risk."));
 
                 GUILayout.BeginHorizontal();
                 {

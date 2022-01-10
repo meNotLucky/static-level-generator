@@ -15,6 +15,8 @@ namespace LevelGenerator.Generator
 
         private GridRoom _gridRoom;
         private bool _roomSet;
+
+        public bool isConnected;
         
         public GridCell(Transform parent, Vector2 gridPosition, Vector3 worldPosition, Vector3 worldRotation, Vector3 worldScale)
         {
@@ -55,14 +57,14 @@ namespace LevelGenerator.Generator
             return _neighbours;
         }
 
-        public GameObject GetPrefab()
+        public GridRoom GetRoom()
         {
-            return _gridRoom.prefab;
+            return _gridRoom;
         }
 
         public bool HasExit(ExitDirection exit)
         {
-            return _gridRoom.exitDirections.Contains(exit);
+            return _gridRoom.HasExitDirections(exit);
         }
 
         public bool HasRoom()

@@ -13,8 +13,11 @@ namespace LevelGenerator.Utility
     public class GeneratorConfig : ScriptableObject
     {
         public int gridWidth = 5, gridHeight = 5;
-        public int minLevelSize = 10;
-    
+        public int minLevelSize = 6;
+        public int maxLevelSize = 12;
+
+        public int levelDensity = 50;
+
         public bool forcedLevelGeneration = false;
 
         public GridAlignment gridAlignment = GridAlignment.Horizontal;

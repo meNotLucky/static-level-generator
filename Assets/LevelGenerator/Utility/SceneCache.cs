@@ -14,11 +14,11 @@ namespace LevelGenerator.Utility
         public CacheData playModeCache = new CacheData();
     }
 
-    [Serializable]
+    [System.Serializable]
     public class CacheData
     {
-        public string levelObjectID = "";
-        public string levelSeed = "";
+        public string levelObjectID;
+        public string levelSeed;
     }
 
     public static class SceneCacheUtility
