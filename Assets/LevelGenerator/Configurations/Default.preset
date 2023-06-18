@@ -37,8 +37,12 @@ Preset:
     value: 10
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: forcedLevelGeneration
-    value: 0
+    propertyPath: maxLevelSize
+    value: 12
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: levelDensity
+    value: 50
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: gridAlignment
@@ -114,7 +118,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: roomTemplates.Array.size
-    value: 18
+    value: 17
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: roomTemplates.Array.data[0].prefab
@@ -133,15 +137,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[0].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[0].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[0].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[0].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -165,15 +161,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[1].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[1].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[1].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[1].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -201,15 +189,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[2].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[2].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[2].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[2].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -229,15 +209,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[3].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[3].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[3].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[3].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -261,15 +233,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[4].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[4].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[4].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[4].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -297,15 +261,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[5].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[5].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[5].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[5].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -325,15 +281,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[6].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[6].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[6].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[6].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -357,15 +305,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[7].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[7].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[7].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[7].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -393,15 +333,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[8].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[8].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[8].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[8].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -421,15 +353,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[9].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[9].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[9].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[9].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -453,15 +377,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[10].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[10].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[10].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[10].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -489,15 +405,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[11].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[11].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[11].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[11].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -521,15 +429,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[12].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[12].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[12].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[12].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -553,15 +453,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[13].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[13].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[13].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[13].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -593,15 +485,7 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[14].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[14].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[14].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[14].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -625,15 +509,7 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[15].hasFixedPosition
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[15].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[15].fixedPosition.y
+    propertyPath: roomTemplates.Array.data[15].isStartRoom
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -657,56 +533,8 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[16].hasFixedPosition
+    propertyPath: roomTemplates.Array.data[16].isStartRoom
     value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[16].fixedPosition.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[16].fixedPosition.y
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[17].prefab
-    value: 
-    objectReference: {fileID: 6619938663934859103, guid: 87f80b05378618a4b8b653eb7de36717, type: 3}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[17].exitDirections.Array.size
-    value: 4
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[17].exitDirections.Array.data[0]
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[17].exitDirections.Array.data[1]
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[17].exitDirections.Array.data[2]
-    value: 2
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[17].exitDirections.Array.data[3]
-    value: 3
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[17].isEssential
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[17].hasFixedPosition
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[17].fixedPosition.x
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: roomTemplates.Array.data[17].fixedPosition.y
-    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: disableSceneCaching

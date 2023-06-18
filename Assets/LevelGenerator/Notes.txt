@@ -3,12 +3,14 @@
 
 Todo:
 + Add room spawn chance
-+ Add support for starting/special/end rooms
-+ Add support for random interiors, connected to specific rooms
++ Add support for special/end rooms
+- Change GridRoomLayout to only use unique pieces that are then rotated
++ Add support for random interiors, possibly connected to specific rooms
 + Add custom pivot origin
 + Add support for multi-cell rooms
 
 Done:
++ Add support for starting rooms
 + Add whole level transformation
 + Add essential rooms
 + Add fixed positions to essential rooms

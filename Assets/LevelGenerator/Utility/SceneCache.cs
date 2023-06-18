@@ -28,7 +28,7 @@ namespace LevelGenerator.Utility
         {
             var sceneID = AssetDatabase.AssetPathToGUID(scene.path);
             var path = CachePath + sceneID + ".json";
-            
+
             if (!File.Exists(path))
                 return null;
 

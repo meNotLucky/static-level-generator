@@ -21,6 +21,9 @@ namespace LevelGenerator.Utility
     {
         public static bool ValidateSeed(string seed)
         {
+            if(string.IsNullOrEmpty(seed))
+                return false;
+
             var seedValid = true;
             var stringData = seed.Split('-');
             if (stringData.Length != 4) seedValid = false;

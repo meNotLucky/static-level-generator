@@ -28,7 +28,8 @@ namespace LevelGenerator.Generator
 
         private static bool _essentialRoomFailed;
         private static bool _cellRoomFailed;
-    
+
+        
         // --- PUBLIC FUNCTIONS --- //
 
         public static void SetConfiguration(GeneratorConfig config)
@@ -495,10 +496,14 @@ namespace LevelGenerator.Generator
         
         // -- CACHING FUNCTIONALITY
 
-        private static bool ApplyDeserializedCache()
+        private static bool DeserializedAndApplyCache()
         {
             var cache = SceneCacheUtility.DeserializeCache(SceneManager.GetActiveScene());
-            if (!cache) return false;
+            if (!cache)
+            {
+                Debug.LogError("Failed applying cache");
+                return false;
+            }
             
             _localCache = cache;
             return true;
@@ -516,10 +521,14 @@ namespace LevelGenerator.Generator
         }
 
         // -- CACHING EVENT DELEGATES
-        
+
         private static void CacheOnSceneOpened(Scene scene, OpenSceneMode openSceneMode)
         {
-            if (ApplyDeserializedCache()) return;
+            if (_config.disableSceneCaching)
+                return;
+
+            if (DeserializedAndApplyCache())
+                return;
             
             var cache = ScriptableObject.CreateInstance<SceneCache>();
             cache.sceneID = AssetDatabase.AssetPathToGUID(scene.path);
@@ -531,18 +540,38 @@ namespace LevelGenerator.Generator
         
         private static void CacheOnSceneSaved(Scene scene)
         {
+            if (_config.disableSceneCaching)
+                return;
+
             SerializeLocalCache();
         }
 
         [UnityEditor.Callbacks.DidReloadScripts]
         private static void CacheOnGeneratorRecompiled()
         {
-            if (!_config.disableSceneCaching)
-                ApplyDeserializedCache();
+            if (_config.disableSceneCaching)
+                return;
+
+            if(EditorApplication.isPlayingOrWillChangePlaymode)
+                return;
+            
+            EditorApplication.delayCall += CacheOnEditorUpdate;
+        }
+
+        private static void CacheOnEditorUpdate()
+        {
+            if (_config.disableSceneCaching)
+                return;
+
+            DeserializedAndApplyCache();
+            EditorApplication.delayCall -= CacheOnEditorUpdate;
         }
 
         private static void CacheOnPlayModeStateChange(PlayModeStateChange stateChange)
         {
+            if (_config.disableSceneCaching)
+                return;
+
             switch (stateChange)
             {
             case PlayModeStateChange.ExitingEditMode:
@@ -550,7 +579,7 @@ namespace LevelGenerator.Generator
                 break;
             case PlayModeStateChange.EnteredPlayMode:
             case PlayModeStateChange.EnteredEditMode:
-                ApplyDeserializedCache();
+                DeserializedAndApplyCache();
                 break;
             case PlayModeStateChange.ExitingPlayMode:
                 break;
